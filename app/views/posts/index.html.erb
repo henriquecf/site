@@ -1,0 +1,59 @@
+<% content_for(:title, "Blog — Henrique Cardoso de Faria") %>
+<% content_for(:description, "Writing about Ruby on Rails, Elixir, AI, and software engineering.") %>
+
+<nav class="nav" data-controller="navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="nav-logo-bracket">&lt;</span>hf<span class="nav-logo-slash">/</span><span class="nav-logo-bracket">&gt;</span></a>
+    <button class="nav-toggle" data-action="click->navigation#toggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links" data-navigation-target="menu">
+      <a href="/#about">About</a>
+      <a href="/#experience">Experience</a>
+      <a href="/#community">Community</a>
+      <a href="/#services">Services</a>
+      <a href="/#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section class="section hero">
+    <div class="container">
+      <h1 class="uses-heading">Blog</h1>
+      <p class="uses-intro">
+        Writing about Ruby on Rails, Elixir, AI, and software engineering.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <% if @posts.any? %>
+        <div class="posts-list">
+          <% @posts.each do |post| %>
+            <article class="post-preview">
+              <time class="post-date" datetime="<%= post.published_at.iso8601 %>">
+                <%= post.published_at.strftime("%B %-d, %Y") %>
+              </time>
+              <h2 class="post-preview-title">
+                <a href="<%= post_path(slug: post.slug) %>"><%= post.title %></a>
+              </h2>
+              <p class="post-excerpt"><%= truncate(strip_tags(post.body_html), length: 200) %></p>
+            </article>
+          <% end %>
+        </div>
+      <% else %>
+        <p class="post-empty">No posts yet. Check back soon.</p>
+      <% end %>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p>Henrique Cardoso de Faria · <%= Date.current.year %></p>
+  </div>
+</footer>

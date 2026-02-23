@@ -1,0 +1,68 @@
+<% content_for(:title, "Share — #{@post.title}") %>
+
+<nav class="nav" data-controller="navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="nav-logo-bracket">&lt;</span>hf<span class="nav-logo-slash">/</span><span class="nav-logo-bracket">&gt;</span></a>
+    <button class="nav-toggle" data-action="click->navigation#toggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links" data-navigation-target="menu">
+      <a href="/blog">Blog</a>
+      <a href="/#about">About</a>
+      <a href="/#experience">Experience</a>
+      <a href="/#services">Services</a>
+      <a href="/#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section class="section">
+    <div class="container">
+      <header class="share-header">
+        <h1 class="share-heading">Share</h1>
+        <p class="share-post-title"><%= @post.title %></p>
+      </header>
+
+      <% if @post.linkedin_body.present? %>
+        <div class="share-card" data-controller="clipboard">
+          <div class="share-card-header">
+            <h2 class="share-card-platform">LinkedIn</h2>
+            <button class="share-btn" data-clipboard-target="button" data-action="click->clipboard#copy">Copy</button>
+          </div>
+          <div class="share-card-body" data-clipboard-target="source"><%= @post.linkedin_body %></div>
+        </div>
+      <% end %>
+
+      <% if @post.x_body.present? %>
+        <div class="share-card" data-controller="clipboard">
+          <div class="share-card-header">
+            <h2 class="share-card-platform">X — Tweet 1</h2>
+            <button class="share-btn" data-clipboard-target="button" data-action="click->clipboard#copy">Copy</button>
+          </div>
+          <div class="share-card-body" data-clipboard-target="source"><%= @post.x_first_tweet %></div>
+        </div>
+
+        <div class="share-card" data-controller="clipboard">
+          <div class="share-card-header">
+            <h2 class="share-card-platform">X — Tweet 2 (reply)</h2>
+            <button class="share-btn" data-clipboard-target="button" data-action="click->clipboard#copy">Copy</button>
+          </div>
+          <div class="share-card-body" data-clipboard-target="source"><%= @post.x_second_tweet %></div>
+        </div>
+      <% end %>
+
+      <footer class="post-footer">
+        <a href="<%= post_path(@post.slug) %>">&larr; Back to post</a>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p>Henrique Cardoso de Faria &middot; <%= Date.current.year %></p>
+  </div>
+</footer>

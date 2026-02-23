@@ -64,3 +64,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "redcarpet", "~> 3.6"
+gem "rouge", "~> 4.7"

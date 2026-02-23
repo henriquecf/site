@@ -56,9 +56,11 @@ bin/rails db:seed      # Seed data
 
 - **Frontend:** Propshaft asset pipeline, Import Maps (no Node.js), Turbo + Stimulus (Hotwire)
 - **Backend:** Standard Rails MVC with `ApplicationController` enforcing `allow_browser versions: :modern`
+- **Blog:** Post model with Markdown body, rendered via Redcarpet + Rouge. Routes: `/blog` (index), `/blog/:slug` (show). Posts seeded via `db/seeds.rb`. Each post has optional `linkedin_body` and `x_body` fields for social media posts, viewable at `/blog/:slug/share` (unlisted). `x_body` stores two tweets separated by `---`.
 - **Database:** SQLite3 for all environments. Production uses separate SQLite files for primary data, cache, queue, and cable (all in `storage/`)
 - **Jobs:** Solid Queue running inside Puma (`SOLID_QUEUE_IN_PUMA=true`)
 - **Deployment:** Kamal + Docker, Thruster proxy, jemalloc allocator, non-root container user
+- **SEO:** OG + Twitter Card meta tags (via `content_for` in layout), JSON-LD structured data (Person, ProfessionalService, BlogPosting)
 
 ## CI (GitHub Actions)
 

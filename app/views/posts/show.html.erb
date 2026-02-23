@@ -1,0 +1,65 @@
+<% content_for(:title, "#{@post.title} — Henrique Cardoso de Faria") %>
+<% content_for(:og_type, "article") %>
+
+<% content_for(:head) do %>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "<%= @post.title %>",
+  "datePublished": "<%= @post.published_at.iso8601 %>",
+  "dateModified": "<%= @post.updated_at.iso8601 %>",
+  "url": "<%= request.original_url %>",
+  "author": {
+    "@type": "Person",
+    "@id": "https://hencf.org/#person",
+    "name": "Henrique Cardoso de Faria"
+  }
+}
+</script>
+<% end %>
+
+<nav class="nav" data-controller="navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="nav-logo-bracket">&lt;</span>hf<span class="nav-logo-slash">/</span><span class="nav-logo-bracket">&gt;</span></a>
+    <button class="nav-toggle" data-action="click->navigation#toggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links" data-navigation-target="menu">
+      <a href="/blog">Blog</a>
+      <a href="/#about">About</a>
+      <a href="/#experience">Experience</a>
+      <a href="/#services">Services</a>
+      <a href="/#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <article class="section">
+    <div class="container">
+      <header class="post-header">
+        <time class="post-date" datetime="<%= @post.published_at.iso8601 %>">
+          <%= @post.published_at.strftime("%B %-d, %Y") %>
+        </time>
+        <h1 class="post-title"><%= @post.title %></h1>
+      </header>
+
+      <div class="post-body">
+        <%= @post.body_html %>
+      </div>
+
+      <footer class="post-footer">
+        <a href="/blog">&larr; Back to blog</a>
+      </footer>
+    </div>
+  </article>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p>Henrique Cardoso de Faria · <%= Date.current.year %></p>
+  </div>
+</footer>

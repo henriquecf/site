@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   get "uses", to: "pages#uses"
+  get "blog", to: "posts#index", as: :blog
+  get "blog/:slug", to: "posts#show", as: :post
+  get "blog/:slug/share", to: "posts#share", as: :post_share
 
   root "pages#home"
 end
