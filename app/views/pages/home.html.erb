@@ -1,4 +1,83 @@
 <% content_for(:title, "Henrique Cardoso de Faria — Senior Software Engineer") %>
+<% content_for(:description, "Senior Software Engineer specializing in Ruby on Rails, Elixir, and AI integration. Euruko 2025 organizer. Based in Viana do Castelo, Portugal.") %>
+<% content_for(:og_type, "profile") %>
+
+<% content_for(:head) do %>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://hencf.org/#person",
+      "name": "Henrique Cardoso de Faria",
+      "url": "https://hencf.org",
+      "jobTitle": "Senior Software Engineer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "BSPK"
+      },
+      "knowsAbout": ["Ruby on Rails", "Elixir", "Phoenix", "AI Integration", "LLM", "PostgreSQL", "Elasticsearch"],
+      "sameAs": [
+        "https://github.com/henriquecf",
+        "https://www.linkedin.com/in/henriquecardosodefaria"
+      ],
+      "email": "elo.henrique@gmail.com",
+      "image": "https://hencf.org/icon.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Viana do Castelo",
+        "addressCountry": "PT"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Universidade Federal de Goiás"
+      }
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://hencf.org/#services",
+      "name": "HC Digital Services LLC",
+      "description": "Rails & AI consulting — helping companies build and improve software, from Rails applications to AI integrations.",
+      "url": "https://hencf.org/#services",
+      "founder": { "@id": "https://hencf.org/#person" },
+      "knowsAbout": ["AI Integration", "Ruby on Rails", "System Architecture", "LLM", "Elasticsearch"],
+      "areaServed": "Worldwide",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Consulting Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "AI Integration",
+              "description": "Agentic systems, natural language search, structured LLM outputs, and RAG pipelines."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Rails Development",
+              "description": "Full-stack Rails — new features, API design, performance optimization, upgrades, and refactoring."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "System Architecture",
+              "description": "Data pipelines, Elasticsearch, background processing, real-time systems, and third-party API integrations."
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+</script>
+<% end %>
 
 <nav class="nav" data-controller="navigation">
   <div class="nav-inner">

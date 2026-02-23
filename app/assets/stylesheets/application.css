@@ -520,6 +520,62 @@ h4 {
 }
 
 
+/* ─── Uses Page ─── */
+
+.uses-heading {
+  font-size: 2.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+
+.uses-intro {
+  font-size: 1.125rem;
+  color: var(--color-text-light);
+  max-width: 640px;
+}
+
+.uses-category {
+  margin-bottom: 3rem;
+}
+
+.uses-category:last-child {
+  margin-bottom: 0;
+}
+
+.uses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.uses-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.uses-item:first-child {
+  padding-top: 0;
+}
+
+.uses-item:last-child {
+  border-bottom: none;
+}
+
+.uses-item dt {
+  font-weight: 600;
+  color: var(--color-heading);
+  margin-bottom: 0.25rem;
+}
+
+.uses-item dd {
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+
 /* ─── Footer ─── */
 
 .footer {

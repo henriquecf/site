@@ -1,12 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title><%= content_for(:title) || "Henrique Cardoso de Faria" %></title>
+    <% page_title = content_for(:title) || "Henrique Cardoso de Faria" %>
+    <% page_description = content_for(:description).presence || "Senior Software Engineer specializing in Ruby on Rails, Elixir, and AI. Based in Viana do Castelo, Portugal." %>
+    <% page_url = content_for(:url).presence || request.original_url %>
+
+    <title><%= page_title %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="Henrique Cardoso de Faria — Senior Software Engineer specializing in Ruby on Rails, Elixir, and AI. Based in Viana do Castelo, Portugal.">
+    <meta name="description" content="<%= page_description %>">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Henrique C.F.">
     <meta name="mobile-web-app-capable" content="yes">
+
+    <%# Open Graph %>
+    <meta property="og:title" content="<%= page_title %>">
+    <meta property="og:description" content="<%= page_description %>">
+    <meta property="og:type" content="<%= content_for(:og_type).presence || "website" %>">
+    <meta property="og:url" content="<%= page_url %>">
+    <% og_image = "#{request.base_url}/icon.png" %>
+    <meta property="og:image" content="<%= og_image %>">
+    <meta property="og:site_name" content="Henrique Cardoso de Faria">
+    <meta property="og:locale" content="en_US">
+
+    <%# Twitter Card %>
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="<%= page_title %>">
+    <meta name="twitter:description" content="<%= page_description %>">
+    <meta name="twitter:image" content="<%= og_image %>">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 

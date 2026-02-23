@@ -1,0 +1,184 @@
+<% content_for(:title, "Uses — Henrique Cardoso de Faria") %>
+<% content_for(:description, "Tools, hardware, and software I use daily for software engineering, AI work, and life.") %>
+
+<% content_for(:head) do %>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Uses — Henrique Cardoso de Faria",
+  "description": "Tools, hardware, and software I use daily for software engineering, AI work, and life.",
+  "url": "https://hencf.org/uses",
+  "author": {
+    "@type": "Person",
+    "@id": "https://hencf.org/#person",
+    "name": "Henrique Cardoso de Faria",
+    "url": "https://hencf.org"
+  }
+}
+</script>
+<% end %>
+
+<nav class="nav" data-controller="navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="nav-logo-bracket">&lt;</span>hf<span class="nav-logo-slash">/</span><span class="nav-logo-bracket">&gt;</span></a>
+    <button class="nav-toggle" data-action="click->navigation#toggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links" data-navigation-target="menu">
+      <a href="/#about">About</a>
+      <a href="/#experience">Experience</a>
+      <a href="/#community">Community</a>
+      <a href="/#services">Services</a>
+      <a href="/#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section class="section hero">
+    <div class="container">
+      <h1 class="uses-heading">Uses</h1>
+      <p class="uses-intro">
+        A living document of the tools, hardware, and software I use daily. Inspired by
+        <a href="https://uses.tech" target="_blank" rel="noopener">uses.tech</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="uses-category">
+        <h2 class="section-title">Languages & Frameworks</h2>
+        <dl class="uses-list">
+          <div class="uses-item">
+            <dt>Ruby on Rails</dt>
+            <dd>My primary framework for over a decade. Currently on Rails 8.1 — this site runs on it.</dd>
+          </div>
+          <div class="uses-item">
+            <dt>Elixir & Phoenix</dt>
+            <dd>My go-to for real-time systems, PubSub, and high-concurrency pipelines. Built production systems at BSPK, Vic.ai, Neru, and IndustryCare.</dd>
+          </div>
+          <div class="uses-item">
+            <dt>Ruby</dt>
+            <dd>The language I think in. Clean, expressive, and powerful.</dd>
+          </div>
+          <div class="uses-item">
+            <dt>Hotwire (Turbo + Stimulus)</dt>
+            <dd>For frontend interactivity without the SPA complexity. This site uses it.</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="uses-category">
+        <h2 class="section-title">AI & LLM Tools</h2>
+        <dl class="uses-list">
+          <div class="uses-item">
+            <dt>RubyLLM</dt>
+            <dd>Ruby gem for working with LLMs. Using it at BSPK for the multi-agent AI assistant.</dd>
+          </div>
+          <div class="uses-item">
+            <dt>Claude Code</dt>
+            <dd>Anthropic's CLI for Claude. I use it daily for coding, research, and refactoring.</dd>
+          </div>
+          <div class="uses-item">
+            <dt>OpenAI & Groq APIs</dt>
+            <dd>Provider-agnostic LLM integration — switching between models depending on the task.</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="uses-category">
+        <h2 class="section-title">Editor & Terminal</h2>
+        <dl class="uses-list">
+          <div class="uses-item">
+            <dt>Cursor</dt>
+            <dd>AI-powered editor built on VS Code. Good integration with LLMs for code assistance.</dd>
+          </div>
+          <div class="uses-item">
+            <dt>Ghostty</dt>
+            <dd>A fast, native terminal emulator. Clean, minimal, and handles my workflow well.</dd>
+          </div>
+          <div class="uses-item">
+            <dt>Zsh</dt>
+            <dd>Default shell with minimal customization — I prefer speed over plugins.</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="uses-category">
+        <h2 class="section-title">Infrastructure & Databases</h2>
+        <dl class="uses-list">
+          <div class="uses-item">
+            <dt>PostgreSQL</dt>
+            <dd>Primary database for production applications. Reliable and feature-rich.</dd>
+          </div>
+          <div class="uses-item">
+            <dt>SQLite</dt>
+            <dd>For simpler apps and personal projects. This site runs entirely on SQLite, including cache and background jobs.</dd>
+          </div>
+          <div class="uses-item">
+            <dt>Elasticsearch</dt>
+            <dd>Full-text and structured search. Built natural language query translation on top of it at BSPK.</dd>
+          </div>
+          <div class="uses-item">
+            <dt>Redis</dt>
+            <dd>Caching, PubSub, and Sidekiq backend. A constant in every production stack I've worked with.</dd>
+          </div>
+          <div class="uses-item">
+            <dt>Docker & Kamal</dt>
+            <dd>Container-based deployment. Kamal for zero-downtime deploys — simple and effective.</dd>
+          </div>
+          <div class="uses-item">
+            <dt>AWS</dt>
+            <dd>S3, Lambda, and other services as needed. Not a cloud maximalist — I use what fits.</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="uses-category">
+        <h2 class="section-title">Apps & Services</h2>
+        <dl class="uses-list">
+          <div class="uses-item">
+            <dt>GitHub</dt>
+            <dd>Code hosting, CI/CD with Actions, and project management. All my open source lives here.</dd>
+          </div>
+          <div class="uses-item">
+            <dt>Linear</dt>
+            <dd>Project tracking. Fast, keyboard-driven, and stays out of the way.</dd>
+          </div>
+          <div class="uses-item">
+            <dt>1Password</dt>
+            <dd>Password manager and SSH key management. Team and personal use.</dd>
+          </div>
+          <div class="uses-item">
+            <dt>Arc Browser</dt>
+            <dd>Primary browser. Spaces and profiles keep work and personal browsing separate.</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="uses-category">
+        <h2 class="section-title">Hardware</h2>
+        <dl class="uses-list">
+          <div class="uses-item">
+            <dt>MacBook Pro</dt>
+            <dd>Apple Silicon. Fast, quiet, and all-day battery life.</dd>
+          </div>
+          <div class="uses-item">
+            <dt>Apple Studio Display</dt>
+            <dd>Clean, sharp, and integrates well with the Mac ecosystem.</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p>Henrique Cardoso de Faria · <%= Date.current.year %></p>
+  </div>
+</footer>
