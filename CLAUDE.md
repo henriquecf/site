@@ -56,7 +56,7 @@ bin/rails db:seed      # Seed data
 
 - **Frontend:** Propshaft asset pipeline, Import Maps (no Node.js), Turbo + Stimulus (Hotwire)
 - **Backend:** Standard Rails MVC with `ApplicationController` enforcing `allow_browser versions: :modern`
-- **Blog:** Post model with Markdown body, rendered via Redcarpet + Rouge. Routes: `/blog` (index), `/blog/:slug` (show). Posts seeded via `db/seeds.rb`. Each post has optional `linkedin_body` and `x_body` fields for social media posts, viewable at `/blog/:slug/share` (unlisted). `x_body` stores two tweets separated by `---`.
+- **Blog:** Post model with Markdown body, rendered via Redcarpet + Rouge. Routes: `/blog` (index), `/blog/:slug` (show). Each post has optional `linkedin_body` and `x_body` fields for social media posts, viewable at `/blog/:slug/share` (unlisted). `x_body` stores two tweets separated by `---`. Posts are stored as YAML+Markdown files in `db/posts/` (`<slug>.yml` for metadata, `<slug>.md` for body). The `posts:load` rake task creates any missing posts on deploy (runs in `bin/docker-entrypoint` after `db:prepare`). To add a new post: create the `.yml` and `.md` files, commit, and deploy.
 - **Database:** SQLite3 for all environments. Production uses separate SQLite files for primary data, cache, queue, and cable (all in `storage/`)
 - **Jobs:** Solid Queue running inside Puma (`SOLID_QUEUE_IN_PUMA=true`)
 - **Deployment:** Kamal + Docker, Thruster proxy, jemalloc allocator, non-root container user

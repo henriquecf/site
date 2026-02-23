@@ -1,0 +1,38 @@
+title: "From Autocomplete to Autonomy: How Claude Code Changed the Way I Build Software"
+published_at: 2026-02-23 12:00:00
+linkedin_body: |
+  I haven't written a line of code in weeks — and I've shipped more features in the last month than in any comparable period of my career.
+
+  I went from GitHub Copilot's autocomplete to Cursor's agent mode to Claude Code, and each step changed not just my speed but how I think about the work itself.
+
+  The real shift? I stopped writing code and started writing specifications. I describe the business context, the technical constraints, how it integrates with existing systems — and Claude Code handles the implementation. I review, steer, and iterate.
+
+  Some of what I shipped this way at BSPK (a clienteling platform for luxury retail):
+  - Natural language client search powered by LLM-to-Elasticsearch translation
+  - A multi-agent AI assistant with swarm architecture
+  - Ruby 4.0 and Rails 8.1 framework upgrades
+  - A full behavioral analytics pipeline from scratch
+
+  92% of my recent commits are co-authored with Claude. The commits are bigger, better documented, and more thoroughly tested.
+
+  But I want to be clear: this doesn't replace understanding. If I didn't deeply know our Elasticsearch setup, Rails conventions, and business domain, I couldn't direct any of this effectively. AI amplifies expertise — it doesn't substitute for it.
+
+  The developer's job is moving up the abstraction ladder, just like it did from assembly to C to Ruby. Senior engineers who know *why* code should be structured a certain way? That knowledge just became 10x more leveraged.
+
+  Full post: https://hencf.org/blog/from-autocomplete-to-autonomy
+x_body: |
+  I haven't written a line of code in weeks.
+
+  Not because I stopped working — I've shipped more features in the last month than in any comparable period of my career.
+
+  I went from autocomplete → agent mode → AI-directed development. Here's what actually changed:
+  ---
+  The shift: I stopped writing code and started writing specifications.
+
+  I describe the problem, the constraints, how it fits the system. Claude Code implements it. I review, steer, iterate.
+
+  92% of my recent commits are co-authored with AI. They're bigger, better documented, and more tested than before.
+
+  AI amplifies expertise — it doesn't replace it.
+
+  Full post: https://hencf.org/blog/from-autocomplete-to-autonomy
