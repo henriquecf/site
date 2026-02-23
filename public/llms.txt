@@ -1,0 +1,77 @@
+# Henrique Cardoso de Faria
+
+> Senior Software Engineer based in Viana do Castelo, Portugal. Specializing in Ruby on Rails, Elixir, and AI integration.
+
+## About
+
+Software engineer with over a decade of experience, remote since 2014. Currently at BSPK building AI-powered features for luxury retail clienteling. Also runs HC Digital Services LLC, helping companies integrate AI into their Rails applications. Organized Euruko 2025, Europe's longest-running Ruby conference, in his hometown of Viana do Castelo.
+
+## Skills
+
+- **Backend:** Ruby on Rails, Elixir/Phoenix, Python/Django
+- **AI/LLM:** Agentic systems, RAG pipelines, natural language search, structured LLM outputs (RubyLLM, OpenAI, Groq)
+- **Frontend:** Turbo/Stimulus (Hotwire), Vue, React, Angular
+- **Databases:** PostgreSQL, Elasticsearch, Redis, SQLite, MongoDB, Firestore
+- **Infrastructure:** AWS (S3, Lambda), Docker, Kamal, Sidekiq, RabbitMQ, MQTT
+- **Languages:** Portuguese (native), English (fluent)
+
+## Experience
+
+### BSPK — Senior Software Engineer (Jul 2023 – Present, Remote)
+
+Luxury retail clienteling platform for brands like Dior and Cartier. Primary backend engineer building the AI layer from scratch.
+
+- **AI Assistant:** Multi-agent system using swarm architecture. Orchestrator routes to specialist sub-agents (Client Intelligence, Tasks & Calendar) with tools for querying shopper data, purchase history, and schedules. Provider-agnostic (OpenAI, Groq, local models).
+- **Natural Language Search:** LLM-powered system translating plain English into Elasticsearch queries for conversational client book search.
+- **Behavioral Analytics:** Observability pipeline — API event capture across 270+ endpoints, session materialization, daily metric rollups, behavioral profiling, funnel analysis, and sales outcome correlation.
+- **Shopify Integration:** Deep ownership of webhook pipeline — order syncing, customer assignment to nearest stores via geocoding, staff member resolution, data quality.
+- **Platform:** Led Rails upgrades through 8.1. Built PubSub system for real-time mobile updates with Elixir/Phoenix.
+
+Tech: Ruby on Rails, Elixir, Phoenix PubSub, PostgreSQL, Elasticsearch, Redis, Sidekiq, RubyLLM, AWS, Tailwind CSS
+
+### BSPK — Senior Software Engineer (Aug 2020 – Jun 2022)
+
+First stint. Worked across the Rails API, admin interface, and data ingestion pipelines. Built the PubSub system for real-time mobile updates.
+
+### Vic.ai — Senior Software Engineer, Elixir (Jul 2022 – Jul 2023)
+
+AI for real-time, autonomous enterprise accounting with prescriptive intelligence for financial decision-making.
+
+### IndustryCare — Senior Software Engineer (Sep 2019 – May 2020)
+
+IoT data pipeline for manufacturing plants. Architected the MQTT message broker consumer for sensor data normalization and distribution. Built with Elixir, Phoenix, RabbitMQ, PostgreSQL.
+
+### Neru — Senior Software Engineer (Jul 2018 – Sep 2019)
+
+Payment mobile application. Co-built the first shipped version, then led the growing team. Architected multi-provider payment API abstraction layer (Iugu, Zoop, Wirecard, GetNet). Built with Elixir, Phoenix, Firebase, NativeScript.
+
+### Not In California / ActionNetwork — Software Engineer (Sep 2014 – Dec 2018)
+
+Progressive movement platform. Built events, fundraising, forms, search, and background processing systems. Ruby on Rails, MySQL, Redis, Sidekiq, Elasticsearch.
+
+### Negócio Simples — Software Engineer (Apr 2016 – May 2018)
+
+Accounting SaaS. Architected Elixir/Phoenix API with Angular frontend for business owners and accountants.
+
+## Community
+
+- **Euruko 2025 Organizer** — Organized Europe's longest-running Ruby conference in Viana do Castelo, Portugal. [2025.euruko.org](https://2025.euruko.org)
+- **Open Source** — Contributor to Phoenix, Ecto, Guardian, and other Elixir/Ruby ecosystem projects. 40+ public repos on GitHub.
+
+## HC Digital Services LLC
+
+Rails & AI consulting. Helping companies build and improve software — from Rails applications to AI integrations. Services include:
+
+- **AI Integration:** Agentic systems, natural language search, structured LLM outputs, RAG pipelines
+- **Rails Development:** Full-stack Rails — new features, API design, performance, upgrades, refactoring
+- **System Architecture:** Data pipelines, Elasticsearch, background processing, real-time systems, third-party API integrations
+
+## Education
+
+Universidade Federal de Goiás — Software Engineering, Web Development (2012 – 2018)
+
+## Contact
+
+- Email: elo.henrique@gmail.com
+- GitHub: [henriquecf](https://github.com/henriquecf)
+- LinkedIn: [henriquecardosodefaria](https://www.linkedin.com/in/henriquecardosodefaria)
