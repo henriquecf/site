@@ -1,7 +1,13 @@
 class ChatsController < ApplicationController
   def show
     @chat = find_or_create_chat
+    @new_chat = @chat.messages.empty?
     @message = @chat.messages.build
+  end
+
+  def destroy
+    Chat.for_session(session_id).destroy_all
+    redirect_to chat_path
   end
 
   private

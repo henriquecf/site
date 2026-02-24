@@ -23,14 +23,21 @@
         <% end %>
       </div>
 
-      <div id="suggestions" class="chat-suggestions" data-chat-target="suggestions">
-        <button class="chat-suggestion" data-action="click->chat#suggest" data-chat-query-param="What does Henrique specialize in?">What does Henrique specialize in?</button>
-        <button class="chat-suggestion" data-action="click->chat#suggest" data-chat-query-param="Tell me about the AI work at BSPK">Tell me about the AI work at BSPK</button>
-        <button class="chat-suggestion" data-action="click->chat#suggest" data-chat-query-param="What consulting services are available?">What consulting services are available?</button>
-        <button class="chat-suggestion" data-action="click->chat#suggest" data-chat-query-param="Has Henrique written any blog posts?">Has Henrique written any blog posts?</button>
-      </div>
+      <% if @new_chat %>
+        <div id="suggestions" class="chat-suggestions" data-chat-target="suggestions">
+          <button class="chat-suggestion" data-action="click->chat#suggest" data-chat-query-param="What does Henrique specialize in?">What does Henrique specialize in?</button>
+          <button class="chat-suggestion" data-action="click->chat#suggest" data-chat-query-param="Tell me about the AI work at BSPK">Tell me about the AI work at BSPK</button>
+          <button class="chat-suggestion" data-action="click->chat#suggest" data-chat-query-param="What consulting services are available?">What consulting services are available?</button>
+          <button class="chat-suggestion" data-action="click->chat#suggest" data-chat-query-param="Has Henrique written any blog posts?">Has Henrique written any blog posts?</button>
+        </div>
+      <% end %>
 
       <div class="chat-input-area">
+        <% unless @new_chat %>
+          <div class="chat-actions">
+            <%= button_to "New chat", chat_path, method: :delete, class: "chat-clear-btn" %>
+          </div>
+        <% end %>
         <%= render "messages/form", chat: @chat, message: @message %>
       </div>
 

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   get "chat", to: "chats#show"
   post "chat/messages", to: "messages#create", as: :chat_messages
+  delete "chat", to: "chats#destroy"
 
   root "pages#home"
 end

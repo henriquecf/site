@@ -7,6 +7,7 @@ class ChatResponseJob < ApplicationJob
     chat
       .with_instructions(AgentContext.system_prompt)
       .with_tools(*TOOLS)
+      .on_end_message { |msg| msg.instance_variable_set(:@thinking, nil) if msg&.thinking }
       .ask(content) do |chunk|
         if chunk.content.present?
           chat.messages.where(role: "assistant").last
