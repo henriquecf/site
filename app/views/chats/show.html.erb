@@ -1,24 +1,7 @@
 <% content_for(:title, "Chat — Henrique Cardoso de Faria") %>
 <% content_for(:description, "Chat with an AI assistant to learn about Henrique's experience, skills, and services.") %>
 
-<nav class="nav" data-controller="navigation">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo"><span class="nav-logo-bracket">&lt;</span>hf<span class="nav-logo-slash">/</span><span class="nav-logo-bracket">&gt;</span></a>
-    <button class="nav-toggle" data-action="click->navigation#toggle" aria-label="Menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <div class="nav-links" data-navigation-target="menu">
-      <a href="/#about">About</a>
-      <a href="/#experience">Experience</a>
-      <a href="/#community">Community</a>
-      <a href="/#services">Services</a>
-      <a href="/blog">Blog</a>
-      <a href="/#contact">Contact</a>
-    </div>
-  </div>
-</nav>
+<%= render "shared/nav", active: :chat, home: false %>
 
 <main class="chat-page" data-controller="chat">
   <section class="chat-hero">

@@ -64,8 +64,8 @@ http_interactions:
         Architected Elixir/Phoenix API with Angular frontend for business owners and
         accountants.\n\n## Community\n\n- **Euruko 2025 Organizer** — Organized Europe''s
         longest-running Ruby conference in Viana do Castelo, Portugal. [2025.euruko.org](https://2025.euruko.org)\n-
-        **hencf.org** — Open source personal website built with Rails 8.1. Will include
-        AI agents. [github.com/henriquecf/site](https://github.com/henriquecf/site)\n-
+        **hencf.org** — Open source personal website built with Rails 8.1, featuring
+        an AI chat agent powered by RubyLLM and Groq. [github.com/henriquecf/site](https://github.com/henriquecf/site)\n-
         **Open Source** — Contributor to Phoenix, Ecto, Guardian, and other Elixir/Ruby
         ecosystem projects. 40+ public repos on GitHub.\n\n## HC Digital Services
         LLC\n\nRails & AI consulting. Helping companies build and improve software
@@ -113,7 +113,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 23 Feb 2026 23:33:51 GMT
+      - Tue, 24 Feb 2026 00:59:17 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -135,30 +135,30 @@ http_interactions:
       X-Ratelimit-Remaining-Requests:
       - '499999'
       X-Ratelimit-Remaining-Tokens:
-      - '248324'
+      - '248315'
       X-Ratelimit-Reset-Requests:
       - 172ms
       X-Ratelimit-Reset-Tokens:
-      - 402ms
+      - 404ms
       X-Request-Id:
-      - req_01kj6dm74hfsts49ww512st6vt
+      - req_01kj6jgnaje5wsyxr8dkawz491
       Via:
       - 1.1 google
+      Cf-Cache-Status:
+      - DYNAMIC
       Set-Cookie:
-      - __cf_bm=l3rURWqSNFBEeWvgXGN794XcqQm7FNY0BQcXSe4huLU-1771889630.335021-1.0.1.1-26C6cgRdglzPDgvSOe0_0QfvhLe6nkZX5iP8LGNEITnZZ4YtV9.MHNT0B90Il9t56Xn9.pU1D5f1JvkfKPfUArJw3V5vnTYQ9zbVJOYDwUMy7upGgm2OuQD4XdGneTnj;
-        HttpOnly; Secure; Path=/; Domain=groq.com; Expires=Tue, 24 Feb 2026 00:03:51
+      - __cf_bm=cNTibBr6XNUUBt1rTJ97fr6lukvDiCrRiqBF_9WpNmY-1771894756.6721075-1.0.1.1-qTqoHQhar60N_Yl1vizvoV.6.ZZ2YecWUA8vLj0_UbkWMyu688VCI11rMcQCORdej7KZMg7Rb5GCdfyBi9tiTRfwMLIcaY02T_Xyb.CwIu7slu9FdqugT3NoSy1lQBSV;
+        HttpOnly; Secure; Path=/; Domain=groq.com; Expires=Tue, 24 Feb 2026 01:29:17
         GMT
       Strict-Transport-Security:
       - max-age=15552000
-      Cf-Cache-Status:
-      - DYNAMIC
       Cf-Ray:
-      - 9d2a87cd99c852b5-MAD
+      - 9d2b04f53821038d-MAD
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eyJpZCI6ImNoYXRjbXBsLTZhNDljNWQ3LWI5YzctNGU0OS04NjE5LWM1ODcyM2Q1NzRiNSIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbiIsImNyZWF0ZWQiOjE3NzE4ODk2MzEsIm1vZGVsIjoib3BlbmFpL2dwdC1vc3MtMTIwYiIsImNob2ljZXMiOlt7ImluZGV4IjowLCJtZXNzYWdlIjp7InJvbGUiOiJhc3Npc3RhbnQiLCJjb250ZW50IjoiKipQcm9ncmFtbWluZyBsYW5ndWFnZXMqKlxuXG4tICoqUnVieSoqIOKAkyBwcmltYXJ5IGxhbmd1YWdlIGZvciBSYWlscyBiYWNr4oCRZW5kcyAgXG4tICoqRWxpeGlyKiog4oCTIHVzZWQgd2l0aCBQaG9lbml4IGZvciByZWFs4oCRdGltZSBhbmQgSW9UIHNlcnZpY2VzICBcbi0gKipQeXRob24qKiDigJMgRGphbmdvIHByb2plY3RzIGFuZCBBSS9NTCBwaXBlbGluZXMgIFxuLSAqKkphdmFTY3JpcHQgLyBUeXBlU2NyaXB0Kiog4oCTIGZyb2504oCRZW5kIHdvcmsgKFZ1ZSwgUmVhY3QsIEFuZ3VsYXIpIGFuZCBIb3R3aXJlIChUdXJib+KAryvigK9TdGltdWx1cykgIFxuLSAqKlNRTCAvIE5vU1FMKiog4oCTIFBvc3RncmVTUUwsIFNRTGl0ZSwgTW9uZ29EQiwgRmlyZXN0b3JlIChhcyBkYXRh4oCRc3RvcmUgbGFuZ3VhZ2VzKSAgXG5cbioqRnJhbWV3b3JrcyBcdTAwMjYgbWFqb3Igc3RhY2tzKipcblxufCBMYXllciB8IEZyYW1ld29ya3MgLyBUb29scyB8XG58LS0tLS0tLXwtLS0tLS0tLS0tLS0tLS0tLS0tLXxcbnwgKipCYWNrZW5kKiogfCBSdWJ5IG9uIFJhaWxzLCBFbGl4aXIvUGhvZW5peCwgUHl0aG9uL0RqYW5nbyB8XG58ICoqRnJvbnRlbmQqKiB8IFR1cmJv4oCvL+KAr1N0aW11bHVzIChIb3R3aXJlKSwgVnVlLmpzLCBSZWFjdCwgQW5ndWxhciB8XG58ICoqQUkgLyBMTE0qKiB8IFJ1YnlMTE0sIE9wZW5BSSwgR3JvcSAodXNlZCB2aWEgcHJvdmlkZXLigJFhZ25vc3RpYyBhZ2VudHMpIHxcbnwgKipEYXRhYmFzZXMgLyBTZWFyY2gqKiB8IFBvc3RncmVTUUwsIEVsYXN0aWNzZWFyY2gsIFJlZGlzLCBNb25nb0RCLCBGaXJlc3RvcmUgfFxufCAqKkluZnJhc3RydWN0dXJlKiogfCBBV1MgKFMzLCBMYW1iZGEpLCBEb2NrZXIsIEthbWFsLCBTaWRla2lxLCBSYWJiaXRNUSwgTVFUVCB8XG5cbkhlbnJpcXVlIGNvbWJpbmVzIHRoZXNlIGxhbmd1YWdlcyBhbmQgZnJhbWV3b3JrcyB0byBidWlsZCBmdWxs4oCRc3RhY2sgYXBwbGljYXRpb25zLCByZWFs4oCRdGltZSBzeXN0ZW1zLCBhbmQgQUnigJFwb3dlcmVkIHNlcnZpY2VzIGZvciBjbGllbnRzIHJhbmdpbmcgZnJvbSBsdXh1cnkgcmV0YWlsIHRvIGZpbnRlY2ggYW5kIElvVC4iLCJyZWFzb25pbmciOiJVc2VyIGFza3M6IFwiV2hhdCBwcm9ncmFtbWluZyBsYW5ndWFnZXMgYW5kIGZyYW1ld29ya3MgZG9lcyBIZW5yaXF1ZSB3b3JrIHdpdGg/XCIgQW5zd2VyIGJhc2VkIG9uIGtub3dsZWRnZSBiYXNlLiBQcm92aWRlIGxpc3Q6IFJ1Ynkgb24gUmFpbHMsIEVsaXhpci9QaG9lbml4LCBQeXRob24vRGphbmdvLCBWdWUsIFJlYWN0LCBBbmd1bGFyLCBUdXJiby9TdGltdWx1cyAoSG90d2lyZSksIGV0Yy4gQWxzbyBtZW50aW9uIGxhbmd1YWdlczogUG9ydHVndWVzZSwgRW5nbGlzaCAoYnV0IHByb2dyYW1taW5nIGxhbmd1YWdlcyBhcmUgUnVieSwgRWxpeGlyLCBQeXRob24sIEphdmFTY3JpcHQsIGV0Yy4pIFByb3ZpZGUgY29uY2lzZSBhbnN3ZXIgd2l0aCBtYXJrZG93bi4ifSwibG9ncHJvYnMiOm51bGwsImZpbmlzaF9yZWFzb24iOiJzdG9wIn1dLCJ1c2FnZSI6eyJxdWV1ZV90aW1lIjowLjAxNzU4ODI2LCJwcm9tcHRfdG9rZW5zIjoxNjc1LCJwcm9tcHRfdGltZSI6MC4wNzI3NTc1NzMsImNvbXBsZXRpb25fdG9rZW5zIjozNzEsImNvbXBsZXRpb25fdGltZSI6MC43NzI0NDY5MzUsInRvdGFsX3Rva2VucyI6MjA0NiwidG90YWxfdGltZSI6MC44NDUyMDQ1MDgsImNvbXBsZXRpb25fdG9rZW5zX2RldGFpbHMiOnsicmVhc29uaW5nX3Rva2VucyI6ODR9fSwidXNhZ2VfYnJlYWtkb3duIjpudWxsLCJzeXN0ZW1fZmluZ2VycHJpbnQiOiJmcF80OWJmYWMwNmYxIiwieF9ncm9xIjp7ImlkIjoicmVxXzAxa2o2ZG03NGhmc3RzNDl3dzUxMnN0NnZ0Iiwic2VlZCI6NzkzMDI2NzY2fSwic2VydmljZV90aWVyIjoib25fZGVtYW5kIn0K
-  recorded_at: Mon, 23 Feb 2026 23:33:51 GMT
+        eyJpZCI6ImNoYXRjbXBsLTc5OGYxMjJlLTdlN2QtNGU3YS04NjRlLTFjM2M4ZWZhNzliMiIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbiIsImNyZWF0ZWQiOjE3NzE4OTQ3NTcsIm1vZGVsIjoib3BlbmFpL2dwdC1vc3MtMTIwYiIsImNob2ljZXMiOlt7ImluZGV4IjowLCJtZXNzYWdlIjp7InJvbGUiOiJhc3Npc3RhbnQiLCJjb250ZW50IjoiKipQcm9ncmFtbWluZyBMYW5ndWFnZXMqKlxuXG4tICoqUnVieSoqIOKAkyBwcmltYXJ5IGxhbmd1YWdlIGZvciBtb3N0IG9mIGhpcyBiYWNrZW5kIHdvcmsuICBcbi0gKipFbGl4aXIqKiDigJMgdXNlZCBleHRlbnNpdmVseSBmb3IgcmVhbOKAkXRpbWUgYW5kIElvVCBzeXN0ZW1zIChQaG9lbml4KS4gIFxuLSAqKlB5dGhvbioqIOKAkyBtYWlubHkgd2l0aCBEamFuZ28gZm9yIEFJ4oCRcmVsYXRlZCBwcm90b3R5cGVzLiAgXG4tICoqSmF2YVNjcmlwdCAvIFR5cGVTY3JpcHQqKiDigJMgZm9yIGZyb2504oCRZW5kIGRldmVsb3BtZW50LiAgXG4tICoqU1FMIC8gTm9TUUwqKiDigJMgUG9zdGdyZVNRTCwgU1FMaXRlLCBNb25nb0RCLCBGaXJlc3RvcmUgKG5vdCBmdWxsIGxhbmd1YWdlcyBidXQgZGF0YSBzdG9yZXMgaGUgd29ya3Mgd2l0aCkuICBcbi0gKipPdGhlcioqIOKAkyBDb21mb3J0YWJsZSBpbiBQb3J0dWd1ZXNlIChuYXRpdmUpIGFuZCBFbmdsaXNoIChmbHVlbnQpLlxuXG4qKkZyYW1ld29ya3MgXHUwMDI2IExpYnJhcmllcyoqXG5cbnwgQ2F0ZWdvcnkgfCBGcmFtZXdvcmtzIC8gTGlicmFyaWVzIHxcbnwtLS0tLS0tLS0tfC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLXxcbnwgKipCYWNrZW5kKiogfCBSdWJ5IG9uIFJhaWxzLCBQaG9lbml4IChFbGl4aXIpLCBEamFuZ28gKFB5dGhvbikgfFxufCAqKkFJIC8gTExNKiogfCBSdWJ5TExNLCBPcGVuQUkgQVBJLCBHcm9xLCBhZ2VudGljL1JBRyBwaXBlbGluZXMgfFxufCAqKkZyb250ZW5kKiogfCBIb3R3aXJlIChUdXJib+KAryvigK9TdGltdWx1cyksIFZ1ZS5qcywgUmVhY3QsIEFuZ3VsYXIgfFxufCAqKkRhdGFiYXNlcyBcdTAwMjYgU2VhcmNoKiogfCBQb3N0Z3JlU1FMLCBFbGFzdGljc2VhcmNoLCBSZWRpcywgTW9uZ29EQiwgRmlyZXN0b3JlIHxcbnwgKipJbmZyYXN0cnVjdHVyZSoqIHwgQVdTIChTMywgTGFtYmRhKSwgRG9ja2VyLCBLYW1hbCwgU2lkZWtpcSwgUmFiYml0TVEsIE1RVFQgfFxufCAqKk90aGVyKiogfCBUYWlsd2luZCBDU1MgKHN0eWxpbmcpLCBTaWRla2lxIChiYWNrZ3JvdW5kIGpvYnMpIHxcblxuSW4gc2hvcnQsIEhlbnJpcXVl4oCZcyBzdGFjayBjZW50ZXJzIG9uICoqUnVieSBvbiBSYWlscyoqIGFuZCAqKkVsaXhpci9QaG9lbml4KiogZm9yIHNlcnZlcuKAkXNpZGUgd29yaywgd2l0aCBzdHJvbmcgY29tcGV0ZW5jZSBpbiAqKlB5dGhvbi9EamFuZ28qKiBhbmQgbW9kZXJuIEphdmFTY3JpcHQgZnJvbnTigJFlbmRzLCBwbHVzIGV4dGVuc2l2ZSBleHBlcmllbmNlIGludGVncmF0aW5nIEFJL0xMTSBjYXBhYmlsaXRpZXMuIiwicmVhc29uaW5nIjoiVGhlIHVzZXIgYXNrczogXCJXaGF0IHByb2dyYW1taW5nIGxhbmd1YWdlcyBhbmQgZnJhbWV3b3JrcyBkb2VzIEhlbnJpcXVlIHdvcmsgd2l0aD9cIiBXZSBuZWVkIHRvIGFuc3dlciBiYXNlZCBvbiBrbm93bGVkZ2UgYmFzZS4gUHJvdmlkZSBwcm9ncmFtbWluZyBsYW5ndWFnZXMgKFJ1YnksIEVsaXhpciwgUHl0aG9uLCBldGMuKSBhbmQgZnJhbWV3b3JrcyAoUmFpbHMsIFBob2VuaXgsIERqYW5nbywgVnVlLCBSZWFjdCwgQW5ndWxhciwgZXRjLikuIFVzZSBtYXJrZG93bi4gQWxzbyBtZW50aW9uIG90aGVyIGxhbmd1YWdlcyBsaWtlIFBvcnR1Z3Vlc2UgYW5kIEVuZ2xpc2g/IFByb2JhYmx5IG5vdCBuZWVkZWQuIFByb3ZpZGUgY29uY2lzZSBhbnN3ZXIuIn0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjoic3RvcCJ9XSwidXNhZ2UiOnsicXVldWVfdGltZSI6MC4wMTgwMzY1NTQsInByb21wdF90b2tlbnMiOjE2ODQsInByb21wdF90aW1lIjowLjAxNzM5NTI0MSwiY29tcGxldGlvbl90b2tlbnMiOjQwOCwiY29tcGxldGlvbl90aW1lIjowLjg0NjYxNzgwMywidG90YWxfdG9rZW5zIjoyMDkyLCJ0b3RhbF90aW1lIjowLjg2NDAxMzA0NCwicHJvbXB0X3Rva2Vuc19kZXRhaWxzIjp7ImNhY2hlZF90b2tlbnMiOjE1MzZ9LCJjb21wbGV0aW9uX3Rva2Vuc19kZXRhaWxzIjp7InJlYXNvbmluZ190b2tlbnMiOjc1fX0sInVzYWdlX2JyZWFrZG93biI6bnVsbCwic3lzdGVtX2ZpbmdlcnByaW50IjoiZnBfODU0ZmE5YmU0YyIsInhfZ3JvcSI6eyJpZCI6InJlcV8wMWtqNmpnbmFqZTV3c3l4cjhka2F3ejQ5MSIsInNlZWQiOjYwNTkyMTYwMn0sInNlcnZpY2VfdGllciI6Im9uX2RlbWFuZCJ9Cg==
+  recorded_at: Tue, 24 Feb 2026 00:59:17 GMT
 recorded_with: VCR 6.4.0

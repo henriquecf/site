@@ -1,0 +1,19 @@
+<nav class="nav" data-controller="navigation">
+  <div class="nav-inner">
+    <a href="<%= home ? '#' : '/' %>" class="nav-logo"><span class="nav-logo-bracket">&lt;</span>hf<span class="nav-logo-slash">/</span><span class="nav-logo-bracket">&gt;</span></a>
+    <button class="nav-toggle" data-action="click->navigation#toggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links" data-navigation-target="menu">
+      <a href="<%= home ? '#about' : '/#about' %>">About</a>
+      <a href="<%= home ? '#experience' : '/#experience' %>">Experience</a>
+      <a href="<%= home ? '#community' : '/#community' %>">Community</a>
+      <a href="<%= home ? '#services' : '/#services' %>">Services</a>
+      <a href="/blog"<%= ' class="active"'.html_safe if active == :blog %>>Blog</a>
+      <a href="/chat"<%= ' class="active"'.html_safe if active == :chat %>>Chat</a>
+      <a href="<%= home ? '#contact' : '/#contact' %>">Contact</a>
+    </div>
+  </div>
+</nav>

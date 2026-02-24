@@ -1,0 +1,37 @@
+title: "Building an AI Chat Agent with RubyLLM and Groq"
+published_at: 2026-02-24 00:00:00
+linkedin_body: |
+  My last post was about how Claude Code changed the way I build software. This one shows a concrete example: I built an AI chat agent for my personal site in a single session.
+
+  The agent lives at hencf.org/chat. Visitors can ask about my experience, skills, and blog posts. It has tools to search content dynamically, streams responses in real-time via Turbo Streams, and costs essentially nothing to run.
+
+  The stack is deliberately simple:
+  - RubyLLM for the AI layer (Rails-native, built-in persistence and tool framework)
+  - Groq for inference (fast, free tier, OpenAI-compatible API)
+  - SQLite + Solid Queue for everything else (no Redis, no Postgres, no vector DB)
+
+  What we didn't build matters as much as what we did. No RAG pipeline, no vector database, no fine-tuning. The entire site's content fits in one system prompt. Three tool classes handle deeper lookups. That's it.
+
+  The architecture is upgrade-ready: switching from Groq to GPT-4o or Claude is a one-line config change. The code doesn't care which model answers.
+
+  The whole site — including the agent — is open source: github.com/henriquecf/site
+
+  Full post: https://hencf.org/blog/building-ai-agent-ruby-llm-groq
+x_body: |
+  I built an AI chat agent for my site in a single Claude Code session.
+
+  RubyLLM + Groq + Turbo Streams. No RAG, no vector DB, no React. Just Rails.
+
+  It searches blog posts, knows my experience, and streams responses in real-time. Cost: ~$0.
+
+  Here's how it works 👇
+  ---
+  The key decisions:
+
+  • RubyLLM — Rails-native AI. Built-in persistence, tool framework, streaming.
+  • Groq — sub-second inference, free tier, OpenAI-compatible API.
+  • No RAG — site content fits in one prompt. Tools handle deeper lookups.
+
+  Switching to GPT-4o or Claude? One line change. Architecture stays the same.
+
+  It's all open source: https://hencf.org/blog/building-ai-agent-ruby-llm-groq
