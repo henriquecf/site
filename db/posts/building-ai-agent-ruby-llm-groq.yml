@@ -10,11 +10,11 @@ linkedin_body: |
   - Groq for inference (fast, free tier, OpenAI-compatible API)
   - SQLite + Solid Queue for everything else (no Redis, no Postgres, no vector DB)
 
-  What we didn't build matters as much as what we did. No RAG pipeline, no vector database, no fine-tuning. The entire site's content fits in one system prompt. Three tool classes handle deeper lookups. That's it.
+  What I didn't build matters as much as what I did. No RAG pipeline, no vector database, no fine-tuning. The entire site's content fits in one system prompt. Three tool classes handle deeper lookups.
 
   The architecture is upgrade-ready: switching from Groq to GPT-4o or Claude is a one-line config change. The code doesn't care which model answers.
 
-  The whole site — including the agent — is open source: github.com/henriquecf/site
+  The whole site, including the agent, is open source: github.com/henriquecf/site
 
   Full post: https://hencf.org/blog/building-ai-agent-ruby-llm-groq
 x_body: |
@@ -28,9 +28,9 @@ x_body: |
   ---
   The key decisions:
 
-  • RubyLLM — Rails-native AI. Built-in persistence, tool framework, streaming.
-  • Groq — sub-second inference, free tier, OpenAI-compatible API.
-  • No RAG — site content fits in one prompt. Tools handle deeper lookups.
+  • RubyLLM: Rails-native AI. Built-in persistence, tool framework, streaming.
+  • Groq: sub-second inference, free tier, OpenAI-compatible API.
+  • No RAG: site content fits in one prompt. Tools handle deeper lookups.
 
   Switching to GPT-4o or Claude? One line change. Architecture stays the same.
 

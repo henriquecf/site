@@ -5,12 +5,6 @@ namespace :posts do
 
     Dir[posts_dir.join("*.yml")].each do |yml_path|
       slug = File.basename(yml_path, ".yml")
-
-      if Post.exists?(slug: slug)
-        puts "Skipping #{slug} (already exists)"
-        next
-      end
-
       data = YAML.safe_load_file(yml_path, permitted_classes: [ Time ])
       md_path = posts_dir.join("#{slug}.md")
 
@@ -19,16 +13,28 @@ namespace :posts do
         next
       end
 
-      Post.create!(
+      attributes = {
         title: data.fetch("title"),
-        slug: slug,
         body: File.read(md_path),
         published_at: data["published_at"],
         linkedin_body: data["linkedin_body"]&.strip,
         x_body: data["x_body"]&.strip
-      )
+      }
 
-      puts "Created #{slug}"
+      post = Post.find_by(slug: slug)
+
+      if post
+        post.assign_attributes(attributes)
+        if post.changed?
+          post.save!
+          puts "Updated #{slug}"
+        else
+          puts "Skipping #{slug} (unchanged)"
+        end
+      else
+        Post.create!(attributes.merge(slug: slug))
+        puts "Created #{slug}"
+      end
     end
   end
 end
