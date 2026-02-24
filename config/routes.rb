@@ -14,5 +14,8 @@ Rails.application.routes.draw do
   get "blog/:slug", to: "posts#show", as: :post
   get "blog/:slug/share", to: "posts#share", as: :post_share
 
+  get "chat", to: "chats#show"
+  post "chat/messages", to: "messages#create", as: :chat_messages
+
   root "pages#home"
 end

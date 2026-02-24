@@ -61,6 +61,7 @@ bin/rails db:seed      # Seed data
 - **Jobs:** Solid Queue running inside Puma (`SOLID_QUEUE_IN_PUMA=true`)
 - **Deployment:** Kamal + Docker, Thruster proxy, jemalloc allocator, non-root container user
 - **SEO:** OG + Twitter Card meta tags (via `content_for` in layout), JSON-LD structured data (Person, ProfessionalService, BlogPosting)
+- **AI Chat:** RubyLLM + Groq (`openai/gpt-oss-120b`) at `/chat`. Session-scoped conversations, Turbo Streams broadcasting via `broadcasts_to`, 3 agent tools (search blog posts, get blog post, search site content). System prompt loaded from `public/llms.txt`. Rate limited: 20 messages/hour per session. Cleanup job deletes chats older than 30 days. ActionCable with `async` adapter in development, Solid Cable in production. Requires `GROQ_API_KEY` env var (also in Rails credentials). Chat creation requires `assume_model_exists = true` and `provider = :openai` on the Chat instance before save.
 
 ## CI (GitHub Actions)
 

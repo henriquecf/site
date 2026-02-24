@@ -56,7 +56,7 @@ Accounting SaaS. Architected Elixir/Phoenix API with Angular frontend for busine
 ## Community
 
 - **Euruko 2025 Organizer** — Organized Europe's longest-running Ruby conference in Viana do Castelo, Portugal. [2025.euruko.org](https://2025.euruko.org)
-- **hencf.org** — Open source personal website built with Rails 8.1. Will include AI agents. [github.com/henriquecf/site](https://github.com/henriquecf/site)
+- **hencf.org** — Open source personal website built with Rails 8.1, featuring an AI chat agent powered by RubyLLM and Groq. [github.com/henriquecf/site](https://github.com/henriquecf/site)
 - **Open Source** — Contributor to Phoenix, Ecto, Guardian, and other Elixir/Ruby ecosystem projects. 40+ public repos on GitHub.
 
 ## HC Digital Services LLC

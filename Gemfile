@@ -67,3 +67,9 @@ end
 
 gem "redcarpet", "~> 3.6"
 gem "rouge", "~> 4.7"
+
+gem "ruby_llm", "~> 1.12"
+gem "rack-attack", "~> 6.8"
+
+gem "vcr", "~> 6.4", group: :test
+gem "webmock", "~> 3.26", group: :test

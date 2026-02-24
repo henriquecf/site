@@ -1,0 +1,6 @@
+<%= form_with(url: chat_messages_path, id: "new_message", class: "chat-form", data: { chat_target: "form", action: "submit->chat#send" }) do |form| %>
+  <div class="chat-input-row">
+    <%= form.text_field :content, class: "chat-input", placeholder: "Ask something...", autocomplete: "off", autofocus: true, data: { chat_target: "input" } %>
+    <%= form.submit "Send", class: "chat-send-btn" %>
+  </div>
+<% end %>

@@ -1,0 +1,67 @@
+<% content_for(:title, "Chat — Henrique Cardoso de Faria") %>
+<% content_for(:description, "Chat with an AI assistant to learn about Henrique's experience, skills, and services.") %>
+
+<nav class="nav" data-controller="navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="nav-logo-bracket">&lt;</span>hf<span class="nav-logo-slash">/</span><span class="nav-logo-bracket">&gt;</span></a>
+    <button class="nav-toggle" data-action="click->navigation#toggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links" data-navigation-target="menu">
+      <a href="/#about">About</a>
+      <a href="/#experience">Experience</a>
+      <a href="/#community">Community</a>
+      <a href="/#services">Services</a>
+      <a href="/blog">Blog</a>
+      <a href="/#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main class="chat-page" data-controller="chat">
+  <section class="chat-hero">
+    <div class="container">
+      <h1 class="chat-heading">Chat with an AI assistant</h1>
+      <p class="chat-intro">
+        Ask about Henrique's experience, skills, services, or blog posts.
+      </p>
+    </div>
+  </section>
+
+  <%= turbo_stream_from "chat_#{@chat.id}" %>
+
+  <div class="container">
+    <div class="chat-container">
+      <div id="messages" class="chat-messages" data-chat-target="messages">
+        <% @chat.messages.each do |message| %>
+          <%= render message %>
+        <% end %>
+      </div>
+
+      <div id="suggestions" class="chat-suggestions" data-chat-target="suggestions">
+        <button class="chat-suggestion" data-action="click->chat#suggest" data-chat-query-param="What does Henrique specialize in?">What does Henrique specialize in?</button>
+        <button class="chat-suggestion" data-action="click->chat#suggest" data-chat-query-param="Tell me about the AI work at BSPK">Tell me about the AI work at BSPK</button>
+        <button class="chat-suggestion" data-action="click->chat#suggest" data-chat-query-param="What consulting services are available?">What consulting services are available?</button>
+        <button class="chat-suggestion" data-action="click->chat#suggest" data-chat-query-param="Has Henrique written any blog posts?">Has Henrique written any blog posts?</button>
+      </div>
+
+      <div class="chat-input-area">
+        <%= render "messages/form", chat: @chat, message: @message %>
+      </div>
+
+      <p class="chat-disclaimer">
+        AI-generated responses may not always be accurate. For important inquiries,
+        <a href="mailto:elo.henrique@gmail.com">email Henrique directly</a>.
+        This chat agent is <a href="https://github.com/henriquecf/site" target="_blank" rel="noopener">open source</a>.
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p>Henrique Cardoso de Faria &middot; <%= Date.current.year %></p>
+  </div>
+</footer>

@@ -1,13 +1,11 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+rails_ai_post:
+  title: Building AI Features with Ruby on Rails
+  slug: building-ai-features-rails
+  body: "This is a blog post about building AI features with Ruby on Rails. It covers RubyLLM, Groq, and agentic systems."
+  published_at: 2026-02-01 12:00:00
 
-one:
-  title: MyString
-  slug: MyString
-  body: MyText
-  published_at: 2026-02-23 16:51:42
-
-two:
-  title: MyString
-  slug: MyString
-  body: MyText
-  published_at: 2026-02-23 16:51:42
+unpublished_post:
+  title: Draft Post
+  slug: draft-post
+  body: "This is a draft post that is not published yet."
+  published_at:
