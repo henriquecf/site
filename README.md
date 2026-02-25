@@ -1,24 +1,38 @@
-# README
+# hencf.org
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Personal website and blog for [Henrique Cardoso de Faria](https://hencf.org), built with Rails 8.1 and SQLite3.
 
-Things you may want to cover:
+## What's here
 
-* Ruby version
+- **Homepage** — about, experience, community involvement, and consulting services
+- **Blog** — posts written in Markdown, rendered with Redcarpet + Rouge
+- **AI Chat** — an LLM-powered conversational agent (RubyLLM + Groq) that can search blog posts and site content
+- **/uses** — tools and setup
 
-* System dependencies
+## Stack
 
-* Configuration
+- **Ruby on Rails 8.1** with Ruby 4.0
+- **SQLite3** for everything — primary data, cache (Solid Cache), jobs (Solid Queue), WebSockets (Solid Cable)
+- **Hotwire** (Turbo + Stimulus) for interactivity
+- **Propshaft + Import Maps** — no Node.js, no build step
+- **Kamal + Docker** for deployment, with Thruster as the HTTP proxy
+- **Ahoy** for cookie-free, server-side analytics
 
-* Database creation
+## Development
 
-* Database initialization
+```bash
+bin/setup       # Install deps, prepare DB, start dev server
+bin/dev         # Start development server (port 3000)
+bin/ci          # Full CI suite: lint, security, tests
+```
 
-* How to run the test suite
+## Tests
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+bin/rails test              # Unit + integration tests
+bin/rails test:system       # System tests (Capybara)
+```
 
-* Deployment instructions
+## License
 
-* ...
+The code is open source. Blog post content (`db/posts/`) is copyrighted.
