@@ -71,3 +71,7 @@ Five parallel jobs on PRs and pushes to `main`: `scan_ruby` (brakeman + bundler-
 ## Code Style
 
 Uses `rubocop-rails-omakase` (Rails default opinionated style). Run `bin/rubocop` before committing.
+
+## Pre-commit Checklist
+
+Always run `bin/ci` locally before committing to catch lint, security, and test failures early.
