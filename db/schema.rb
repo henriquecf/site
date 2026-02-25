@@ -10,7 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_02_23_230631) do
+ActiveRecord::Schema[8.1].define(version: 2026_02_25_113116) do
+  create_table "ahoy_events", force: :cascade do |t|
+    t.string "name"
+    t.text "properties"
+    t.datetime "time"
+    t.integer "visit_id"
+    t.index ["name", "time"], name: "index_ahoy_events_on_name_and_time"
+    t.index ["visit_id"], name: "index_ahoy_events_on_visit_id"
+  end
+
+  create_table "ahoy_visits", force: :cascade do |t|
+    t.string "browser"
+    t.string "device_type"
+    t.string "ip"
+    t.text "landing_page"
+    t.string "os"
+    t.text "referrer"
+    t.string "referring_domain"
+    t.datetime "started_at"
+    t.text "user_agent"
+    t.string "utm_campaign"
+    t.string "utm_medium"
+    t.string "utm_source"
+    t.string "visit_token"
+    t.string "visitor_token"
+    t.index ["visit_token"], name: "index_ahoy_visits_on_visit_token", unique: true
+    t.index ["visitor_token", "started_at"], name: "index_ahoy_visits_on_visitor_token_and_started_at"
+  end
+
   create_table "chats", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.integer "model_id"

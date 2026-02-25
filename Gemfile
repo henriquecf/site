@@ -73,3 +73,5 @@ gem "rack-attack", "~> 6.8"
 
 gem "vcr", "~> 6.4", group: :test
 gem "webmock", "~> 3.26", group: :test
+
+gem "ahoy_matey", "~> 5.4"
