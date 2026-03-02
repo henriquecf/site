@@ -32,6 +32,18 @@ class Post < ApplicationRecord
     x_body&.split("---")&.second&.strip
   end
 
+  def description_or_fallback
+    description.presence || ActionController::Base.helpers.strip_tags(body_html).truncate(160)
+  end
+
+  def word_count
+    body.split(/\s+/).size
+  end
+
+  def og_image
+    og_image_url.presence || OgImageGenerator.call(self)
+  end
+
   private
 
   def generate_slug

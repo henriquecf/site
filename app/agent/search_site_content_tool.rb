@@ -3,7 +3,7 @@ class SearchSiteContentTool < RubyLLM::Tool
   param :query, desc: "Keywords to search for in site content"
 
   def execute(query:)
-    content = Rails.root.join("public/llms.txt").read
+    content = Rails.root.join("app/content/llms_base.txt").read
     query_terms = query.downcase.split
 
     sections = content.split(/^## /).reject(&:blank?)

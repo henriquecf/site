@@ -1,6 +1,33 @@
 <% content_for(:title, "Blog — Henrique Cardoso de Faria") %>
 <% content_for(:description, "Writing about Ruby on Rails, Elixir, AI, and software engineering.") %>
 
+<% content_for(:head) do %>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Blog — Henrique Cardoso de Faria",
+  "description": "Writing about Ruby on Rails, Elixir, AI, and software engineering.",
+  "url": "<%= blog_url %>",
+  "author": {
+    "@type": "Person",
+    "@id": "https://hencf.org/#person",
+    "name": "Henrique Cardoso de Faria"
+  },
+  "blogPost": [
+    <% @posts.each_with_index do |post, i| %>
+    {
+      "@type": "BlogPosting",
+      "headline": "<%= j post.title %>",
+      "url": "<%= post_url(slug: post.slug) %>",
+      "datePublished": "<%= post.published_at.iso8601 %>"
+    }<%= "," unless i == @posts.size - 1 %>
+    <% end %>
+  ]
+}
+</script>
+<% end %>
+
 <%= render "shared/nav", active: :blog, home: false %>
 
 <main>
@@ -25,7 +52,7 @@
               <h2 class="post-preview-title">
                 <a href="<%= post_path(slug: post.slug) %>"><%= post.title %></a>
               </h2>
-              <p class="post-excerpt"><%= truncate(strip_tags(post.body_html), length: 200) %></p>
+              <p class="post-excerpt"><%= post.description_or_fallback %></p>
             </article>
           <% end %>
         </div>

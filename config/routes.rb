@@ -9,8 +9,13 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
+  get "sitemap", to: "sitemaps#show", defaults: { format: :xml }
+  get "llms.txt", to: "llms#show", defaults: { format: :text }
+  get "llms-full.txt", to: "llms#full", defaults: { format: :text }
+
   get "uses", to: "pages#uses"
   get "blog", to: "posts#index", as: :blog
+  get "blog/feed", to: "posts#feed", as: :blog_feed
   get "blog/:slug", to: "posts#show", as: :post
   get "blog/:slug/share", to: "posts#share", as: :post_share
 

@@ -18,7 +18,9 @@ namespace :posts do
         body: File.read(md_path),
         published_at: data["published_at"],
         linkedin_body: data["linkedin_body"]&.strip,
-        x_body: data["x_body"]&.strip
+        x_body: data["x_body"]&.strip,
+        description: data["description"],
+        og_image_url: data["og_image_url"]
       }
 
       post = Post.find_by(slug: slug)

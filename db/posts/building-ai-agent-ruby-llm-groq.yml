@@ -1,5 +1,6 @@
 title: "Building an AI Chat Agent with RubyLLM and Groq"
 published_at: 2026-02-24 00:00:00
+description: "How I built an AI chat agent for my personal site using RubyLLM, Groq, and Turbo Streams — no RAG, no vector DB, just Rails and three tool classes."
 linkedin_body: |
   My last post was about how Claude Code changed the way I build software. This one shows a concrete example: I built an AI chat agent for my personal site in a single session.
 

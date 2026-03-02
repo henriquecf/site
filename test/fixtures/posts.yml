@@ -3,6 +3,7 @@ rails_ai_post:
   slug: building-ai-features-rails
   body: "This is a blog post about building AI features with Ruby on Rails. It covers RubyLLM, Groq, and agentic systems."
   published_at: 2026-02-01 12:00:00
+  description: "A guide to building AI features with Ruby on Rails using RubyLLM, Groq, and agentic systems."
 
 unpublished_post:
   title: Draft Post

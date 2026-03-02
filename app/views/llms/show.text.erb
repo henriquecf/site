@@ -1,0 +1,7 @@
+<%= @base_content %>
+
+## Blog Posts
+
+<% @posts.each do |post| %>
+- [<%= post.title %>](https://hencf.org/blog/<%= post.slug %>): <%= post.description_or_fallback %>
+<% end %>

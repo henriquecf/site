@@ -38,6 +38,6 @@ class AgentContext
   end
 
   def self.llms_txt
-    Rails.root.join("public/llms.txt").read
+    Rails.root.join("app/content/llms_base.txt").read
   end
 end

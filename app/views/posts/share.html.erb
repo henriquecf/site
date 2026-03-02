@@ -1,4 +1,8 @@
 <% content_for(:title, "Share — #{@post.title}") %>
+<% content_for(:canonical_url, post_url(slug: @post.slug)) %>
+<% content_for(:head) do %>
+<meta name="robots" content="noindex">
+<% end %>
 
 <%= render "shared/nav", active: :blog, home: false %>
 

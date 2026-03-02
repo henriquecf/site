@@ -12,18 +12,24 @@
     <meta name="application-name" content="Henrique C.F.">
     <meta name="mobile-web-app-capable" content="yes">
 
+    <link rel="canonical" href="<%= content_for(:canonical_url).presence || page_url %>">
+    <link rel="alternate" type="application/atom+xml" title="Blog — Henrique Cardoso de Faria" href="<%= blog_feed_url %>">
+
+    <% og_image = content_for(:og_image).presence || "#{request.base_url}/icon.png" %>
+    <% twitter_card = content_for?(:og_image) ? "summary_large_image" : "summary" %>
+
     <%# Open Graph %>
     <meta property="og:title" content="<%= page_title %>">
     <meta property="og:description" content="<%= page_description %>">
     <meta property="og:type" content="<%= content_for(:og_type).presence || "website" %>">
     <meta property="og:url" content="<%= page_url %>">
-    <% og_image = "#{request.base_url}/icon.png" %>
     <meta property="og:image" content="<%= og_image %>">
+    <%= yield :og_image_dimensions %>
     <meta property="og:site_name" content="Henrique Cardoso de Faria">
     <meta property="og:locale" content="en_US">
 
     <%# Twitter Card %>
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="<%= twitter_card %>">
     <meta name="twitter:title" content="<%= page_title %>">
     <meta name="twitter:description" content="<%= page_description %>">
     <meta name="twitter:image" content="<%= og_image %>">
