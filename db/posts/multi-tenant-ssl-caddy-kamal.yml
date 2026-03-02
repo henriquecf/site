@@ -1,0 +1,34 @@
+title: "Multi-Tenant SSL Without Cloudflare: Caddy On-Demand TLS with Kamal 2"
+published_at: 2026-03-02 00:00:00
+description: "How we replaced Cloudflare with Caddy's on-demand TLS to auto-issue SSL certificates for hundreds of dynamic tenant domains, validated against the Rails database."
+linkedin_body: |
+  When we migrated BSPK from Heroku to Kamal 2 on EC2, the hardest problem wasn't Docker or deploys. It was SSL.
+
+  BSPK is multi-tenant. Each customer org gets subdomains like louboutin.bspk.com, stored as dns_names on the Company model. Domains are dynamic: orgs add and remove them. You can't pre-provision certs for domains that don't exist yet.
+
+  We evaluated three options:
+  - kamal-proxy's built-in Let's Encrypt (great for static domains, can't handle dynamic multi-tenant)
+  - Cloudflare proxy (works, but adds a dependency and an extra hop)
+  - Caddy on-demand TLS (issues certs automatically, validated via a Rails endpoint)
+
+  We went with Caddy. It sits in front of kamal-proxy, handles all TLS, and validates new domains by calling a Rails endpoint that checks the database. If the domain belongs to an active company, Caddy issues the cert. If the company is deactivated, the cert won't renew.
+
+  The gotchas were real: Rails' force_ssl silently breaks the validation endpoint, kamal-proxy has to bind to localhost to avoid port conflicts, and rate limiting in the Caddyfile matters more than you'd think.
+
+  Full post with all the configs: https://hencf.org/blog/multi-tenant-ssl-caddy-kamal
+x_body: |
+  Migrated a multi-tenant Rails app from Heroku to Kamal 2. The hardest part? SSL for hundreds of dynamic tenant domains.
+
+  Caddy's on-demand TLS solved it. It validates domains against our Rails DB before issuing certs. No Cloudflare, no wildcard management.
+
+  Here's the full setup 👇
+  ---
+  The architecture:
+
+  Client → Caddy (on-demand TLS) → kamal-proxy → Rails
+
+  Caddy calls a Rails endpoint before issuing any cert. The endpoint checks if the domain belongs to an active tenant. 200 = issue cert, 404 = reject.
+
+  Biggest gotcha: Rails' force_ssl redirects the validation request to HTTPS, which silently breaks everything.
+
+  Full post with configs: https://hencf.org/blog/multi-tenant-ssl-caddy-kamal
