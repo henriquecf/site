@@ -579,6 +579,34 @@ h4 {
 
 /* ─── Blog ─── */
 
+.search-input {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: 8px;
+  background-color: var(--color-card-bg);
+  color: var(--color-text);
+  outline: none;
+  transition: border-color 0.2s ease;
+  margin-bottom: 2rem;
+}
+
+.search-input:focus {
+  border-color: var(--color-accent);
+}
+
+.search-input::placeholder {
+  color: var(--color-text-light);
+}
+
+.posts-loading {
+  text-align: center;
+  color: var(--color-text-light);
+  padding: 2rem 0;
+}
+
 .posts-list {
   display: flex;
   flex-direction: column;

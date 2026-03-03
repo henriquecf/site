@@ -15,13 +15,13 @@
     "name": "Henrique Cardoso de Faria"
   },
   "blogPost": [
-    <% @posts.each_with_index do |post, i| %>
+    <% @all_posts.each_with_index do |post, i| %>
     {
       "@type": "BlogPosting",
       "headline": "<%= j post.title %>",
       "url": "<%= post_url(slug: post.slug) %>",
       "datePublished": "<%= post.published_at.iso8601 %>"
-    }<%= "," unless i == @posts.size - 1 %>
+    }<%= "," unless i == @all_posts.size - 1 %>
     <% end %>
   ]
 }
@@ -42,23 +42,11 @@
 
   <section class="section">
     <div class="container">
-      <% if @posts.any? %>
-        <div class="posts-list">
-          <% @posts.each do |post| %>
-            <article class="post-preview">
-              <time class="post-date" datetime="<%= post.published_at.iso8601 %>">
-                <%= post.published_at.strftime("%B %-d, %Y") %>
-              </time>
-              <h2 class="post-preview-title">
-                <a href="<%= post_path(slug: post.slug) %>"><%= post.title %></a>
-              </h2>
-              <p class="post-excerpt"><%= post.description_or_fallback %></p>
-            </article>
-          <% end %>
-        </div>
-      <% else %>
-        <p class="post-empty">No posts yet. Check back soon.</p>
+      <%= form_with url: blog_path, method: :get, data: { controller: "search", turbo_frame: "posts", turbo_action: "advance" } do |f| %>
+        <%= f.search_field :q, value: params[:q], placeholder: "Search posts…", class: "search-input", autocomplete: "off", data: { search_target: "input", action: "input->search#search" } %>
       <% end %>
+
+      <%= render "posts_page", posts: @posts, next_page: @next_page, page: 1, query: params[:q] %>
     </div>
   </section>
 </main>

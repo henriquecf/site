@@ -8,6 +8,6 @@ class LlmsController < ApplicationController
 
   def full
     @base_content = Rails.root.join("app/content/llms_base.txt").read
-    @posts = Post.published
+    @posts = Post.published.limit(20)
   end
 end

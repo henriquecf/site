@@ -4,6 +4,9 @@ class Post < ApplicationRecord
   validates :body, presence: true
 
   scope :published, -> { where.not(published_at: nil).where(published_at: ..Time.current).order(published_at: :desc) }
+  scope :search, ->(query) {
+    where("title LIKE :q OR description LIKE :q", q: "%#{query}%")
+  }
 
   before_validation :generate_slug, on: :create
 

@@ -1,0 +1,41 @@
+<%= turbo_frame_tag(page == 1 ? "posts" : "posts-page-#{page}") do %>
+  <% if page == 1 %>
+    <% if posts.any? %>
+      <div class="posts-list">
+        <% posts.each do |post| %>
+          <article class="post-preview">
+            <time class="post-date" datetime="<%= post.published_at.iso8601 %>">
+              <%= post.published_at.strftime("%B %-d, %Y") %>
+            </time>
+            <h2 class="post-preview-title">
+              <a href="<%= post_path(slug: post.slug) %>" data-turbo-frame="_top"><%= post.title %></a>
+            </h2>
+            <p class="post-excerpt"><%= post.description_or_fallback %></p>
+          </article>
+        <% end %>
+      </div>
+    <% elsif query.present? %>
+      <p class="post-empty">No posts matching "<%= query %>".</p>
+    <% else %>
+      <p class="post-empty">No posts yet. Check back soon.</p>
+    <% end %>
+  <% else %>
+    <% posts.each do |post| %>
+      <article class="post-preview">
+        <time class="post-date" datetime="<%= post.published_at.iso8601 %>">
+          <%= post.published_at.strftime("%B %-d, %Y") %>
+        </time>
+        <h2 class="post-preview-title">
+          <a href="<%= post_path(slug: post.slug) %>" data-turbo-frame="_top"><%= post.title %></a>
+        </h2>
+        <p class="post-excerpt"><%= post.description_or_fallback %></p>
+      </article>
+    <% end %>
+  <% end %>
+
+  <% if next_page %>
+    <%= turbo_frame_tag("posts-page-#{next_page}", loading: :lazy, src: blog_path(page: next_page, q: query.presence)) do %>
+      <p class="posts-loading">Loading more posts…</p>
+    <% end %>
+  <% end %>
+<% end %>
