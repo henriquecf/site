@@ -1,0 +1,40 @@
+title: "Multiplexing Claude Code: Parallel AI Sessions with Git Worktrees"
+published_at: 2026-03-03 12:00:00
+description: "How I run four simultaneous Claude Code sessions on the same codebase using git worktrees, and what that looks like in practice on a large Rails app."
+linkedin_body: |
+  Even with Claude Code, most developers work serially: prompt, wait, review, repeat. One task at a time.
+
+  I've been doing something different. I run multiple Claude Code sessions in parallel using git worktrees, each in its own directory, its own branch, its own terminal tab. Four independent features advancing simultaneously on the same codebase.
+
+  Last week: a Kamal deployment migration, a sales attribution fix, an API events pipeline, and a Shopify integration. All four shipped in the same week. I don't think I could have done that sequentially, even with AI.
+
+  The workflow:
+  - Create a git worktree per feature (instant, no cloning)
+  - Open a Claude Code session in each one
+  - Rotate between sessions: reviewing output in one while Claude implements in another
+  - Merge sequentially, rebasing the remaining branches as you go
+
+  It's not without overhead. Merge conflicts, migration collisions, and rebase frequency all increase. But if you pick naturally isolated tasks, the coordination cost is low compared to the time saved.
+
+  The real shift: my role moved from single-threaded developer to something closer to a tech lead managing parallel workstreams. The bottleneck isn't "how fast can I write code" anymore. It's how many review contexts I can hold at quality.
+
+  Full post with setup details and code examples: https://hencf.org/blog/parallel-claude-code-git-worktrees
+x_body: |
+  I run 4 Claude Code sessions simultaneously using git worktrees.
+
+  Each session gets its own directory, branch, and terminal tab. While one is implementing, I'm reviewing another.
+
+  Last week I shipped 4 independent features in parallel on the same Rails codebase.
+
+  Here's the full workflow:
+  ---
+  The setup:
+  • git worktree add per feature (instant, shared .git store)
+  • cd into each worktree, run claude
+  • Rotate between sessions reviewing + approving
+
+  Coordination cost is real (rebasing, migration conflicts) but manageable if you pick isolated tasks.
+
+  Practical limit: ~4 sessions before review quality drops.
+
+  Full guide: https://hencf.org/blog/parallel-claude-code-git-worktrees
