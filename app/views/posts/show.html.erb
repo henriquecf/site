@@ -7,30 +7,61 @@
     <meta property="og:image:height" content="630">
 <% end %>
 
+<% content_for(:article_meta) do %>
+    <meta property="article:published_time" content="<%= @post.published_at.iso8601 %>">
+    <meta property="article:modified_time" content="<%= @post.modified_at.iso8601 %>">
+    <meta property="article:author" content="https://hencf.org">
+<% end %>
+
 <% content_for(:head) do %>
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "<%= @post.title %>",
-  "description": "<%= j @post.description_or_fallback %>",
-  "datePublished": "<%= @post.published_at.iso8601 %>",
-  "dateModified": "<%= @post.updated_at.iso8601 %>",
-  "url": "<%= post_url(slug: @post.slug) %>",
-  "mainEntityOfPage": "<%= post_url(slug: @post.slug) %>",
-  "wordCount": <%= @post.word_count %>,
-  "image": "<%= @post.og_image %>",
-  "author": {
-    "@type": "Person",
-    "@id": "https://hencf.org/#person",
-    "name": "Henrique Cardoso de Faria"
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "<%= @post.title %>",
+    "description": "<%= j @post.description_or_fallback %>",
+    "datePublished": "<%= @post.published_at.iso8601 %>",
+    "dateModified": "<%= @post.modified_at.iso8601 %>",
+    "url": "<%= post_url(slug: @post.slug) %>",
+    "mainEntityOfPage": "<%= post_url(slug: @post.slug) %>",
+    "wordCount": <%= @post.word_count %>,
+    "image": "<%= @post.og_image %>",
+    "author": {
+      "@type": "Person",
+      "@id": "https://hencf.org/#person",
+      "name": "Henrique Cardoso de Faria"
+    },
+    "publisher": {
+      "@type": "Person",
+      "@id": "https://hencf.org/#person",
+      "name": "Henrique Cardoso de Faria"
+    }
   },
-  "publisher": {
-    "@type": "Person",
-    "@id": "https://hencf.org/#person",
-    "name": "Henrique Cardoso de Faria"
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "<%= root_url %>"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "<%= blog_url %>"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "<%= j @post.title %>"
+      }
+    ]
   }
-}
+]
 </script>
 <% end %>
 

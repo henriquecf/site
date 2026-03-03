@@ -5,7 +5,7 @@ atom_feed(
 ) do |feed|
   feed.title "Blog — Henrique Cardoso de Faria"
   feed.subtitle "Writing about Ruby on Rails, Elixir, AI, and software engineering."
-  feed.updated @posts.first&.published_at || Time.current
+  feed.updated @posts.first&.modified_at || Time.current
   feed.author do |author|
     author.name "Henrique Cardoso de Faria"
     author.uri root_url
@@ -17,7 +17,7 @@ atom_feed(
       id: "tag:hencf.org,#{post.published_at.to_date}:#{post.slug}",
       url: post_url(slug: post.slug),
       published: post.published_at,
-      updated: post.updated_at
+      updated: post.modified_at
     ) do |entry|
       entry.title post.title
       entry.summary post.description_or_fallback

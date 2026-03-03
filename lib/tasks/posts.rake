@@ -17,6 +17,7 @@ namespace :posts do
         title: data.fetch("title"),
         body: File.read(md_path),
         published_at: data["published_at"],
+        content_modified_at: data["content_modified_at"],
         linkedin_body: data["linkedin_body"]&.strip,
         x_body: data["x_body"]&.strip,
         description: data["description"],

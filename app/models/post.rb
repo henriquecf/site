@@ -40,6 +40,10 @@ class Post < ApplicationRecord
     body.split(/\s+/).size
   end
 
+  def modified_at
+    content_modified_at || published_at
+  end
+
   def og_image
     og_image_url.presence || OgImageGenerator.call(self)
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_03_02_154627) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_03_141449) do
   create_table "ahoy_events", force: :cascade do |t|
     t.string "name"
     t.text "properties"
@@ -92,6 +92,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_02_154627) do
 
   create_table "posts", force: :cascade do |t|
     t.text "body"
+    t.datetime "content_modified_at"
     t.datetime "created_at", null: false
     t.text "description"
     t.text "linkedin_body"
