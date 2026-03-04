@@ -1,0 +1,36 @@
+title: "A Slack Bot That Answers Questions About Your Codebase"
+published_at: 2026-03-04 12:00:00
+description: "How I built an Elixir app that connects Slack to Claude Code CLI, letting anyone on the team ask questions about the BSPK codebase and get answers sourced from the actual code."
+linkedin_body: |
+  Last month someone on the product team asked me "How does proxy phone SMS work?" I didn't answer. A Slack bot did, by reading the actual source code.
+
+  I built an Elixir app that connects to Slack via Socket Mode and runs Claude Code CLI as a subprocess. Anyone on the team (@mentions the bot or DMs it) can ask questions about our codebase. Engineers, QA, PMs, it doesn't matter. The bot reads the code and answers.
+
+  Why Claude Code CLI instead of a custom RAG pipeline? Because it already knows how to explore codebases. It has Read, Glob, Grep built in. No embedding pipeline, no vector database, no chunk tuning. You give it a question, it figures out which files to read, and it answers.
+
+  Architecture:
+  - Elixir + OTP: GenServer per question, process supervision, fault isolation
+  - Slack Socket Mode: WebSocket connection, no public endpoint needed
+  - Erlang Port: runs the CLI as a subprocess, streams stdout line by line
+  - Channel-scoped memory: each Slack channel gets a CLAUDE.md with team-specific context
+  - Real-time progress: Slack message updates as Claude reads files
+
+  The interesting parts: channel-scoped memory files that teams curate themselves, ETS-based dedup for Slack retries, a 5-minute timeout that kills runaway processes, and a CLAUDECODE env var gotcha that took longer to debug than it should have.
+
+  Running for a few weeks now. It handles most "how does X work" questions without anyone needing to context-switch.
+
+  Full build guide: https://hencf.org/blog/slack-bot-codebase-questions
+x_body: |
+  Built a Slack bot that answers questions about our codebase by actually reading the source code.
+
+  Someone asks "How does proxy phone SMS work?" and Claude Code CLI greps through the repo, reads the relevant files, and responds in the thread.
+
+  No RAG, no embeddings. Just the CLI as a subprocess.
+  ---
+  The stack: Elixir + OTP running Claude Code CLI via Erlang Ports.
+
+  Each Slack channel gets its own CLAUDE.md for team-specific context. Progress updates stream in real time as Claude reads files.
+
+  Biggest gotcha: the CLAUDECODE env var. If it's set, the CLI thinks it's a nested session and refuses to start.
+
+  Build guide: https://hencf.org/blog/slack-bot-codebase-questions
