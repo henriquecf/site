@@ -1,0 +1,30 @@
+title: "Wizard to Checklist: A Stripe-Style Onboarding Pattern in Rails"
+published_at: 2026-03-05 12:00:00
+description: "How I replaced a 5-step blocking onboarding wizard with a SetupGuide PORO using Data.define, inspired by how Stripe and Linear handle user onboarding."
+linkedin_body: |
+  Onboarding wizards are walls. You sign up, you're excited to try the product, and immediately you're locked into a five-step flow you have to finish before seeing your dashboard. Users bounce, support tickets pile up.
+
+  Stripe, Linear, and Notion figured this out years ago. They don't block you. You land on your dashboard right away, and there's a setup guide that shows what you need to do. Some steps are required, some are optional. You can dismiss it.
+
+  I replaced a blocking wizard with this pattern in a Rails app. The implementation is a single PORO (SetupGuide) that uses Data.define for immutable step definitions. Each step checks existing model state to determine completion, so there are no new database tables for tracking progress. No migrations, no persistence, no background jobs.
+
+  Three required steps gate a "publish" action. Three optional steps encourage completeness without blocking anything. The whole guide is a collapsible card on the dashboard, conditionally rendered based on two checks: is the site already published, and has the user dismissed the guide.
+
+  The old wizard routes just redirect to the dashboard now. Several controllers, views, and a dedicated layout got deleted.
+
+  If you're building any SaaS product with onboarding, this pattern is worth considering. Full walkthrough with code: https://hencf.org/blog/wizard-to-checklist-rails
+x_body: |
+  Replaced a 5-step blocking onboarding wizard with a Stripe-style setup guide.
+
+  One PORO. Data.define for steps. No new database tables. Each step just checks existing model state.
+
+  Users land on their dashboard immediately instead of being stuck in a wizard.
+  ---
+  The SetupGuide PORO pattern:
+
+  - Data.define(:key, :title, :description, :completed, :required, :path) for each step
+  - Required steps gate publishing, optional steps encourage without blocking
+  - Completion computed from existing models (no progress tracking tables)
+  - Dismissible via timestamp, so you can re-enable it later
+
+  Full walkthrough: https://hencf.org/blog/wizard-to-checklist-rails
