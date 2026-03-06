@@ -1,7 +1,33 @@
 title: "Extending Claude Code with Hooks, Commands, and Skills"
 published_at: 2026-03-06 12:00:00
-description: "How I use Claude Code's extensibility layer to automate blog idea capture, review commits against Linear issues, and build reusable workflows with hooks, commands, and skills."
+description: "How I use Claude Code's extensibility layer to catch N+1 queries at edit time, review PRs with parallel agents, and validate deployments with hooks, commands, and skills."
 linkedin_body: |
-  placeholder
+  Most people configure Claude Code with a CLAUDE.md and stop there. The real customization happens in the layer above: hooks, commands, and skills.
+
+  Hooks are shell scripts that fire on lifecycle events. I have one that runs after every file edit in a Rails controller or view. It scans for N+1 query patterns (association access inside .each loops) and injects a warning back into the conversation. Claude sees "Potential N+1 on client.purchases" and fixes it before moving on. No manual step, no waiting for CI.
+
+  Commands are prompts packaged as markdown files. I have one called /simplify that launches parallel agents to review a PR for efficiency: one checks for N+1s, another finds unnecessary database calls, a third reviews hot paths. What used to be a 20-minute manual review becomes a single slash command.
+
+  Skills are structured workflows with parameters. /review-commit fetches a Linear issue via MCP, reads the commit diff, and cross-references every requirement against the implementation. It catches "the issue says weekly but the code runs daily" before the PR is even open.
+
+  The interesting part is how they compose. During a feature workflow: /review-commit checks requirements, the N+1 hook catches query issues inline during implementation, /simplify reviews the full PR before merge, and /deploy-check validates the deployment pipeline.
+
+  Each piece is simple on its own. Together they form a feedback loop that catches issues at every stage.
+
+  Full post with code examples: https://hencf.org/blog/claude-code-hooks-commands-skills
 x_body: |
-  placeholder
+  Claude Code has an extensibility layer most people don't use: hooks, commands, and skills.
+
+  I built a hook that catches N+1 queries at edit time. Claude writes a controller action, the hook scans for association access inside loops, and injects a warning. Claude fixes it before I even review the code.
+
+  Here's how each one works:
+  ---
+  Hooks fire on events (PostToolUse, PreToolUse). Mine runs after every Edit on a controller/view, scans for N+1 patterns, returns additionalContext.
+
+  Commands are markdown files in .claude/commands/. My /simplify launches 3 parallel agents to review a PR for efficiency issues.
+
+  Skills are structured workflows. /review-commit fetches a Linear issue via MCP and cross-references requirements against the commit diff.
+
+  They compose: hook catches N+1s during implementation, /simplify reviews the PR, /review-commit validates against requirements. Tighter feedback loop at every stage.
+
+  Full post: https://hencf.org/blog/claude-code-hooks-commands-skills
