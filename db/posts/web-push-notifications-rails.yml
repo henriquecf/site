@@ -1,0 +1,32 @@
+title: "Web Push Notifications in Rails from Scratch"
+published_at: 2026-03-09 12:00:00
+description: "Building browser push notifications in a Rails app without any third-party service: VAPID keys, service workers, Stimulus controllers, recurring Solid Queue reminders, and every browser gotcha along the way."
+linkedin_body: |
+  Built browser push notifications into a Rails app without any third-party notification service. No Firebase, no OneSignal, no per-message costs. Just the web-push gem, a service worker, and Solid Queue.
+
+  The use case: a multi-tenant platform where community organizations manage recurring activities and events. Visitors tap a bell icon on an activity page, pick their reminder timing, and get a browser notification before it starts. No account required.
+
+  The basic flow took a day. VAPID key exchange, service worker registration, storing the subscription, sending a test notification. Getting it production-ready took longer.
+
+  iOS Safari doesn't support the Push API unless the site is installed as a PWA. I detect iOS browsers and show install-to-home-screen instructions instead of the normal permission dialog.
+
+  Recurring activities need a CalendarExpander that resolves schedules, closed dates, and pauses into concrete occurrences before the reminder job can determine what to send. Deduplication runs through Solid Cache so the job can fire every 15 minutes without sending duplicates.
+
+  The gotcha that cost the most time: calling an async function inside a notification click handler. By the time it resolved, the browser had consumed the user gesture and openWindow() failed silently. The fix was trivial once I understood the cause.
+
+  Full implementation with code: https://hencf.org/blog/web-push-notifications-rails
+x_body: |
+  Built browser push notifications in Rails without Firebase, OneSignal, or any third-party service.
+
+  VAPID keys, a service worker, Stimulus controller, Solid Queue reminders every 15 min. Free, no per-message costs.
+
+  The iOS gotcha alone was worth writing this up.
+  ---
+  Gotchas I hit building Web Push in Rails:
+
+  - iOS Safari only supports Push API in installed PWAs (not regular browser)
+  - Async calls in notification click handlers silently kill the user gesture
+  - Recurring activity reminders need calendar expansion (closed dates, pauses, schedules)
+  - Cache-based dedup so 15-min job intervals don't send duplicates
+
+  Full implementation: https://hencf.org/blog/web-push-notifications-rails
