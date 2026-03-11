@@ -131,7 +131,7 @@ With four branches in flight, you're rebasing more often than in a typical singl
 
 I want to be direct about the situations where parallel worktrees are more hassle than they're worth.
 
-**Tightly coupled changes.** If two features need to share new code (a new service object, a shared migration, a common API), building them in separate worktrees creates duplication or merge headaches. Better to build them sequentially, or build the shared foundation first, merge it, then parallelize the features that depend on it.
+**Tightly coupled changes.** If two features need to share new code (a new shared module, a shared migration, a common API), building them in separate worktrees creates duplication or merge headaches. Better to build them sequentially, or build the shared foundation first, merge it, then parallelize the features that depend on it.
 
 **Unfamiliar territory.** The whole approach depends on reviewing AI output quickly and accurately. If you're working in a part of the codebase you don't know well, or using a technology you're learning, your review quality drops. Running four sessions in unfamiliar code means four sessions of low-quality review. Better to go deep on one thing and actually learn it.
 

@@ -153,7 +153,7 @@ The range is wider than I expected. Engineers ask implementation questions: "How
 
 Non-engineers ask differently. Product managers ask "How does the waitlist feature work?" not "What does the WaitlistService class do?" QA asks "What should happen when a client is archived and then the company is deactivated?" Claude handles both kinds well. It adapts the depth of its answer to how the question is framed. A feature-level question gets a feature-level answer. A code-level question gets code references and implementation details.
 
-Cross-cutting questions are where the bot really saves time: "How does data flow from a Shopify order to a sales attribution in our system?" Answering that manually requires tracing through webhook handlers, background jobs, service objects, and model callbacks. Claude follows the same trail but does it in thirty seconds instead of twenty minutes.
+Cross-cutting questions are where the bot really saves time: "How does data flow from a Shopify order to a sales attribution in our system?" Answering that manually requires tracing through webhook handlers, background jobs, plain Ruby classes, and model callbacks. Claude follows the same trail but does it in thirty seconds instead of twenty minutes.
 
 There are limitations. The bot reads code. It doesn't have access to runtime state, logs, or production data. "Why is this endpoint slow?" is out of scope because performance is a runtime concern, not a code structure concern. "What does this endpoint do?" is squarely in scope. I've considered adding read-only database access as a tool, but I haven't needed it yet.
 

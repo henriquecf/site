@@ -38,7 +38,7 @@ I effectively moved from writing code to writing specifications. And specificati
 
 We needed a system where sales associates could search their client book using natural language. "Show me clients who bought handbags last month and haven't been contacted" should just work.
 
-This involved extracting controller actions into service objects, building an LLM translation layer that converts English into Elasticsearch queries, creating Stimulus controllers for the interactive UI, adding OpenRouter as an LLM provider, and writing Playwright E2E tests to verify the whole flow.
+This involved extracting controller actions into plain Ruby classes, building an LLM translation layer that converts English into Elasticsearch queries, creating Stimulus controllers for the interactive UI, adding OpenRouter as an LLM provider, and writing Playwright E2E tests to verify the whole flow.
 
 One feature. One Claude Code session (with iterations). A massive amount of files touched across the entire stack. I didn't write any of those lines manually. I directed the architecture, reviewed every decision, caught a few edge cases Claude missed, and pushed the code.
 

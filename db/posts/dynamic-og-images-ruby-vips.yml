@@ -1,0 +1,27 @@
+title: "Dynamic OG Images in Ruby with ruby-vips"
+published_at: 2026-03-11 12:00:00
+description: "How I built server-side social preview images for a multi-tenant Rails app using ruby-vips: gradient backgrounds from pixel math, Pango text rendering, per-org theming, and aggressive caching. No Node.js, no headless browser, no external service."
+linkedin_body: |
+  Every page on a multi-tenant platform needs a social preview image. When someone shares an event or blog post, the link card should reflect the org's brand, not show a generic fallback.
+
+  The usual approach: spin up a headless browser (Puppeteer, Playwright) to screenshot rendered HTML. Works fine, but it requires Node.js. On a Rails 8 app running Import Maps and Propshaft, I didn't want to add a JS runtime for this one feature.
+
+  ruby-vips was already installed — Rails ships it through Active Storage. Turns out it can do much more than resize JPEGs. Pixel-level math for gradients, Pango markup for text rendering, alpha compositing for layering logos. Everything you need for OG images.
+
+  The generator builds 1200×630 PNGs from theme colors, org logos, and page titles. Cached in Solid Cache for 24 hours, invalidated automatically when org data changes. Generation runs under 100ms.
+
+  The gradient math was the interesting part — creating smooth color transitions from scratch using Vips::Image.xyz() and per-channel interpolation, with colors derived from daisyUI themes.
+
+  Full implementation with code: https://hencf.org/blog/dynamic-og-images-ruby-vips
+x_body: |
+  Built dynamic OG images for a multi-tenant Rails app using ruby-vips. Gradients from pixel math, Pango text rendering, per-org theming from daisyUI colors.
+
+  No Puppeteer, no Node.js, no external service. Under 100ms per image.
+  ---
+  How it works: Vips::Image.xyz() gives you pixel coordinates. Normalize X to [0,1], interpolate RGB channels, and you get a smooth gradient — all in Ruby.
+
+  Add Pango markup for text, composite the org's logo, cache in Solid Cache for 24h.
+
+  The tool was already installed through Active Storage.
+
+  Full implementation: https://hencf.org/blog/dynamic-og-images-ruby-vips
