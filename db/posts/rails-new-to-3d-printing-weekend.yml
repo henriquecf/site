@@ -1,0 +1,25 @@
+title: "From rails new to 3D Printing in a Weekend"
+published_at: 2026-03-12 12:00:00
+description: "How I built a complete Hour of Code platform in three days with Claude Code: a tag designer that generates 3D-printable files in pure Ruby, a block-based coding game in Stimulus, a debugging activity, and classroom session management. Seven commits, no Node.js."
+linkedin_body: |
+  I needed a platform for an Hour of Code session at a local school. Three activities: a tag designer where kids create name tags that get 3D-printed, a block-based coding game with maze puzzles, and a debugging activity where they find and fix bugs in pre-written programs.
+
+  Built in a weekend. Seven commits from Sunday evening to Tuesday morning, all co-authored with Claude Code. Rails 8.1, no Node.js, single CSS file.
+
+  The most surprising part: a pure Ruby 3MF file generator. No CAD libraries, no external dependencies beyond rubyzip. The app rasterizes SVG icons to pixel grids, renders text with a hardcoded bitmap font, generates triangle meshes with proper normals, and assembles everything into a 3MF file that Bambu Studio can slice directly. Two-color prints with dual-extruder support.
+
+  The human/AI split was consistent throughout: I made architecture, UX, and physical-world decisions (tag dimensions, build plate layout, difficulty progression by age group). Claude implemented everything: the 3MF format internals, computational geometry, game levels, CSS, Stimulus controllers.
+
+  Kids design a tag in the browser and walk home with a 3D-printed name tag that came out of a Rails app.
+
+  Full post with code: https://hencf.org/blog/rails-new-to-3d-printing-weekend
+x_body: |
+  Built a classroom coding platform in a weekend with Claude Code. Three activities for kids: tag designer → 3D printer, block-based maze game, debugging puzzles.
+
+  The wildest part: a pure Ruby 3MF generator. Bitmap font, SVG rasterizer, triangle meshes. No CAD libraries.
+  ---
+  The 3MF generator turns kids' tag designs into print-ready files: pixel font for text, SVG-to-grid rasterizer for icons, triangle meshes with proper normals, dual-extruder metadata for two-color prints.
+
+  Seven commits, Sunday to Tuesday. Rails 8.1, Stimulus, no Node.js.
+
+  Full post: https://hencf.org/blog/rails-new-to-3d-printing-weekend
