@@ -46,7 +46,7 @@
         <%= f.search_field :q, value: params[:q], placeholder: "Search posts…", class: "search-input", autocomplete: "off", data: { search_target: "input", action: "input->search#search" } %>
       <% end %>
 
-      <%= render "posts_page", posts: @posts, next_page: @next_page, page: 1, query: params[:q] %>
+      <%= render "posts_page", posts: @posts, next_page: @next_page, page: @page, query: params[:q] %>
     </div>
   </section>
 </main>

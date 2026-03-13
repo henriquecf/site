@@ -6,7 +6,8 @@ class PostsController < ApplicationController
     @posts = @all_posts
     @posts = @posts.search(params[:q]) if params[:q].present?
 
-    page = [ (params[:page] || 1).to_i, 1 ].max
+    @page = [ (params[:page] || 1).to_i, 1 ].max
+    page = @page
     @posts = @posts.offset((page - 1) * PER_PAGE).limit(PER_PAGE + 1)
 
     if @posts.size > PER_PAGE
