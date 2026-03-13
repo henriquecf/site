@@ -1,0 +1,21 @@
+title: "Your Rails Images Are Slower Than You Think"
+published_at: 2026-03-13 12:00:00
+description: "Active Storage defaults optimize for 'it works,' not 'it performs.' Three fixes that took an afternoon: WebP variants via a centralized helper, proxy mode for year-long caching with Thruster, and a ValidatesImageAttachment concern for upload validation."
+linkedin_body: |
+  Someone told me the images on the site felt slow. Opened DevTools and... yeah. Every image was a 302 redirect with a 5-minute cache header. The browser was re-downloading everything on every visit. And some of those images were 4MB phone JPEGs being displayed at thumbnail size.
+
+  Spent an afternoon fixing it. Turned out Active Storage's defaults are fine for getting started but not great for production. Switched to proxy mode (one config line, cache goes from 5 minutes to 1 year), added a helper that converts everything to WebP on the fly, and wrote a small concern for upload validation since Rails still doesn't ship one.
+
+  Wrote up the whole thing with copy-paste ready code, including the Thruster caching setup and the WebP vs AVIF tradeoff.
+
+  https://hencf.org/blog/active-storage-image-pipeline
+x_body: |
+  Someone told me images on the site felt slow. Opened DevTools and found Active Storage serving 4MB phone JPEGs with 5-minute cache headers. Cool cool cool.
+
+  An afternoon later: WebP variants, proxy mode with 1-year caching, and a validation concern. Wrote it all up with the code.
+  ---
+  The proxy mode fix is one line of config and it's wild how much it changes things. Cache goes from 5min to 1 year, and Thruster caches the responses in memory so Puma never even sees repeat requests.
+
+  Rails 8.1 still doesn't ship Active Storage validators btw. The concern is like 20 lines.
+
+  https://hencf.org/blog/active-storage-image-pipeline
