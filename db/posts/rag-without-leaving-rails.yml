@@ -1,0 +1,19 @@
+title: "RAG Without Leaving Rails"
+published_at: 2026-03-16 12:00:00
+description: "Most RAG tutorials assume Python, LangChain, and Pinecone. I built a complete retrieval-augmented generation pipeline in Rails with pgvector, Ollama for local embeddings, and RubyLLM for chat. Here's the architecture and the code."
+linkedin_body: |
+  I needed an AI chat that could answer questions about 34 books and 6,000+ YouTube video transcripts. Every RAG tutorial I found assumed Python, LangChain, and a hosted vector database.
+
+  So I built the whole thing in Rails. pgvector for similarity search, Ollama running locally for embeddings, RubyLLM + Groq for the chat completions. PDF extraction, semantic chunking with chapter detection, batch embedding, and a retrieval pipeline that feeds context to the LLM. Deployed with Kamal, Ollama as an accessory container on the same box.
+
+  Wrote up the full architecture with code. The chunking strategy turned out to matter more than which embedding model you pick.
+
+  https://hencf.org/blog/rag-without-leaving-rails
+x_body: |
+  Every RAG tutorial: "first, pip install langchain pinecone openai"
+
+  I built the whole thing in Rails. pgvector, Ollama for local embeddings, Groq for chat. 34 books and 6K video transcripts. Wrote it up.
+  ---
+  The part nobody talks about in RAG tutorials is the chunking. I have books where each chapter is a Q&A dialog and books that are straight narrative prose. Same pipeline, different chapter detection strategies. That matters way more than your embedding model.
+
+  https://hencf.org/blog/rag-without-leaving-rails
