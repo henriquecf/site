@@ -1,0 +1,17 @@
+title: "What Breaks When You Run an LLM 6,000 Times"
+published_at: 2026-03-17 12:00:00
+description: "Extracting metadata from one video with an LLM is trivial. Doing it across 6,383 videos means debugging silent schema failures, deduplicating speakers with fuzzy matching, and building a seed pipeline to ship results from dev to production. Here's the full architecture in Rails with RubyLLM and Groq."
+linkedin_body: |
+  Spent a day debugging why my LLM metadata extraction was inconsistent. Some videos extracted perfectly, others returned garbage. Turns out Ollama's OpenAI-compatible endpoint silently ignores structured output. No error, no warning. It just returns free-form text and hopes for the best.
+
+  Switched to Groq, same code worked immediately. Then spent two more weeks on the actual hard part: speaker deduplication across 6,000 videos where "Haroldo" and "Haroldo Dutra Dias" are the same person.
+
+  Full pipeline writeup with code.
+
+  https://hencf.org/blog/llm-extraction-at-scale
+x_body: |
+  Ollama's OpenAI-compatible endpoint silently ignores your response_format. No error, no warning. Your structured output just isn't structured. Found out the hard way across 6,000 videos.
+  ---
+  The LLM call is 175ms. The real work is speaker deduplication, confidence filtering, and shipping extracted data from dev to prod via compressed seed files. Wrote it up.
+
+  https://hencf.org/blog/llm-extraction-at-scale

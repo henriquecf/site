@@ -286,3 +286,7 @@ The pgvector extension worked out of the box. The `ankane/pgvector` Docker image
 I keep hearing that RAG requires a specialized stack. That you need Python for the ML pipeline, a dedicated vector database for scale, and a framework like LangChain to wire it all together. For my use case (tens of thousands of chunks, single-digit concurrent users), Rails with a few gems handled everything. The PDF extraction, the chunking, the embeddings, the vector search, the chat interface, the deployment. All in one codebase, one language, one deployment target.
 
 If your traffic or data volume demands a dedicated vector database or async embedding pipeline, you'll know when you get there. Start with pgvector and see how far it takes you.
+
+---
+
+*This post is part of a series on LLM integration in Rails. Next: [What Breaks When You Run an LLM 6,000 Times](/blog/llm-extraction-at-scale), where I extract structured metadata from the 6,383 video transcripts that feed this RAG pipeline.*
