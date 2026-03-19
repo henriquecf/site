@@ -1,131 +1,40 @@
 The [RAG pipeline](/blog/rag-without-leaving-rails) searches through thousands of video transcripts. The [metadata extractor](/blog/llm-extraction-at-scale) processes video titles and descriptions. Both assume the data is already in the database. This post is about how it got there.
 
-YouTube's Data API v3 doesn't expose captions for videos you don't own. There's a Captions endpoint, but it requires OAuth and only works if you're the video owner or have explicit permission. For a knowledge base built from public lecture videos across dozens of channels, that's a non-starter.
+YouTube's Data API v3 has a Captions endpoint, but it's scoped to videos you own. For a knowledge base of public lecture videos across dozens of channels, I needed the same caption text that's already visible to anyone watching the video, just in a programmatic format.
 
-I tried three approaches before landing on one that works.
+There's no official endpoint for that. Libraries like Python's `youtube-transcript-api` have solved this by using YouTube's internal player API directly. I needed the same thing in Ruby, and it took a few attempts to get there.
 
 ## The protobuf approach (broken)
 
-Several Python libraries (notably `youtube-transcript-api`) used to fetch transcripts by sending protobuf-encoded requests directly to YouTube's internal endpoints. Some Ruby ports attempted the same thing: encode a specific protobuf payload with the video ID and language code, POST it to an undocumented endpoint, decode the protobuf response.
+Several Python libraries (notably `youtube-transcript-api`) used to fetch transcripts by sending protobuf-encoded requests directly to YouTube's internal endpoints. Some Ruby ports attempted the same thing: encode a specific protobuf payload with the video ID and language code, POST it to an internal endpoint, decode the protobuf response.
 
 This worked for a while. Then YouTube changed something on their end and the protobuf schema shifted. Every implementation relying on it broke silently. No error messages, just empty responses or 400s. The Python library had to be completely rewritten. The Ruby ports were abandoned.
 
-I spent a few hours trying to get this working before realizing the format had changed and nobody had reverse-engineered the new one for Ruby.
+I spent a few hours trying to get this working before realizing the format had changed and nobody had updated the Ruby implementations.
 
-## Scraping the watch page (IP-locked)
+## Parsing the watch page (session-bound URLs)
 
 The second attempt was more straightforward. Load the YouTube watch page, parse the embedded `ytInitialPlayerResponse` JSON, and extract the caption track URL from it. This JSON blob contains everything the player needs, including an array of available caption tracks with their download URLs.
 
-It works perfectly in a browser. The problem is that the caption URLs embedded in the watch page response are tied to the IP address and session that requested the page. If you extract the URL and try to fetch it in a subsequent HTTP call, you get a 403. YouTube signs these URLs with some combination of IP, timestamp, and session tokens.
+It works perfectly in a browser. The problem is that the caption URLs in the watch page response are session-bound. If you extract the URL and try to fetch it in a subsequent HTTP call, you get a 403. The URLs expire quickly and are tied to the original request context.
 
 I tried extracting the URL and fetching it immediately in a single pipeline. Some worked, most didn't. The expiration window was too short and unreliable. This wasn't going to scale to thousands of videos.
 
 ## What actually works: InnerTube with an Android client
 
-YouTube's web player communicates with a backend called InnerTube. The API is undocumented but well-understood from browser DevTools and mobile app reverse engineering. What made it click: the Android YouTube client gets different, more permissive caption URLs than the web client.
+YouTube's web player communicates with a backend called InnerTube. This is the same API that the Python `youtube-transcript-api` library uses after its rewrite, and the approach the [Ruby Events](https://github.com/rubyevents) project uses for their transcript pipeline. It's well-documented across multiple open source projects and works reliably with the Android client configuration.
 
-The approach has three steps:
+Three steps:
 
-1. Extract the InnerTube API key from any YouTube watch page
-2. Call the InnerTube player endpoint pretending to be the Android app
-3. Fetch the caption URL from the response and download the transcript
+1. Extract the InnerTube API key from a YouTube watch page
+2. Call the InnerTube player endpoint with the Android client context
+3. Fetch the caption URL from the response
 
-Step 1 is a regex against the watch page HTML:
-
-```ruby
-def fetch_api_key(video_id)
-  uri = URI("https://www.youtube.com/watch?v=#{video_id}")
-  http = build_http(uri)
-  req = Net::HTTP::Get.new(uri.request_uri)
-  req["User-Agent"] = "Mozilla/5.0"
-  html = http.request(req).body
-
-  match = html.match(/"INNERTUBE_API_KEY":\s*"([a-zA-Z0-9_-]+)"/)
-  raise TranscriptNotAvailable, "Could not extract API key" unless match
-
-  match[1]
-end
-```
-
-The `INNERTUBE_API_KEY` is not a personal API key. It's YouTube's own client key, embedded in every watch page. It doesn't change often and isn't tied to any account.
-
-Step 2 is where the Android identity matters:
-
-```ruby
-INNERTUBE_CLIENT = { clientName: "ANDROID", clientVersion: "20.10.38" }.freeze
-USER_AGENT = "com.google.android.youtube/20.10.38 (Linux; U; Android 11) gzip"
-
-def fetch_caption_url(video_id, api_key, language)
-  uri = URI("https://www.youtube.com/youtubei/v1/player?key=#{api_key}")
-  http = build_http(uri)
-
-  req = Net::HTTP::Post.new(uri.request_uri)
-  req["Content-Type"] = "application/json"
-  req["User-Agent"] = USER_AGENT
-  req.body = { context: { client: INNERTUBE_CLIENT }, videoId: video_id }.to_json
-
-  response = http.request(req)
-  data = JSON.parse(response.body)
-  tracks = data.dig("captions", "playerCaptionsTracklistRenderer", "captionTracks")
-  raise TranscriptNotAvailable, "No caption tracks available" if tracks.blank?
-
-  track = tracks.find { |t| t["languageCode"] == language } || tracks.first
-  track["baseUrl"]
-end
-```
-
-By sending `clientName: "ANDROID"` and a matching User-Agent, YouTube returns caption URLs that aren't IP-locked. They're stable, fetchable from any IP, and work for auto-generated captions on any public video. This is the same approach the rewritten Python `youtube-transcript-api` ended up using.
-
-## Parsing srv3
-
-YouTube serves captions in a format called srv3, an XML structure with timed segments:
-
-```xml
-<?xml version="1.0" encoding="utf-8" ?>
-<timedtext format="3">
-  <body>
-    <p t="1000" d="5000">
-      <s ac="0">Boa</s>
-      <s t="280" ac="0"> noite,</s>
-      <s t="720" ac="0"> queridos</s>
-      <s t="1200" ac="0"> irmãos.</s>
-    </p>
-    <p t="6000" d="4000">
-      <s ac="0">Sejam</s>
-      <s t="400" ac="0"> todos</s>
-      <s t="800" ac="0"> bem-vindos.</s>
-    </p>
-  </body>
-</timedtext>
-```
-
-Each `<p>` element is a caption segment with `t` (start time in milliseconds) and `d` (duration in milliseconds). The `<s>` elements are individual words with their relative timing offsets. For transcript purposes, I only need the segment-level timing and the concatenated text:
-
-```ruby
-def parse_srv3(xml)
-  doc = REXML::Document.new(xml)
-  segments = []
-
-  doc.elements.each("timedtext/body/p") do |p|
-    start_ms = p.attributes["t"].to_i
-    duration_ms = p.attributes["d"].to_i
-    text = p.elements.collect("s") { |s| s.text.to_s }.join("").strip
-    next if text.blank?
-
-    segments << { text: text, start_ms: start_ms, end_ms: start_ms + duration_ms }
-  end
-
-  raise TranscriptNotAvailable, "No transcript segments found" if segments.empty?
-
-  segments
-end
-```
-
-This gives me an array of hashes like `{ text: "Boa noite, queridos irmãos.", start_ms: 1000, end_ms: 6000 }`. The millisecond-level timing carries through to the chunking pipeline, so when the RAG system retrieves a relevant chunk, it can link directly to the timestamp in the video.
+The `INNERTUBE_API_KEY` extracted in step 1 is not a personal API key. It's YouTube's own client key, embedded in every watch page. It doesn't change often and isn't tied to any account.
 
 ## The complete client
 
-The whole thing fits in a single file with no external dependencies beyond Ruby's standard library (`net/http`, `json`, `rexml`):
+Here's the full implementation. It fits in a single file with no external dependencies beyond Ruby's standard library (`net/http`, `json`, `rexml`):
 
 ```ruby
 require "net/http"
@@ -225,6 +134,8 @@ end
 
 The `fetch` method is the public interface. Pass a video ID, get back an array of timed transcript segments. Language defaults to Portuguese since that's what [Guia](https://guia.tv) needs, but it falls back to whatever caption track is available.
 
+YouTube serves captions in a format called srv3. Each `<p>` element in the XML is a caption segment with `t` (start time in milliseconds) and `d` (duration in milliseconds). The `<s>` elements inside are individual words. The `parse_srv3` method concatenates them into segment-level text and preserves the timing, so the result is an array of hashes like `{ text: "Boa noite, queridos irmãos.", start_ms: 1000, end_ms: 6000 }`. That millisecond-level timing carries through to the chunking pipeline, so when the RAG system retrieves a relevant chunk, it can link directly to the timestamp in the video.
+
 ## Storing transcripts
 
 Each video stores the transcript in two forms:
@@ -265,32 +176,7 @@ end
 
 Two guard clauses at the top: skip non-YouTube videos (the platform also has Vimeo content), and skip videos that already have transcripts. The `TranscriptNotAvailable` rescue catches videos with no captions at all. Livestreams, very old videos, and some unlisted content don't have auto-generated captions. These failures are expected and just log a warning.
 
-For larger batch runs, a rake task handles the full pipeline with progress tracking:
-
-```ruby
-videos.find_each.with_index(1) do |video, i|
-  print "[#{i}/#{total}] #{video.title[0..60]}... "
-
-  if video.raw_transcript.blank?
-    segments = client.fetch(video.video_id)
-    video.update!(
-      raw_transcript: segments,
-      plain_transcript: segments.map { |s| s[:text] }.join(" ")
-    )
-  end
-
-  processor.call(video)
-  video.update!(archive_status: :archived)
-
-  puts "OK (#{video.chunks_count} chunks)"
-rescue YouTube::TranscriptClient::TranscriptNotAvailable => e
-  puts "SKIP (#{e.message})"
-rescue => e
-  puts "FAIL (#{e.class}: #{e.message})"
-end
-```
-
-This runs the full pipeline sequentially: fetch transcript, chunk it, generate embeddings, mark as archived. Slow but predictable. I run it locally against specific date ranges when new content gets added. The results get exported to compressed seed files and deployed to production, as covered in the [extraction post](/blog/llm-extraction-at-scale).
+For larger batch runs, a rake task wraps the same logic with progress tracking and error counts, running the full pipeline sequentially: fetch transcript, chunk it, generate embeddings, mark as archived. Slow but predictable. I run it locally against specific date ranges when new content gets added, then export the results to compressed seed files for production, as covered in the [extraction post](/blog/llm-extraction-at-scale).
 
 ## What can break
 
@@ -300,4 +186,4 @@ The client has no retry logic. If a fetch fails, it fails. For batch processing,
 
 Auto-generated captions aren't always accurate either. YouTube's speech recognition handles Portuguese reasonably well for clear lecture-style content, but it struggles with proper nouns, technical terminology, and speakers with regional accents. The RAG pipeline accounts for this by using semantic search (vector similarity) rather than exact keyword matching, which is more forgiving of transcription errors.
 
-The whole setup is fragile in theory. Everything runs through YouTube's undocumented internal API using their own client key, which means they could shut it down at any point. In practice, it's held up for months and processed thousands of videos without issues. If it breaks, the fix will probably be another round of reverse engineering the new client version or endpoint format. That's the deal you make when the official API doesn't give you what you need.
+The InnerTube API isn't officially documented, so there's always a chance something changes. In practice, it's been stable for months and is the same approach used by widely adopted open source projects. If the client version or endpoint format changes, the fix is usually updating a version string or adjusting a URL. The Ruby Events project deals with the same maintenance burden for their conference video transcripts, so there's a community keeping an eye on it.

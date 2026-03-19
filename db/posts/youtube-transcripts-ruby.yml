@@ -1,19 +1,17 @@
-title: "Scraping YouTube Transcripts in Ruby"
+title: "Fetching YouTube Transcripts in Ruby"
 published_at: 2026-03-19 12:00:00
-description: "YouTube's API doesn't expose captions for videos you don't own. After dead ends with protobuf encoding and IP-locked watch page URLs, I found a reliable approach using YouTube's InnerTube API with an Android client identity. Here's the full implementation in Ruby with no external dependencies."
+description: "I needed captions from thousands of public YouTube videos for a knowledge base. The official API doesn't cover this use case, but YouTube's InnerTube player API does. Here's the full Ruby implementation using the same approach as youtube-transcript-api and Ruby Events, with no external dependencies."
 linkedin_body: |
-  Needed transcripts from 6,000+ YouTube videos for a knowledge base. YouTube's Data API doesn't expose captions for videos you don't own, so I had to find another way.
+  Needed captions from 6,000+ public YouTube videos for a knowledge base. YouTube's official Captions API is scoped to videos you own, so I needed the same approach that projects like youtube-transcript-api and Ruby Events use: YouTube's InnerTube player API.
 
-  Tried protobuf encoding first (YouTube changed the schema and every implementation broke). Then tried scraping caption URLs from the watch page (they're IP-locked, most requests 403). Finally found the trick: YouTube's InnerTube player API with an Android client identity returns stable caption URLs that work from any IP.
+  Getting there wasn't straightforward. Old protobuf-based approaches broke when YouTube changed their schema. Watch page caption URLs turned out to be session-bound. The InnerTube API with an Android client context returns stable URLs and has been reliable across the whole dataset.
 
-  The whole client is pure Ruby stdlib. No gems, no API keys from Google, no OAuth. Just net/http, json, and rexml parsing YouTube's srv3 XML format.
-
-  Wrote up the dead ends and the working approach with the full implementation.
+  Wrote up the journey and the full Ruby implementation. Pure stdlib, no gems needed.
 
   https://hencf.org/blog/youtube-transcripts-ruby
 x_body: |
-  YouTube caption URLs from the watch page are IP-locked. Extract the URL, try to fetch it from the same server a second later, 403. Found out after trying to batch-process 6,000 videos.
+  Needed captions from 6,000 public YouTube videos. The official API only covers videos you own. Same problem the youtube-transcript-api and Ruby Events projects solved. Wrote up the Ruby implementation.
   ---
-  The trick is YouTube's InnerTube API with an Android client identity. clientName: "ANDROID" → stable caption URLs that aren't IP-locked. Pure Ruby stdlib, no Google API key needed. Third post in the Guia series.
+  YouTube's InnerTube player API with the Android client context returns stable caption URLs. Pure Ruby stdlib, no gems. Third post in the Guia series, covering how the transcript data got into the database.
 
   https://hencf.org/blog/youtube-transcripts-ruby
