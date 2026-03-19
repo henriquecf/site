@@ -1,5 +1,5 @@
 title: "Scraping YouTube Transcripts in Ruby"
-published_at: 2026-03-18 12:00:00
+published_at: 2026-03-19 12:00:00
 description: "YouTube's API doesn't expose captions for videos you don't own. After dead ends with protobuf encoding and IP-locked watch page URLs, I found a reliable approach using YouTube's InnerTube API with an Android client identity. Here's the full implementation in Ruby with no external dependencies."
 linkedin_body: |
   Needed transcripts from 6,000+ YouTube videos for a knowledge base. YouTube's Data API doesn't expose captions for videos you don't own, so I had to find another way.
