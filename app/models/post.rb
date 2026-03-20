@@ -27,14 +27,6 @@ class Post < ApplicationRecord
     markdown.render(body).html_safe
   end
 
-  def x_first_tweet
-    x_body&.split("---")&.first&.strip
-  end
-
-  def x_second_tweet
-    x_body&.split("---")&.second&.strip
-  end
-
   def description_or_fallback
     description.presence || ActionController::Base.helpers.strip_tags(body_html).truncate(160)
   end

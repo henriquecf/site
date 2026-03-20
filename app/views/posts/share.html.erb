@@ -27,18 +27,10 @@
       <% if @post.x_body.present? %>
         <div class="share-card" data-controller="clipboard">
           <div class="share-card-header">
-            <h2 class="share-card-platform">X — Tweet 1</h2>
+            <h2 class="share-card-platform">X</h2>
             <button class="share-btn" data-clipboard-target="button" data-action="click->clipboard#copy">Copy</button>
           </div>
-          <div class="share-card-body" data-clipboard-target="source"><%= @post.x_first_tweet %></div>
-        </div>
-
-        <div class="share-card" data-controller="clipboard">
-          <div class="share-card-header">
-            <h2 class="share-card-platform">X — Tweet 2 (reply)</h2>
-            <button class="share-btn" data-clipboard-target="button" data-action="click->clipboard#copy">Copy</button>
-          </div>
-          <div class="share-card-body" data-clipboard-target="source"><%= @post.x_second_tweet %></div>
+          <div class="share-card-body" data-clipboard-target="source"><%= @post.x_body %></div>
         </div>
       <% end %>
 

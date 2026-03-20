@@ -1,0 +1,13 @@
+title: "RSpec to Minitest: Migrating a Large Rails App in 5 Days"
+published_at: 2026-03-20 12:00:00
+description: "After eight years on RSpec with FactoryBot, I migrated BSPK's entire test suite to Minitest with fixtures. Seventeen phases, five days, and a 5x speedup in CI. Here's the full story."
+linkedin_body: |
+  Eight years of RSpec on a large Rails codebase. Hundreds of spec files. FactoryBot with enough traits and sequences to qualify as its own DSL. It all worked, but every time I opened a test, I was reading the framework instead of reading the behavior.
+
+  After finishing our Ruby 4 upgrade, I migrated the whole thing to Minitest and fixtures. Seventeen phases over five days, both frameworks in CI simultaneously. Suite went from ~400s to 82s. Flaky tests nearly vanished. And an unexpected bonus: Claude Code writes correct Minitest on the first try way more often than it ever did with RSpec. No DSL to hallucinate.
+
+  Wrote up the full story.
+
+  https://hencf.org/blog/rspec-to-minitest-migration
+x_body: |
+  Migrated a large Rails app from RSpec to Minitest in 5 days. 5x faster CI, flaky tests gone, and Claude Code writes correct tests on the first try now. No DSL to hallucinate. https://hencf.org/blog/rspec-to-minitest-migration
