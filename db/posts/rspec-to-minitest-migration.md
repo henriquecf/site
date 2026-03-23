@@ -92,7 +92,7 @@ After: the suite runs in under 90 seconds on twelve parallel workers. Thirty YAM
 
 This post covers the full arc, but there's a lot more to dig into. Over the next couple of weeks I'll write about:
 
-**Fixture design for real applications.** How to structure YAML fixtures for a multi-tenant codebase with complex associations, and why most fixture setups fail.
+**[Fixture design for real applications.](/blog/fixtures-for-real-rails-apps)** How to structure YAML fixtures for a multi-tenant codebase with complex associations, and why most fixture setups fail.
 
 **Parallel test isolation with Elasticsearch.** The specific challenges of running search-heavy tests across multiple workers, and the `safe_reindex` pattern that made it reliable.
 

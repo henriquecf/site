@@ -1,0 +1,13 @@
+title: "Designing Fixtures for Real Rails Apps"
+published_at: 2026-03-23 11:36:00
+description: "Fixtures have a bad reputation because most fixture setups are terrible. Here's how I designed YAML fixtures for a multi-tenant Rails app with complex associations, and why the result is faster, simpler, and more reliable than FactoryBot."
+linkedin_body: |
+  Fixtures have a bad reputation, and I get it. Auto-generated YAML with records named :one and :two, no coherent relationships, touching anything breaks something somewhere. Of course people reached for FactoryBot.
+
+  But the problem was never fixtures. It was how they were designed. For our Minitest migration at BSPK, I exported a curated subset from real dev data, gave every record a meaningful name, built a three-company structure for multi-tenant isolation, and kept inline factory helpers for the cases where fixtures genuinely don't fit.
+
+  Second post in the RSpec-to-Minitest series. Full walkthrough of the fixture design.
+
+  https://hencf.org/blog/fixtures-for-real-rails-apps
+x_body: |
+  Fixtures don't suck. Careless fixture design sucks. Wrote about how we structured YAML fixtures for a large multi-tenant Rails app, and when to still reach for factory-style creation. https://hencf.org/blog/fixtures-for-real-rails-apps
