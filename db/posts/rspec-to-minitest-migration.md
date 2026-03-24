@@ -94,6 +94,6 @@ This post covers the full arc, but there's a lot more to dig into. Over the next
 
 **[Fixture design for real applications.](/blog/fixtures-for-real-rails-apps)** How to structure YAML fixtures for a multi-tenant codebase with complex associations, and why most fixture setups fail.
 
-**Parallel test isolation with Elasticsearch.** The specific challenges of running search-heavy tests across multiple workers, and the `safe_reindex` pattern that made it reliable.
+**[Parallel test isolation with Elasticsearch.](/blog/parallel-testing-elasticsearch-rails)** The specific challenges of running search-heavy tests across multiple workers, and the `safe_reindex` pattern that made it reliable.
 
 If you're thinking about making this switch, the short version is: it's less scary than it looks, and the payoff is real. The five days of migration work have already paid for themselves in faster CI, simpler debugging, and tests that are genuinely easier to read and write.

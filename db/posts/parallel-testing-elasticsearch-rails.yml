@@ -1,0 +1,13 @@
+title: "Parallel Testing with Elasticsearch in Rails"
+published_at: 2026-03-24 17:13:00
+description: "Twelve parallel test workers, one shared Elasticsearch cluster. Per-worker index prefixes, a clean-room fixture company, safe_reindex without deletes, and the parallelize(workers: 1) trap that cost me three days."
+linkedin_body: |
+  Turning on parallel testing gave us a 5x speedup, then every Elasticsearch test broke. Twelve workers sharing the same ES cluster, indexing into the same indexes, reading each other's data. Classic race condition, different failures every run.
+
+  Fixing it required per-worker index prefixes, globally disabled Searchkick callbacks, a clean-room fixture company with zero records, and a safe_reindex pattern that avoids the 404 race from explicit index deletes. Also found out the hard way that a single parallelize(workers: 1) anywhere causes Rails to run the entire suite serially.
+
+  Third and final post in the RSpec-to-Minitest series. Full details on the ES parallel isolation.
+
+  https://hencf.org/blog/parallel-testing-elasticsearch-rails
+x_body: |
+  Parallel tests + Elasticsearch = race conditions everywhere. Per-worker index prefixes, clean-room fixtures, and a safe_reindex that doesn't 404. Wrote up the full playbook. https://hencf.org/blog/parallel-testing-elasticsearch-rails

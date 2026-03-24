@@ -203,4 +203,4 @@ And I'd start with the three-company structure immediately. The single-tenant se
 
 The core approach, though, I wouldn't change. Export real data, name everything meaningfully, let Rails resolve foreign keys, and use inline creation only when fixtures genuinely don't fit. Fixtures aren't the problem. Careless fixture design is.
 
-Next up: parallel test isolation with Elasticsearch, and why running search tests across twelve workers is harder than it sounds.
+Next up: [parallel test isolation with Elasticsearch](/blog/parallel-testing-elasticsearch-rails), and why running search tests across twelve workers is harder than it sounds.
