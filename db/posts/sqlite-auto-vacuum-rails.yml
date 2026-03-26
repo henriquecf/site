@@ -1,0 +1,16 @@
+title: "SQLite in Production: The Disk Space Trap"
+published_at: 2026-03-26 17:12:00
+description: "SQLite's default auto_vacuum is OFF. Delete a million rows and your database file stays the same size. If you're running Solid Cache, Solid Queue, or any other churn-heavy table on SQLite in production, your disk is filling up and you probably don't know it."
+content_modified_at: null
+linkedin_body: |
+  Noticed a 6.9 GB database file on one of my Rails apps. Checked the actual data: 37 MB. The other 6.85 GB was empty pages SQLite was holding onto because nobody told it to give them back.
+
+  SQLite's auto_vacuum is OFF by default. Delete rows, drop tables, clean up old jobs — the file never shrinks. If you're running Solid Cache or Solid Queue on SQLite, this is happening to you right now.
+
+  Wrote up the fix and why INCREMENTAL is the right mode for Rails.
+
+  https://hencf.org/blog/sqlite-auto-vacuum-rails
+x_body: |
+  SQLite doesn't shrink when you delete data. My 37 MB database was taking 6.9 GB on disk. auto_vacuum is OFF by default and nobody warns you. Here's the fix for Rails.
+
+  https://hencf.org/blog/sqlite-auto-vacuum-rails
