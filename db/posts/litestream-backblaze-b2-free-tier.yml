@@ -1,0 +1,16 @@
+title: "Litestream and Backblaze B2's Free Tier"
+published_at: 2026-03-27 12:00:00
+description: "Litestream's default configuration generates thousands of API calls per day that silently exceed Backblaze B2's free tier. Once you hit the cap, B2 returns 403 errors, and Litestream retries without backoff, creating a spiral that stops your backups entirely. Here's how to configure it properly."
+content_modified_at: null
+linkedin_body: |
+  Set up Litestream to back up my SQLite database to Backblaze B2. Followed the standard tutorial, everything worked. Two days later, backups silently stopped.
+
+  B2's free tier caps Class C transactions (ListObjectsV2) at 2,500/day. Litestream's default config generates over 5,000 just from retention checks, before you count compaction monitors or sync operations. When you hit the cap, B2 returns 403. Litestream has no backoff on 403. So it retries immediately, burning through whatever headroom you had left.
+
+  Took three rounds of debugging to find all the hidden transaction sources. Wrote up the full config that actually stays within the free tier.
+
+  https://hencf.org/blog/litestream-backblaze-b2-free-tier
+x_body: |
+  Litestream's default config silently blows past Backblaze B2's free tier, then the 403 retries make it worse. Took me three rounds of fixes to find all the hidden API call sources.
+
+  https://hencf.org/blog/litestream-backblaze-b2-free-tier
