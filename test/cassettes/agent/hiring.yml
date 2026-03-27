@@ -66,17 +66,17 @@ http_interactions:
         longest-running Ruby conference in Viana do Castelo, Portugal. [2025.euruko.org](https://2025.euruko.org)\n-
         **hencf.org** — Open source personal website built with Rails 8.1, featuring
         an AI chat agent powered by RubyLLM and Groq. [github.com/henriquecf/site](https://github.com/henriquecf/site)\n-
-        **Open Source** — Contributor to Phoenix, Ecto, Guardian, and other Elixir/Ruby
-        ecosystem projects. 40+ public repos on GitHub.\n\n## HC Digital Services
-        LLC\n\nRails & AI consulting. Helping companies build and improve software
-        — from Rails applications to AI integrations. Services include:\n\n- **AI
-        Integration:** Agentic systems, natural language search, structured LLM outputs,
-        RAG pipelines\n- **Rails Development:** Full-stack Rails — new features, API
-        design, performance, upgrades, refactoring\n- **System Architecture:** Data
-        pipelines, Elasticsearch, background processing, real-time systems, third-party
-        API integrations\n\n## Education\n\nUniversidade Federal de Goiás — Software
-        Engineering, Web Development (2012 – 2018)\n\n## Contact\n\n- Email: elo.henrique@gmail.com\n-
-        GitHub: [henriquecf](https://github.com/henriquecf)\n- LinkedIn: [henriquecardosodefaria](https://www.linkedin.com/in/henriquecardosodefaria)\n\n---\n\n##
+        **Open Source** — Contributor to ja_serializer, ruby-conferences.github.io,
+        euruko.org, and other community projects.\n\n## HC Digital Services LLC\n\nRails
+        & AI consulting. Helping companies build and improve software — from Rails
+        applications to AI integrations. Services include:\n\n- **AI Integration:**
+        Agentic systems, natural language search, structured LLM outputs, RAG pipelines\n-
+        **Rails Development:** Full-stack Rails — new features, API design, performance,
+        upgrades, refactoring\n- **System Architecture:** Data pipelines, Elasticsearch,
+        background processing, real-time systems, third-party API integrations\n\n##
+        Education\n\nUniversidade Federal de Goiás — Software Engineering, Web Development
+        (2012 – 2018)\n\n## Contact\n\n- Email: elo.henrique@gmail.com\n- GitHub:
+        [henriquecf](https://github.com/henriquecf)\n- LinkedIn: [henriquecardosodefaria](https://www.linkedin.com/in/henriquecardosodefaria)\n\n---\n\n##
         Tools\nYou have tools available to search blog posts and site content. Use
         them when:\n- A visitor asks about a specific blog post or topic Henrique
         has written about\n- You need more detail than what''s in the knowledge base
@@ -113,7 +113,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 24 Feb 2026 00:59:14 GMT
+      - Fri, 27 Mar 2026 13:36:06 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -135,30 +135,30 @@ http_interactions:
       X-Ratelimit-Remaining-Requests:
       - '499999'
       X-Ratelimit-Remaining-Tokens:
-      - '248308'
+      - '248090'
       X-Ratelimit-Reset-Requests:
       - 172ms
       X-Ratelimit-Reset-Tokens:
-      - 406ms
+      - 458ms
       X-Request-Id:
-      - req_01kj6jgk0semz98db2gn47gzbr
-      Set-Cookie:
-      - __cf_bm=eLm56k.iNYDahzd.KXI_0._vJO0umoRp2SfZpIQl_W8-1771894754.309374-1.0.1.1-lX00FjJUtJnUSbEuPI3V_eQ1CjuzquXsyjk2na_tyChyJVMEKb9jtLqYSETnbop7j4BownqI5u2uCCKHFUdLWtg5GlRPiA5MGoduHoN_oZQnauXCSrQfIOLFvxzZIiid;
-        HttpOnly; Secure; Path=/; Domain=groq.com; Expires=Tue, 24 Feb 2026 01:29:14
-        GMT
+      - req_01kmqr4qb7eb5vhgs3aaq2kycf
       Via:
       - 1.1 google
-      Strict-Transport-Security:
-      - max-age=15552000
       Cf-Cache-Status:
       - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=yzuHKxMzDooj1u_ObXI_s_TlF6WI.D.oWyUOt8G6keo-1774618565.966091-1.0.1.1-4IP80Qe7nNDXaLDnygcS.djp_rk2XdS4AE8ZwDr7v4YR8mXEr35Q70QamnFYVdEZVjWSudB3NPpEYuf9Kr6S6.XK8ztD1WSXlvwioQkJlX64N6iJVmaJP9lB3tnv4W_T;
+        HttpOnly; Secure; Path=/; Domain=groq.com; Expires=Fri, 27 Mar 2026 14:06:06
+        GMT
+      Strict-Transport-Security:
+      - max-age=15552000
       Cf-Ray:
-      - 9d2b04e66dd4cc6d-MAD
+      - 9e2ec83549c9c283-MAD
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eyJpZCI6ImNoYXRjbXBsLWVhODdhMWFlLWY5MTktNDIxNS04YjYyLTYxZjc3MzdmMWYyMiIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbiIsImNyZWF0ZWQiOjE3NzE4OTQ3NTQsIm1vZGVsIjoib3BlbmFpL2dwdC1vc3MtMTIwYiIsImNob2ljZXMiOlt7ImluZGV4IjowLCJtZXNzYWdlIjp7InJvbGUiOiJhc3Npc3RhbnQiLCJjb250ZW50IjoiWW91IGNhbiByZWFjaCBIZW5yaXF1ZSBkaXJlY3RseSB2aWEgZW1haWw6XG5cbioq8J+TpyBlbG8uaGVucmlxdWVAZ21haWwuY29tKipcblxuTWVudGlvbiB0aGF0IHlvdeKAmXJlIGludGVyZXN0ZWQgaW4gYSAqKlJhaWxzIHByb2plY3QqKiAob3IgQUkgaW50ZWdyYXRpb24sIGlmIHJlbGV2YW50KSBhbmQgaGXigJlsbCBnZXQgYmFjayB0byB5b3UgdG8gZGlzY3VzcyBzY29wZSwgdGltZWxpbmUsIGFuZCByYXRlcy4iLCJyZWFzb25pbmciOiJXZSBuZWVkIHRvIHJlc3BvbmQgd2l0aCBjb250YWN0IGluZm86IGVtYWlsIGVsby5oZW5yaXF1ZUBnbWFpbC5jb20uIEFsc28gbWVudGlvbiBIQyBEaWdpdGFsIFNlcnZpY2VzIExMQywgc2VydmljZXMuIEVuY291cmFnZSBlbWFpbC4gS2VlcCBjb25jaXNlLiJ9LCJsb2dwcm9icyI6bnVsbCwiZmluaXNoX3JlYXNvbiI6InN0b3AifV0sInVzYWdlIjp7InF1ZXVlX3RpbWUiOjAuMDE3MzU3MDY5LCJwcm9tcHRfdG9rZW5zIjoxNjkxLCJwcm9tcHRfdGltZSI6MC4wOTc4OTU0MzcsImNvbXBsZXRpb25fdG9rZW5zIjo5NCwiY29tcGxldGlvbl90aW1lIjowLjE5NDM1MDM0NywidG90YWxfdG9rZW5zIjoxNzg1LCJ0b3RhbF90aW1lIjowLjI5MjI0NTc4NCwiY29tcGxldGlvbl90b2tlbnNfZGV0YWlscyI6eyJyZWFzb25pbmdfdG9rZW5zIjozMn19LCJ1c2FnZV9icmVha2Rvd24iOm51bGwsInN5c3RlbV9maW5nZXJwcmludCI6ImZwX2M4MDAyNDUzNTciLCJ4X2dyb3EiOnsiaWQiOiJyZXFfMDFrajZqZ2swc2Vtejk4ZGIyZ240N2d6YnIiLCJzZWVkIjo0MDEyODMwMTB9LCJzZXJ2aWNlX3RpZXIiOiJvbl9kZW1hbmQifQo=
-  recorded_at: Tue, 24 Feb 2026 00:59:14 GMT
+        eyJpZCI6ImNoYXRjbXBsLWI2NWYxMjM2LTViYzctNDE0MS05NmI0LWE3OGJhNjQ4Yjk5YyIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbiIsImNyZWF0ZWQiOjE3NzQ2MTg1NjYsIm1vZGVsIjoib3BlbmFpL2dwdC1vc3MtMTIwYiIsImNob2ljZXMiOlt7ImluZGV4IjowLCJtZXNzYWdlIjp7InJvbGUiOiJhc3Npc3RhbnQiLCJjb250ZW50IjoiU3VyZSEgWW91IGNhbiByZWFjaCBIZW5yaXF1ZSBkaXJlY3RseSBhdCAqKmVsby5oZW5yaXF1ZUBnbWFpbC5jb20qKi4gTWVudGlvbiB0aGF0IHlvdeKAmXJlIGludGVyZXN0ZWQgaW4gYSBSYWlscyBwcm9qZWN0LCBhbmQgaGXigJlsbCBnZXQgYmFjayB0byB5b3UgdG8gZGlzY3VzcyByZXF1aXJlbWVudHMsIHNjb3BlLCBhbmQgbmV4dCBzdGVwcy4iLCJyZWFzb25pbmciOiJVc2VyIHdhbnRzIHRvIGhpcmUgSGVucmlxdWUgZm9yIGEgUmFpbHMgcHJvamVjdC4gQWNjb3JkaW5nIHRvIGd1aWRlbGluZXMsIGRpcmVjdCB0aGVtIHRvIGVtYWlsOiBlbG8uaGVucmlxdWVAZ21haWwuY29tLiBQcm92aWRlIGJyaWVmIGluZm8gYWJvdXQgc2VydmljZXMuIn0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjoic3RvcCJ9XSwidXNhZ2UiOnsicXVldWVfdGltZSI6MC4wMTg3ODYwMjYsInByb21wdF90b2tlbnMiOjE2ODQsInByb21wdF90aW1lIjowLjA2OTEwOTM2MSwiY29tcGxldGlvbl90b2tlbnMiOjg2LCJjb21wbGV0aW9uX3RpbWUiOjAuMjYzODY2NzI2LCJ0b3RhbF90b2tlbnMiOjE3NzAsInRvdGFsX3RpbWUiOjAuMzMyOTc2MDg3LCJjb21wbGV0aW9uX3Rva2Vuc19kZXRhaWxzIjp7InJlYXNvbmluZ190b2tlbnMiOjMzfX0sInVzYWdlX2JyZWFrZG93biI6bnVsbCwic3lzdGVtX2ZpbmdlcnByaW50IjoiZnBfOGY2ZTc1MDE5YSIsInhfZ3JvcSI6eyJpZCI6InJlcV8wMWttcXI0cWI3ZWI1dmhnczNhYXEya3ljZiIsInNlZWQiOjI4MDU1NDI2MX0sInNlcnZpY2VfdGllciI6Im9uX2RlbWFuZCJ9Cg==
+  recorded_at: Fri, 27 Mar 2026 13:36:06 GMT
 recorded_with: VCR 6.4.0

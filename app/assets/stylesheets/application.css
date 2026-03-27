@@ -210,6 +210,23 @@ h4 {
   padding-bottom: 4rem;
 }
 
+.hero-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.hero-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 3px solid var(--color-border);
+}
+
 .hero-greeting {
   font-size: 1.125rem;
   color: var(--color-accent);
@@ -228,7 +245,7 @@ h4 {
 .hero-tagline {
   font-size: 1.125rem;
   color: var(--color-text-light);
-  margin-bottom: 2rem;
+  margin-bottom: 0;
 }
 
 .hero-intro {
@@ -266,72 +283,16 @@ h4 {
 }
 
 
-/* ─── Experience ─── */
+/* ─── What I'm Building ─── */
 
-.role {
-  margin-bottom: 2.5rem;
-  padding-bottom: 2.5rem;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.role:last-of-type {
-  border-bottom: none;
-  margin-bottom: 2rem;
-}
-
-.role-featured {
-  margin-bottom: 3rem;
-  padding-bottom: 3rem;
-}
-
-.role-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
-  margin-bottom: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.role-company {
-  font-family: var(--font-heading);
-  font-size: 1.375rem;
-  font-weight: 700;
-  margin-bottom: 0.125rem;
-}
-
-.role-title {
-  font-weight: 500;
-  color: var(--color-text-light);
-  font-size: 0.95rem;
-}
-
-.role-meta {
-  font-size: 0.875rem;
-  color: var(--color-text-light);
-  white-space: nowrap;
-}
-
-.role-note {
-  font-weight: 400;
-  color: var(--color-text-light);
-  font-size: 1rem;
-}
-
-.role-description {
+.current-work p {
   margin-bottom: 1rem;
 }
 
-.role-stack {
-  font-size: 0.85rem;
+.work-context {
+  margin-top: 2rem;
   color: var(--color-text-light);
-  margin-top: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--color-border);
 }
-
-
-/* ─── Highlight Cards (BSPK) ─── */
 
 .highlights {
   display: grid;
@@ -364,17 +325,56 @@ h4 {
 }
 
 
-/* ─── Education ─── */
+/* ─── Writing ─── */
 
-.education {
-  margin-top: 1rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--color-border);
+.writing-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.writing-item {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 0.875rem 0;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+  transition: color 0.2s ease;
+}
+
+.writing-item:first-child {
+  padding-top: 0;
+}
+
+.writing-item:last-child {
+  border-bottom: none;
+}
+
+.writing-item:hover {
+  color: var(--color-accent);
+}
+
+.writing-date {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  white-space: nowrap;
+  min-width: 5rem;
+}
+
+.writing-title {
+  font-weight: 500;
+}
+
+.writing-more {
+  display: inline-block;
+  margin-top: 1.25rem;
+  font-weight: 500;
   font-size: 0.95rem;
 }
 
 
-/* ─── Community & Projects ─── */
+/* ─── Projects ─── */
 
 .project {
   margin-bottom: 1.5rem;
@@ -400,7 +400,7 @@ h4 {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
 
@@ -902,13 +902,14 @@ h4 {
     border-bottom: none;
   }
 
-  .role-header {
-    flex-direction: column;
-    gap: 0.25rem;
+  .hero-top {
+    flex-direction: column-reverse;
+    text-align: center;
   }
 
-  .role-meta {
-    white-space: normal;
+  .hero-photo {
+    width: 120px;
+    height: 120px;
   }
 
   .highlights {
@@ -917,6 +918,15 @@ h4 {
 
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+
+  .writing-item {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .writing-date {
+    min-width: auto;
   }
 
   .services-grid {

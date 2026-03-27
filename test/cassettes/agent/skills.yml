@@ -66,17 +66,17 @@ http_interactions:
         longest-running Ruby conference in Viana do Castelo, Portugal. [2025.euruko.org](https://2025.euruko.org)\n-
         **hencf.org** — Open source personal website built with Rails 8.1, featuring
         an AI chat agent powered by RubyLLM and Groq. [github.com/henriquecf/site](https://github.com/henriquecf/site)\n-
-        **Open Source** — Contributor to Phoenix, Ecto, Guardian, and other Elixir/Ruby
-        ecosystem projects. 40+ public repos on GitHub.\n\n## HC Digital Services
-        LLC\n\nRails & AI consulting. Helping companies build and improve software
-        — from Rails applications to AI integrations. Services include:\n\n- **AI
-        Integration:** Agentic systems, natural language search, structured LLM outputs,
-        RAG pipelines\n- **Rails Development:** Full-stack Rails — new features, API
-        design, performance, upgrades, refactoring\n- **System Architecture:** Data
-        pipelines, Elasticsearch, background processing, real-time systems, third-party
-        API integrations\n\n## Education\n\nUniversidade Federal de Goiás — Software
-        Engineering, Web Development (2012 – 2018)\n\n## Contact\n\n- Email: elo.henrique@gmail.com\n-
-        GitHub: [henriquecf](https://github.com/henriquecf)\n- LinkedIn: [henriquecardosodefaria](https://www.linkedin.com/in/henriquecardosodefaria)\n\n---\n\n##
+        **Open Source** — Contributor to ja_serializer, ruby-conferences.github.io,
+        euruko.org, and other community projects.\n\n## HC Digital Services LLC\n\nRails
+        & AI consulting. Helping companies build and improve software — from Rails
+        applications to AI integrations. Services include:\n\n- **AI Integration:**
+        Agentic systems, natural language search, structured LLM outputs, RAG pipelines\n-
+        **Rails Development:** Full-stack Rails — new features, API design, performance,
+        upgrades, refactoring\n- **System Architecture:** Data pipelines, Elasticsearch,
+        background processing, real-time systems, third-party API integrations\n\n##
+        Education\n\nUniversidade Federal de Goiás — Software Engineering, Web Development
+        (2012 – 2018)\n\n## Contact\n\n- Email: elo.henrique@gmail.com\n- GitHub:
+        [henriquecf](https://github.com/henriquecf)\n- LinkedIn: [henriquecardosodefaria](https://www.linkedin.com/in/henriquecardosodefaria)\n\n---\n\n##
         Tools\nYou have tools available to search blog posts and site content. Use
         them when:\n- A visitor asks about a specific blog post or topic Henrique
         has written about\n- You need more detail than what''s in the knowledge base
@@ -113,7 +113,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 24 Feb 2026 00:59:17 GMT
+      - Fri, 27 Mar 2026 13:36:02 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -135,30 +135,30 @@ http_interactions:
       X-Ratelimit-Remaining-Requests:
       - '499999'
       X-Ratelimit-Remaining-Tokens:
-      - '248315'
+      - '248322'
       X-Ratelimit-Reset-Requests:
       - 172ms
       X-Ratelimit-Reset-Tokens:
-      - 404ms
+      - 402ms
       X-Request-Id:
-      - req_01kj6jgnaje5wsyxr8dkawz491
+      - req_01kmqr4k1seab832vze7cg2f73
       Via:
       - 1.1 google
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=cNTibBr6XNUUBt1rTJ97fr6lukvDiCrRiqBF_9WpNmY-1771894756.6721075-1.0.1.1-qTqoHQhar60N_Yl1vizvoV.6.ZZ2YecWUA8vLj0_UbkWMyu688VCI11rMcQCORdej7KZMg7Rb5GCdfyBi9tiTRfwMLIcaY02T_Xyb.CwIu7slu9FdqugT3NoSy1lQBSV;
-        HttpOnly; Secure; Path=/; Domain=groq.com; Expires=Tue, 24 Feb 2026 01:29:17
+      - __cf_bm=ZLc8xoca7r0cVE37fHIfX9HOSrcrJvuUv9t7ul59qZo-1774618561.5699754-1.0.1.1-qeRwzXJSv7BWDbtF1TINYAQ0bGCSHPOAEwrmOCo_e5HXsBt334V37hJp9oxWJsPJxHzyCCJh6B9aI1MwBbUyvRW2z43uKD9o0CNppzXpJ41bAlAK9gAZ4dB4bcKViwZy;
+        HttpOnly; Secure; Path=/; Domain=groq.com; Expires=Fri, 27 Mar 2026 14:06:02
         GMT
       Strict-Transport-Security:
       - max-age=15552000
       Cf-Ray:
-      - 9d2b04f53821038d-MAD
+      - 9e2ec819ce66f778-MAD
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eyJpZCI6ImNoYXRjbXBsLTc5OGYxMjJlLTdlN2QtNGU3YS04NjRlLTFjM2M4ZWZhNzliMiIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbiIsImNyZWF0ZWQiOjE3NzE4OTQ3NTcsIm1vZGVsIjoib3BlbmFpL2dwdC1vc3MtMTIwYiIsImNob2ljZXMiOlt7ImluZGV4IjowLCJtZXNzYWdlIjp7InJvbGUiOiJhc3Npc3RhbnQiLCJjb250ZW50IjoiKipQcm9ncmFtbWluZyBMYW5ndWFnZXMqKlxuXG4tICoqUnVieSoqIOKAkyBwcmltYXJ5IGxhbmd1YWdlIGZvciBtb3N0IG9mIGhpcyBiYWNrZW5kIHdvcmsuICBcbi0gKipFbGl4aXIqKiDigJMgdXNlZCBleHRlbnNpdmVseSBmb3IgcmVhbOKAkXRpbWUgYW5kIElvVCBzeXN0ZW1zIChQaG9lbml4KS4gIFxuLSAqKlB5dGhvbioqIOKAkyBtYWlubHkgd2l0aCBEamFuZ28gZm9yIEFJ4oCRcmVsYXRlZCBwcm90b3R5cGVzLiAgXG4tICoqSmF2YVNjcmlwdCAvIFR5cGVTY3JpcHQqKiDigJMgZm9yIGZyb2504oCRZW5kIGRldmVsb3BtZW50LiAgXG4tICoqU1FMIC8gTm9TUUwqKiDigJMgUG9zdGdyZVNRTCwgU1FMaXRlLCBNb25nb0RCLCBGaXJlc3RvcmUgKG5vdCBmdWxsIGxhbmd1YWdlcyBidXQgZGF0YSBzdG9yZXMgaGUgd29ya3Mgd2l0aCkuICBcbi0gKipPdGhlcioqIOKAkyBDb21mb3J0YWJsZSBpbiBQb3J0dWd1ZXNlIChuYXRpdmUpIGFuZCBFbmdsaXNoIChmbHVlbnQpLlxuXG4qKkZyYW1ld29ya3MgXHUwMDI2IExpYnJhcmllcyoqXG5cbnwgQ2F0ZWdvcnkgfCBGcmFtZXdvcmtzIC8gTGlicmFyaWVzIHxcbnwtLS0tLS0tLS0tfC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLXxcbnwgKipCYWNrZW5kKiogfCBSdWJ5IG9uIFJhaWxzLCBQaG9lbml4IChFbGl4aXIpLCBEamFuZ28gKFB5dGhvbikgfFxufCAqKkFJIC8gTExNKiogfCBSdWJ5TExNLCBPcGVuQUkgQVBJLCBHcm9xLCBhZ2VudGljL1JBRyBwaXBlbGluZXMgfFxufCAqKkZyb250ZW5kKiogfCBIb3R3aXJlIChUdXJib+KAryvigK9TdGltdWx1cyksIFZ1ZS5qcywgUmVhY3QsIEFuZ3VsYXIgfFxufCAqKkRhdGFiYXNlcyBcdTAwMjYgU2VhcmNoKiogfCBQb3N0Z3JlU1FMLCBFbGFzdGljc2VhcmNoLCBSZWRpcywgTW9uZ29EQiwgRmlyZXN0b3JlIHxcbnwgKipJbmZyYXN0cnVjdHVyZSoqIHwgQVdTIChTMywgTGFtYmRhKSwgRG9ja2VyLCBLYW1hbCwgU2lkZWtpcSwgUmFiYml0TVEsIE1RVFQgfFxufCAqKk90aGVyKiogfCBUYWlsd2luZCBDU1MgKHN0eWxpbmcpLCBTaWRla2lxIChiYWNrZ3JvdW5kIGpvYnMpIHxcblxuSW4gc2hvcnQsIEhlbnJpcXVl4oCZcyBzdGFjayBjZW50ZXJzIG9uICoqUnVieSBvbiBSYWlscyoqIGFuZCAqKkVsaXhpci9QaG9lbml4KiogZm9yIHNlcnZlcuKAkXNpZGUgd29yaywgd2l0aCBzdHJvbmcgY29tcGV0ZW5jZSBpbiAqKlB5dGhvbi9EamFuZ28qKiBhbmQgbW9kZXJuIEphdmFTY3JpcHQgZnJvbnTigJFlbmRzLCBwbHVzIGV4dGVuc2l2ZSBleHBlcmllbmNlIGludGVncmF0aW5nIEFJL0xMTSBjYXBhYmlsaXRpZXMuIiwicmVhc29uaW5nIjoiVGhlIHVzZXIgYXNrczogXCJXaGF0IHByb2dyYW1taW5nIGxhbmd1YWdlcyBhbmQgZnJhbWV3b3JrcyBkb2VzIEhlbnJpcXVlIHdvcmsgd2l0aD9cIiBXZSBuZWVkIHRvIGFuc3dlciBiYXNlZCBvbiBrbm93bGVkZ2UgYmFzZS4gUHJvdmlkZSBwcm9ncmFtbWluZyBsYW5ndWFnZXMgKFJ1YnksIEVsaXhpciwgUHl0aG9uLCBldGMuKSBhbmQgZnJhbWV3b3JrcyAoUmFpbHMsIFBob2VuaXgsIERqYW5nbywgVnVlLCBSZWFjdCwgQW5ndWxhciwgZXRjLikuIFVzZSBtYXJrZG93bi4gQWxzbyBtZW50aW9uIG90aGVyIGxhbmd1YWdlcyBsaWtlIFBvcnR1Z3Vlc2UgYW5kIEVuZ2xpc2g/IFByb2JhYmx5IG5vdCBuZWVkZWQuIFByb3ZpZGUgY29uY2lzZSBhbnN3ZXIuIn0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjoic3RvcCJ9XSwidXNhZ2UiOnsicXVldWVfdGltZSI6MC4wMTgwMzY1NTQsInByb21wdF90b2tlbnMiOjE2ODQsInByb21wdF90aW1lIjowLjAxNzM5NTI0MSwiY29tcGxldGlvbl90b2tlbnMiOjQwOCwiY29tcGxldGlvbl90aW1lIjowLjg0NjYxNzgwMywidG90YWxfdG9rZW5zIjoyMDkyLCJ0b3RhbF90aW1lIjowLjg2NDAxMzA0NCwicHJvbXB0X3Rva2Vuc19kZXRhaWxzIjp7ImNhY2hlZF90b2tlbnMiOjE1MzZ9LCJjb21wbGV0aW9uX3Rva2Vuc19kZXRhaWxzIjp7InJlYXNvbmluZ190b2tlbnMiOjc1fX0sInVzYWdlX2JyZWFrZG93biI6bnVsbCwic3lzdGVtX2ZpbmdlcnByaW50IjoiZnBfODU0ZmE5YmU0YyIsInhfZ3JvcSI6eyJpZCI6InJlcV8wMWtqNmpnbmFqZTV3c3l4cjhka2F3ejQ5MSIsInNlZWQiOjYwNTkyMTYwMn0sInNlcnZpY2VfdGllciI6Im9uX2RlbWFuZCJ9Cg==
-  recorded_at: Tue, 24 Feb 2026 00:59:17 GMT
+        eyJpZCI6ImNoYXRjbXBsLTFlMTEyMWZmLWIwMTEtNGQ5Zi1hODA0LWRlOWE1N2Q1ODA1ZCIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbiIsImNyZWF0ZWQiOjE3NzQ2MTg1NjIsIm1vZGVsIjoib3BlbmFpL2dwdC1vc3MtMTIwYiIsImNob2ljZXMiOlt7ImluZGV4IjowLCJtZXNzYWdlIjp7InJvbGUiOiJhc3Npc3RhbnQiLCJjb250ZW50IjoiKipQcm9ncmFtbWluZyBMYW5ndWFnZXMqKlxuXG4tIFJ1YnkgIFxuLSBFbGl4aXIgIFxuLSBQeXRob24gIFxuLSBKYXZhU2NyaXB0IC8gVHlwZVNjcmlwdCAodXNlZCB3aXRoIG1vZGVybiBmcm9udOKAkWVuZCBmcmFtZXdvcmtzKSAgXG5cbioqRnJhbWV3b3JrcyBcdTAwMjYgTWFqb3IgVG9vbGtpdHMqKlxuXG4tICoqQmFja2VuZDoqKiBSdWJ5IG9uIFJhaWxzLCBFbGl4aXLigK8v4oCvUGhvZW5peCwgUHl0aG9u4oCvL+KAr0RqYW5nbyAgXG4tICoqRnJvbnRlbmQgLyBVSToqKiBIb3R3aXJlIChUdXJib+KAryvigK9TdGltdWx1cyksIFZ1ZS5qcywgUmVhY3QsIEFuZ3VsYXIgIFxuXG5UaGVzZSBhcmUgdGhlIGNvcmUgbGFuZ3VhZ2VzIGFuZCBmcmFtZXdvcmtzIEhlbnJpcXVlIHJlZ3VsYXJseSB1c2VzIGluIGhpcyBwcm9qZWN0cyBhbmQgY29uc3VsdGluZyB3b3JrLiIsInJlYXNvbmluZyI6IldlIG5lZWQgdG8gYW5zd2VyIGJhc2VkIG9uIGtub3dsZWRnZSBiYXNlLiBMaXN0IGxhbmd1YWdlcyBhbmQgZnJhbWV3b3JrczogUnVieSBvbiBSYWlscywgRWxpeGlyL1Bob2VuaXgsIFB5dGhvbi9EamFuZ28sIFR1cmJvL1N0aW11bHVzIChIb3R3aXJlKSwgVnVlLCBSZWFjdCwgQW5ndWxhciwgUG9zdGdyZVNRTCBldGMgYnV0IHF1ZXN0aW9uOiBwcm9ncmFtbWluZyBsYW5ndWFnZXMgYW5kIGZyYW1ld29ya3MuIFNvIGxhbmd1YWdlczogUnVieSwgRWxpeGlyLCBQeXRob24sIEphdmFTY3JpcHQgKHZpYSBWdWUvUmVhY3QvQW5ndWxhciksIFR5cGVTY3JpcHQgbWF5YmUuIEZyYW1ld29ya3M6IFJ1Ynkgb24gUmFpbHMsIFBob2VuaXgsIERqYW5nbywgSG90d2lyZSAoVHVyYm8vU3RpbXVsdXMpLCBWdWUsIFJlYWN0LCBBbmd1bGFyLiBBbHNvIG1lbnRpb24gQVdTIGV0YyBub3QgbmVlZGVkLiBQcm92aWRlIGNvbmNpc2UgYW5zd2VyIHdpdGggbWFya2Rvd24gbGlzdC4ifSwibG9ncHJvYnMiOm51bGwsImZpbmlzaF9yZWFzb24iOiJzdG9wIn1dLCJ1c2FnZSI6eyJxdWV1ZV90aW1lIjowLjAxNzk5NTAwMSwicHJvbXB0X3Rva2VucyI6MTY3NywicHJvbXB0X3RpbWUiOjAuMDgzNzUyODAzLCJjb21wbGV0aW9uX3Rva2VucyI6MjI2LCJjb21wbGV0aW9uX3RpbWUiOjAuNDc5NjQyNjg3LCJ0b3RhbF90b2tlbnMiOjE5MDMsInRvdGFsX3RpbWUiOjAuNTYzMzk1NDksImNvbXBsZXRpb25fdG9rZW5zX2RldGFpbHMiOnsicmVhc29uaW5nX3Rva2VucyI6MTE3fX0sInVzYWdlX2JyZWFrZG93biI6bnVsbCwic3lzdGVtX2ZpbmdlcnByaW50IjoiZnBfZjE2YjE5NjNmZSIsInhfZ3JvcSI6eyJpZCI6InJlcV8wMWttcXI0azFzZWFiODMydnplN2NnMmY3MyIsInNlZWQiOjE1NjUyODAzODN9LCJzZXJ2aWNlX3RpZXIiOiJvbl9kZW1hbmQifQo=
+  recorded_at: Fri, 27 Mar 2026 13:36:02 GMT
 recorded_with: VCR 6.4.0
