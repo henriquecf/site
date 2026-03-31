@@ -1,0 +1,16 @@
+title: "YouTube Blocked My Server in 15 Seconds"
+published_at: 2026-03-31 00:07:00
+description: "I deployed a background job to fetch transcripts from 6,000 YouTube videos. Within 15 seconds, YouTube IP-banned the server. Every approach I tried — different endpoints, different client contexts — failed from a datacenter IP. The fix was inverting the architecture: make the server an API and let a local machine do the fetching."
+content_modified_at: null
+linkedin_body: |
+  Deployed a job to fetch transcripts from 6,000 YouTube videos. Solid Queue started draining fast. Fifteen seconds later, every request was returning a CAPTCHA redirect. The server's IP was banned.
+
+  Tried switching to a different internal YouTube endpoint. Same result. YouTube blocks datacenter IPs from all transcript-fetching methods, not just the one I was using.
+
+  The fix wasn't proxies or rate limiting. It was asking a simpler question: which machine actually has access? My laptop does. So I made the server stop fetching and start receiving. Two API endpoints, a rake task, a launchd cron, and the backlog cleared in a few hours.
+
+  https://hencf.org/blog/youtube-blocks-your-server
+x_body: |
+  Deployed transcript fetching for 6,000 YouTube videos. Server IP got banned in 15 seconds. The fix wasn't proxies — it was making the server the API and letting my laptop do the fetching.
+
+  https://hencf.org/blog/youtube-blocks-your-server
