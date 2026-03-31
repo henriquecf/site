@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
-  get "sitemap", to: "sitemaps#show", defaults: { format: :xml }
+  get "sitemap.xml", to: "sitemaps#show", defaults: { format: :xml }
   get "llms.txt", to: "llms#show", defaults: { format: :text }
   get "llms-full.txt", to: "llms#full", defaults: { format: :text }
 
