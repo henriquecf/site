@@ -1,6 +1,6 @@
-I've been filling up at the same gas station for years out of habit. One day I checked the price at a station two blocks away and it was 30 centavos cheaper per liter. Over a full tank, that's almost R$20. I'd been leaving money on the table twice a month for no reason.
+I've been filling up at the same gas station for years out of habit. One day I checked the price at a station two blocks away and it was 30 cents cheaper per liter. Over a full tank, that adds up. I'd been leaving money on the table twice a month for no reason.
 
-Brazil actually has an app for this. A state government agency built it in partnership with the tax authority. Gas stations report prices through electronic tax receipts, so the data updates constantly. Open the app, pick a fuel type, and it shows you the cheapest stations nearby, sorted by price. It's genuinely useful.
+My country actually has an app for this. A government agency built it in partnership with the tax authority. Gas stations report prices through electronic tax receipts, so the data updates constantly. Open the app, pick a fuel type, and it shows you the cheapest stations nearby, sorted by price. It's genuinely useful.
 
 The problem: the data is trapped in a mobile app. No website, no public API, no CSV export. If you want to compare prices across a city, or track price trends over time, or just get the data into a spreadsheet, you can't. You open the app, look at the screen, close the app.
 
@@ -22,7 +22,7 @@ This changes everything. Instead of reverse-engineering compiled bytecode, I'm r
 
 ## Finding the API
 
-I asked Claude Code to search through the decompiled JS for API endpoints, base URLs, and authentication configuration. Within seconds it had pulled out the important pieces: the API base URL hosted on a government subdomain, OAuth configuration pointing to gov.br (Brazil's federal SSO), a client ID, a custom URI scheme for the OAuth redirect, and the required scopes.
+I asked Claude Code to search through the decompiled JS for API endpoints, base URLs, and authentication configuration. Within seconds it had pulled out the important pieces: the API base URL hosted on a government subdomain, OAuth configuration pointing to the federal identity portal, a client ID, a custom URI scheme for the OAuth redirect, and the required scopes.
 
 The API endpoints were clean and RESTful. Search products by name, search by barcode, fuel prices by type code, price history, list of participating states, token exchange, and token refresh. Query parameters used a consistent prefix with fields for latitude, longitude, radius in kilometers, and fuel type code. The API returns JSON with establishment details, prices, addresses, GPS coordinates.
 
@@ -30,18 +30,18 @@ All of this was right there in the minified JavaScript. No obfuscation beyond st
 
 ## The OAuth wall
 
-Knowing the endpoints is only half the problem. Every API call requires a bearer token, and that token comes from an OAuth 2.0 flow through gov.br, Brazil's federal identity system. You log in with your CPF (national ID number) and password, the way you'd access any government service.
+Knowing the endpoints is only half the problem. Every API call requires a bearer token, and that token comes from an OAuth 2.0 flow through the country's federal identity portal. You log in with your national ID number and password, the way you'd access any government service.
 
 The flow is standard OAuth authorization code:
 
-1. Redirect user to gov.br's authorize endpoint with client ID, redirect URI, and scopes
-2. User logs in with CPF + password
-3. Gov.br redirects back to the redirect URI with an authorization code
+1. Redirect user to the identity portal's authorize endpoint with client ID, redirect URI, and scopes
+2. User logs in with national ID + password
+3. The identity portal redirects back to the redirect URI with an authorization code
 4. Exchange the code for access and refresh tokens at the API's token endpoint
 
 Simple enough for a mobile app. The app opens a browser, the user logs in, the browser redirects to the app's custom URI scheme with a `code` parameter, and the app catches the redirect and extracts the code.
 
-On a desktop, this falls apart. I can't register a custom URI scheme for a random government app. When I opened the authorization URL in Chrome and logged in, gov.br dutifully redirected to the custom scheme URL, and Chrome just showed me a "can't open this page" error. The authorization code was right there in the URL bar, but the redirect "failed."
+On a desktop, this falls apart. I can't register a custom URI scheme for a random government app. When I opened the authorization URL in Chrome and logged in, the identity portal dutifully redirected to the custom scheme URL, and Chrome just showed me a "can't open this page" error. The authorization code was right there in the URL bar, but the redirect "failed."
 
 The workaround is embarrassingly low-tech. Open Chrome DevTools to the Network tab before logging in. Complete the login flow. When the redirect happens, Chrome can't follow it (custom scheme), but the Network tab captures the full redirect URL. Copy the URL, parse out the `code` parameter, paste it into the script.
 
@@ -83,7 +83,7 @@ One parameter in the token exchange took a while to figure out. The API requires
 
 ## The older version
 
-I actually decompiled two APK versions. The older one used a different OAuth provider entirely: a state-level identity system. The newer version switched to gov.br, the federal SSO. Same OAuth flow, different identity provider. This is the kind of detail that would waste hours if you only had one version to look at. Comparing the two made the auth architecture obvious.
+I actually decompiled two APK versions. The older one used a different OAuth provider entirely: a state-level identity system. The newer version switched to the federal identity portal. Same OAuth flow, different identity provider. This is the kind of detail that would waste hours if you only had one version to look at. Comparing the two made the auth architecture obvious.
 
 The endpoint paths didn't change between versions. The app framework did (the newer version's JS files had content-hash filenames, suggesting a more modern build pipeline), but the API surface stayed the same. That's a good sign for stability.
 
