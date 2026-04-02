@@ -1,0 +1,16 @@
+title: "I Built Search with LIKE Queries and It's Fine"
+published_at: 2026-04-02 15:30:00
+description: "I needed search across ten models in a multi-tenant Rails app on SQLite. Instead of Elasticsearch or FTS5, I used a denormalized table with LIKE queries and ActiveSupport's transliterate for accent-insensitive Portuguese. It took a fraction of the setup time and handles everything the app needs."
+content_modified_at: null
+linkedin_body: |
+  Someone on my team searched "acao" and got zero results. The database had plenty of records with "ação" in the title. Portuguese diacritics broke our search on day one.
+
+  The whole search system is a single denormalized table, LIKE queries, and ActiveSupport::Inflector.transliterate. No Elasticsearch, no FTS5, no external service. Ten models sync into one table via callbacks, a Cmd+K modal fetches results over XHR, and the accent problem took about twenty minutes to solve once I understood it.
+
+  It's been in production for weeks. Nobody has complained about speed or relevance. Sometimes you don't need the infrastructure you think you need.
+
+  https://hencf.org/blog/search-without-elasticsearch
+x_body: |
+  Built search for a multi-tenant Rails app using LIKE queries on a denormalized table. No Elasticsearch, no FTS5. Portuguese accents handled by transliterate. It's been in production for weeks and it's fine.
+
+  https://hencf.org/blog/search-without-elasticsearch
