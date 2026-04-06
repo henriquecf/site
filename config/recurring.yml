@@ -16,3 +16,6 @@ production:
   chat_cleanup:
     class: ChatCleanupJob
     schedule: at 4am every day
+  generate_sitemaps:
+    class: GenerateSitemapsJob
+    schedule: every 6 hours

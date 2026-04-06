@@ -75,3 +75,6 @@ gem "vcr", "~> 6.4", group: :test
 gem "webmock", "~> 3.26", group: :test
 
 gem "ahoy_matey", "~> 5.4"
+
+# Pre-generated XML sitemaps for reliable search engine indexing
+gem "sitemap_generator", "~> 6.3"

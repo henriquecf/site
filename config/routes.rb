@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   get "sitemap.xml", to: "sitemaps#show", defaults: { format: :xml }
+  get "sitemaps/static.xml", to: "sitemaps#static", defaults: { format: :xml }
   get "llms.txt", to: "llms#show", defaults: { format: :text }
   get "llms-full.txt", to: "llms#full", defaults: { format: :text }
 
