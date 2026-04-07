@@ -9,6 +9,9 @@ servers:
   web:
     - <%= `rails credentials:fetch server_ip`.strip %>
 
+# Boot includes posts:load + og:generate (~12s), so give enough headroom.
+deploy_timeout: 60
+
 # Enable SSL auto certification via Let's Encrypt (Thruster handles this automatically).
 # Requires config.assume_ssl and config.force_ssl in production.rb.
 proxy:
@@ -20,7 +23,6 @@ proxy:
   healthcheck:
     path: /up
     interval: 3
-    timeout: 60
 
 # Where you keep your container images.
 registry:
