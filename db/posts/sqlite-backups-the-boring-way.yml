@@ -1,0 +1,20 @@
+title: "SQLite Backups: The Boring Way"
+published_at: 2026-04-07 15:33:00
+description: "I spent three weeks tuning Litestream for Backblaze B2's free tier, wrote a blog post about it, then ripped the whole thing out and replaced it with a cron job. Meanwhile, my earlier SQLite auto_vacuum post led to a Rails PR that changes the default for every new SQLite database."
+content_modified_at: null
+linkedin_body: |
+  Spent three weeks getting Litestream to play nice with Backblaze B2's free tier. Wrote a whole blog post about the tuning. Then realized I was maintaining a continuous replication sidecar for an app where losing 24 hours of data would mean re-entering some event schedules.
+
+  Replaced it with two shell scripts and a cron job. The backup runs at 3 AM, uploads to B2, done. Simpler ops, fewer failure modes, zero transaction budget to manage.
+
+  Meanwhile, the auto_vacuum post got enough traction that someone suggested a Rails PR. So I opened one: new SQLite databases now get incremental auto_vacuum by default, plus a db:maintenance:vacuum rake task. The readonly database bug I found during development was worth the trip alone.
+
+  https://hencf.org/blog/sqlite-backups-the-boring-way
+x_body: |
+  Spent a month tuning Litestream to stay within Backblaze B2's free tier. Three rounds of config fixes. Wrote a blog post about it. Then ripped it all out and replaced it with VACUUM INTO + rclone in a cron job.
+
+  Meanwhile the auto_vacuum post got traction and someone suggested a Rails PR, so I opened one. New SQLite databases would get incremental auto_vacuum by default. Found a readonly connection bug in the Rails test suite I never would have caught otherwise.
+
+  Third post in the SQLite-in-production series.
+
+  https://hencf.org/blog/sqlite-backups-the-boring-way
