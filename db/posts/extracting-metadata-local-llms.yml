@@ -1,0 +1,22 @@
+title: "Extracting Metadata from 40K Videos with Local LLMs"
+published_at: 2026-04-08 19:14:00
+description: "I needed to extract speakers and topics from 40K+ YouTube videos for a spiritist knowledge base. Started with Groq's free tier, hit every rate limit, discovered my exception handling was silently flooding Solid Queue with 18K duplicate jobs, then moved to local models on Ollama. Along the way I found that Qwen3's default thinking mode turns a sub-second extraction into a 100-second one, and that 4B models need JSON sanitization to be reliable."
+content_modified_at: null
+linkedin_body: |
+  I had 40K YouTube videos that needed structured metadata extracted from their titles and descriptions. Speaker names, roles, topic classifications.
+
+  Started with Groq's free API. It worked for the first 8,000 videos, then fell apart at scale. 1,000 requests per day doesn't clear a backlog of thousands. Meanwhile, a rescue clause ordering bug in Ruby silently swallowed rate limit errors and flooded my job queue with 18K duplicates.
+
+  Moved to Ollama with local models instead. Benchmarked six of them, found that gemma3:4b was the sweet spot. Later discovered that Qwen3 enables thinking mode by default, which turned a sub-second extraction into a 100-second one. One parameter change fixed it.
+
+  The architecture that stuck: server exposes "give me the next unprocessed video" API endpoints, any machine with Ollama can work through the queue. Processed the whole catalog from my laptop.
+
+  https://hencf.org/blog/extracting-metadata-local-llms
+x_body: |
+  Needed to extract speaker names and topics from 40K YouTube videos using LLMs. Groq's free tier worked for the first 8K, then the 1,000 req/day cap made backfill impossible.
+
+  Switched to local models on Ollama. Benchmarked six, landed on gemma3:4b. Then tried Qwen3 and extractions went from <1s to 100s. Turns out thinking mode is on by default, and for "read this title, return the speaker name" it's pure waste.
+
+  Wrote up the whole journey, including the Ruby exception hierarchy bug that created 18K duplicate jobs.
+
+  https://hencf.org/blog/extracting-metadata-local-llms
