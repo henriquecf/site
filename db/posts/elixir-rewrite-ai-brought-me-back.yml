@@ -1,0 +1,22 @@
+title: "I Rewrote My Rails App in Elixir. AI Brought Me Back."
+published_at: 2026-04-10 17:32:00
+description: "I had a Rails side project and decided to rewrite it in Elixir/Phoenix. Streaming LLM responses, concurrency, personal interest. Built the whole thing, shared the same PostgreSQL database between both apps. Then came back to Rails. Not because Elixir was bad, but because writing code with Claude Code was a noticeably worse experience in Elixir than in Ruby. More errors, more iteration rounds, slower path to working software. When AI writes most of your code, that gap compounds fast."
+content_modified_at: null
+linkedin_body: |
+  I rewrote a side project from Rails to Phoenix. Chat with streaming LLM responses, background job pipeline, the whole thing. A week later I was back on Rails.
+
+  Not because Elixir was bad. Because writing code with Claude Code felt noticeably worse in Elixir than in Ruby. More errors in generated code, more rounds of iteration, slower overall.
+
+  When AI writes most of your code, how well it handles your language becomes a real factor in what you build with. My whole setup is tuned for Ruby: architecture docs, conventions, hooks. Switching languages meant resetting all of that.
+
+  Wrote up the full story, including the shared PostgreSQL trick that made the whole experiment reversible.
+
+  https://hencf.org/blog/elixir-rewrite-ai-brought-me-back
+x_body: |
+  Rewrote a Rails app in Elixir/Phoenix. The features worked fine. Came back to Rails anyway.
+
+  The reason: Claude Code's output in Ruby is noticeably better than in Elixir. More one-shot successes, fewer iteration rounds. When AI writes 90%+ of your commits, that gap compounds fast.
+
+  Wrote up the whole experiment, including the shared PostgreSQL trick that made it zero-risk.
+
+  https://hencf.org/blog/elixir-rewrite-ai-brought-me-back
