@@ -1,0 +1,18 @@
+title: "From RAG to Wiki: What 600 Books Taught Me About Knowledge Compilation"
+published_at: 2026-04-14 13:00:00
+description: "Karpathy posted his LLM Wiki gist and I had 600 books already chunked for a RAG system. I pointed Claude Code at them to test the wiki approach instead. Six days later: 679 interlinked pages, 6,000+ cross-references, and concept pages synthesizing 36+ sources each. The first attempt was garbage because Claude skimmed instead of reading. The fix was expensive: read every chunk of every book. But the result compounds in a way RAG never will."
+content_modified_at: null
+linkedin_body: |
+  I've been building a RAG system for 600 books. Retrieves chunks, assembles answers on demand. It works.
+
+  Then I tried Karpathy's LLM Wiki approach on the same corpus. Claude Code reads every book in full and builds cross-referenced concept pages. After processing 183 books, the concept page for reincarnation cites 36 different sources, from 19th-century philosophy to 1960s spirit narratives. Nobody would search for that connection. The wiki just has it.
+
+  People who've studied this material for years are finding cross-references they'd missed. That was the validation I didn't expect.
+
+  https://hencf.org/blog/karpathy-llm-wiki-claude-code
+x_body: |
+  Pointed Claude Code at 600 books to test Karpathy's LLM Wiki idea against RAG. Six days later, 679 pages with 6,000+ cross-references. The concept page on reincarnation synthesizes 36 different sources.
+
+  The first attempt was garbage though. Claude skimmed instead of reading and wrote fluent, well-structured pages from training data. Completely generic. The fix: read every single chunk. Expensive, but the output compounds in a way retrieval never will.
+
+  https://hencf.org/blog/karpathy-llm-wiki-claude-code
