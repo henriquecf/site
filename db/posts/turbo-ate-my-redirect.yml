@@ -1,0 +1,20 @@
+title: "Turbo Ate My Redirect"
+published_at: 2026-04-17 15:30:00
+description: "A customer clicked a Stripe Connect button in my Rails app and nothing happened. Solid Errors showed RecordNotUnique exceptions from them clicking again and creating duplicate rows. The original click wasn't logged anywhere because nothing went wrong on the server. The redirect to Stripe was leaving my server fine. Turbo Drive was silently eating it, because fetch can't follow cross-origin redirects. Three things had to line up for the bug to exist. Remove any one and it goes away."
+content_modified_at: null
+linkedin_body: |
+  A customer emailed support because a button in my app didn't work. They clicked, saw nothing, clicked again. Solid Errors was logging the duplicate-creation errors from the extra clicks, but the original click wasn't in any log anywhere. Nothing had gone wrong on the server.
+
+  The redirect to Stripe was leaving Rails fine. Turbo Drive was silently eating it. Turbo submits forms via fetch, and fetch can't render a cross-origin response, so the redirect just stops. No error, no log, no stack trace.
+
+  What made the bug survive development, tests, and code review was that three separate things had to line up for it to exist. Wrote up the debugging story and the audit that followed across every login, logout, and checkout in the app.
+
+  https://hencf.org/blog/turbo-ate-my-redirect
+x_body: |
+  A customer reported a Stripe button that didn't work. I checked Solid Errors. The click itself wasn't logged anywhere. Just duplicate-creation errors from them clicking again.
+
+  Turbo submits forms via fetch. Fetch can't render a cross-origin response. My redirect to Stripe was silently dropped. No error, no log, no stack trace.
+
+  Wrote up the full story, the audit that followed, and why three separate things had to line up for the bug to exist at all.
+
+  https://hencf.org/blog/turbo-ate-my-redirect
