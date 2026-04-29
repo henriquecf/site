@@ -1,0 +1,24 @@
+title: "I Built an LLM Wiki for My Kid"
+published_at: 2026-04-28 17:15:00
+description: "After building a wiki from 600 spiritist books, I built a second one from a few dozen YouTube videos, articles, and tweets about a Toy Story fan theory. The end product wasn't a website. It was a children's book for my kid."
+content_modified_at: null
+linkedin_body: |
+  My kid keeps asking me about Andy's dad in Toy Story. Where is he? What happened? Is he dead?
+
+  I told him I'd write him a book.
+
+  I'd just finished building an LLM wiki from 600 spiritist books, a Karpathy-style knowledge graph. That pattern is overkill for a children's book about a Pixar fan theory. I tried it anyway, on the much smaller corpus of YouTube videos, articles, and tweets that the Toy Story 0 mythology lives in.
+
+  What surprised me wasn't the wiki itself. It was that having the wiki, with its clean schema, timestamp citations on every video, and explicit canon vs debunked tags, made writing the book feel almost trivial. The illustration prompts were practically copy-paste from the entity pages.
+
+  The EPUB is in his hands now.
+
+  https://hencf.org/blog/llm-wiki-for-my-kid
+x_body: |
+  My kid kept asking me about Andy's dad in Toy Story. So I told him I'd write him a book about it.
+
+  Built a Karpathy-style LLM wiki first, from a few dozen YouTube videos and articles about the Toy Story 0 fan theory. Then used that wiki to draft the book. Illustrations with Stitch, EPUB in beta, in his hands now.
+
+  The wiki turned out to be the easy part. Once it was solid, writing was almost trivial.
+
+  https://hencf.org/blog/llm-wiki-for-my-kid
