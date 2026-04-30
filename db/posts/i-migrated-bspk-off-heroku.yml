@@ -1,0 +1,24 @@
+title: "I Migrated BSPK Off Heroku in Two and a Half Months. I Barely Typed."
+published_at: 2026-05-01 08:00:00
+description: "Two and a half months mostly solo. BSPK off Heroku to AWS, no downtime, 60%+ cost down. I barely wrote code. What 'agentic engineering' looks like at production scale."
+content_modified_at: null
+linkedin_body: |
+  Last week I changed my homepage tagline from "I build things with Ruby, Elixir, and AI" to "I'm an agentic engineer. I orchestrate AI agents to ship production software."
+
+  That's a stronger claim. So I should probably explain what I've been doing that makes it true.
+
+  Two and a half months ago, I started moving BSPK's entire production stack off Heroku to AWS. Postgres to PlanetScale, Redis to Upstash, Elasticsearch to Elastic Cloud, Kamal and Terraform on EC2. Mostly solo. Without downtime. Cost down 60%+. We kept shipping features at the same pace throughout.
+
+  I didn't write much of the code that did this.
+
+  Wrote up what "directing agents" actually meant for the migration, the small Caddy boot loop debug session that took five minutes instead of forty, and the things I'm still figuring out — like trust calibration and how a whole team becomes agentic, not just one person.
+
+  https://hencf.org/blog/i-migrated-bspk-off-heroku
+x_body: |
+  Two and a half months ago I started moving BSPK off Heroku to AWS. Mostly solo, no downtime, cost down 60%+, kept shipping features the whole time.
+
+  I didn't write much of the code that did this.
+
+  Wrote up what "agentic engineering" actually looked like for a real production migration, including the Caddy boot loop debug session that took five minutes instead of forty.
+
+  https://hencf.org/blog/i-migrated-bspk-off-heroku
