@@ -17,7 +17,7 @@ summary: >
   Senior software engineer with 14+ years shipping production systems, mostly for startups,
   mostly remotely. Now operating as an agentic engineer: I direct AI agents to plan, write,
   review, and ship code rather than typing it myself. At BSPK I lead AI feature work for a
-  luxury retail platform used by Dior and Cartier, and recently led a zero-downtime migration
+  luxury retail platform used by top-tier brands, and recently led a zero-downtime migration
   of the entire stack off Heroku to AWS — Kamal, Terraform, PlanetScale, Upstash, Elastic Cloud
   — cutting infrastructure cost by 60%+. I write publicly about the work at hencf.org/blog
   and help organize the Ruby community in Portugal.
@@ -30,7 +30,7 @@ experience:
     end: present
     summary: >
       Primary backend engineer for a unified clienteling and commerce platform used by luxury
-      brands including Dior and Cartier. Owned the AI layer end-to-end and led the recent
+      luxury retail brands. Owned the AI layer end-to-end and led the recent
       infrastructure migration off Heroku.
     highlights:
       - Directed AI agents to deliver almost all production code shipped in 2026 — planning, reviewing, parallelizing features across worktrees, and tightening the feedback loop (faster CI, lighter PR review, agent-friendly architecture docs).

@@ -2,7 +2,7 @@ I rewrote my homepage tagline last week. It used to say *I build things with Rub
 
 That's a stronger claim than I would have made even three months ago. So I should probably explain what I've been doing that makes it true.
 
-Over the last two and a half months, mostly solo, I migrated BSPK's entire production stack off Heroku to AWS. BSPK is a unified clienteling and commerce platform used by luxury brands like Dior and Cartier. It runs on Ruby on Rails with an Elixir/Phoenix PubSub service alongside it. We had been on Heroku for years.
+Over the last two and a half months, mostly solo, I migrated BSPK's entire production stack off Heroku to AWS. BSPK is a unified clienteling and commerce platform used by top-tier luxury retail brands. It runs on Ruby on Rails with an Elixir/Phoenix PubSub service alongside it. We had been on Heroku for years.
 
 The cutover happened without downtime. The new infrastructure costs more than 60% less. We kept shipping product features at the same pace throughout, including a new waitlist data model, per-SA reporting, and a bunch of smaller things that don't fit a tagline but pay the bills.
 

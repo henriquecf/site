@@ -2,7 +2,7 @@ Last month, someone on the product team posted in Slack: "How does proxy phone S
 
 ## The problem
 
-BSPK is a clienteling platform for luxury retail. The codebase has over 270 API endpoints, multi-tenancy across brands like Dior and Cartier, Shopify integrations, an AI assistant with tool use, behavioral analytics, and all the other things that accumulate in a product that's been in active development for years.
+BSPK is a clienteling platform for top-tier luxury retail brands. The codebase has over 270 API endpoints, multi-tenancy across customer organizations, Shopify integrations, an AI assistant with tool use, behavioral analytics, and all the other things that accumulate in a product that's been in active development for years.
 
 Questions about the codebase come from everywhere. Engineers on the team ask how specific subsystems work before touching unfamiliar code. QA asks what the expected behavior should be for an edge case they found. Product managers ask how a feature works so they can scope changes. Sometimes it's a new hire trying to understand why something was built a certain way.
 

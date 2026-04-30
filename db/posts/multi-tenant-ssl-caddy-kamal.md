@@ -1,4 +1,4 @@
-BSPK is a clienteling platform for luxury retail. Dior, Cartier, Louboutin, that tier. Each customer organization gets its own subdomains: `louboutin.bspk.com`, `cartier.bspk.com`, whatever they need. Those domains are stored as a `dns_names` array (citext[]) on the `Company` model in PostgreSQL. Organizations add and remove domains over time. Nothing about this is static.
+BSPK is a clienteling platform for top-tier luxury retail brands. Each customer organization gets its own subdomains: `acme.bspk.com`, `globex.bspk.com`, whatever they need. Those domains are stored as a `dns_names` array (citext[]) on the `Company` model in PostgreSQL. Organizations add and remove domains over time. Nothing about this is static.
 
 On Heroku, SSL was invisible. You don't think about certificates. You push code, Heroku handles the rest. When we started migrating to Kamal 2 on EC2, that comfort disappeared fast. We now needed to handle TLS termination ourselves, for a dynamic set of domains that could change any day.
 

@@ -19,7 +19,7 @@ Software engineer with over a decade of experience, remote since 2014. Currently
 
 ### BSPK — Senior Software Engineer (Jul 2023 – Present, Remote)
 
-Luxury retail clienteling platform for brands like Dior and Cartier. Primary backend engineer building the AI layer from scratch.
+Clienteling platform for top-tier luxury retail brands. Primary backend engineer building the AI layer from scratch.
 
 - **AI Assistant:** Multi-agent system using swarm architecture. Orchestrator routes to specialist sub-agents (Client Intelligence, Tasks & Calendar) with tools for querying shopper data, purchase history, and schedules. Provider-agnostic (OpenAI, Groq, local models).
 - **Natural Language Search:** LLM-powered system translating plain English into Elasticsearch queries for conversational client book search.

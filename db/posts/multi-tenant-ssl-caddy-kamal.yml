@@ -4,7 +4,7 @@ description: "How we replaced Cloudflare with Caddy's on-demand TLS to auto-issu
 linkedin_body: |
   When we migrated BSPK from Heroku to Kamal 2 on EC2, the hardest problem wasn't Docker or deploys. It was SSL.
 
-  BSPK is multi-tenant. Each customer org gets subdomains like louboutin.bspk.com, stored as dns_names on the Company model. Domains are dynamic: orgs add and remove them. You can't pre-provision certs for domains that don't exist yet.
+  BSPK is multi-tenant. Each customer org gets subdomains like acme.bspk.com, stored as dns_names on the Company model. Domains are dynamic: orgs add and remove them. You can't pre-provision certs for domains that don't exist yet.
 
   We evaluated three options:
   - kamal-proxy's built-in Let's Encrypt (great for static domains, can't handle dynamic multi-tenant)

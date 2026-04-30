@@ -29,8 +29,8 @@ http_interactions:
         PostgreSQL, Elasticsearch, Redis, SQLite, MongoDB, Firestore\n- **Infrastructure:**
         AWS (S3, Lambda), Docker, Kamal, Sidekiq, RabbitMQ, MQTT\n- **Languages:**
         Portuguese (native), English (fluent)\n\n## Experience\n\n### BSPK — Senior
-        Software Engineer (Jul 2023 – Present, Remote)\n\nLuxury retail clienteling
-        platform for brands like Dior and Cartier. Primary backend engineer building
+        Software Engineer (Jul 2023 – Present, Remote)\n\nClienteling
+        platform for top-tier luxury retail brands. Primary backend engineer building
         the AI layer from scratch.\n\n- **AI Assistant:** Multi-agent system using
         swarm architecture. Orchestrator routes to specialist sub-agents (Client Intelligence,
         Tasks & Calendar) with tools for querying shopper data, purchase history,
