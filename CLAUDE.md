@@ -69,6 +69,10 @@ bin/rails db:seed      # Seed data
 
 Five parallel jobs on PRs and pushes to `main`: `scan_ruby` (brakeman + bundler-audit), `scan_js` (importmap audit), `lint` (rubocop), `test` (unit/integration), `system-test` (capybara with screenshot upload on failure).
 
+## Content rules
+
+- **Never name BSPK customer brands.** Use neutral phrasing like "top-tier luxury retail brands" or "BSPK's customers" instead. This applies to homepage, blog posts, resume, `app/content/llms_base.txt`, social copy, and VCR cassettes in `test/cassettes/agent/` (which record the chat agent's system prompt body — must stay in sync). For example tenant subdomains in posts, use placeholder hostnames like `acme.bspk.com`. Don't invent names either.
+
 ## Code Style
 
 Uses `rubocop-rails-omakase` (Rails default opinionated style). Run `bin/rubocop` before committing.
