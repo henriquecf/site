@@ -2,7 +2,7 @@
 <% content_for(:title, "#{identity.name} — Resume") %>
 <% content_for(:description, "Resume of #{identity.name}, agentic engineer and senior software engineer.") %>
 
-<%= render "shared/nav", active: nil, home: false %>
+<%= render "shared/nav", active: :resume, home: false %>
 
 <main class="resume">
   <article class="resume-page container">
@@ -144,6 +144,11 @@
         </ul>
       </div>
     </section>
+
+    <p class="resume-source">
+      Generated from <a href="https://hencf.org/resume">hencf.org/resume</a> on <%= Date.current.strftime("%B %-d, %Y") %>.
+      The live version always reflects the latest experience, projects, and writing.
+    </p>
   </article>
 </main>
 

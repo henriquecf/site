@@ -37,6 +37,6 @@ class ChatFlowTest < ActionDispatch::IntegrationTest
   test "chat page has nav with expected links" do
     get chat_path
     assert_select ".nav-links a[href='/blog']", "Blog"
-    assert_select ".nav-links a[href='/#about']", "About"
+    assert_select ".nav-links a[href='/resume']", "Resume"
   end
 end

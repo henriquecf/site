@@ -1491,6 +1491,15 @@ h4 {
   font-variant-numeric: tabular-nums;
 }
 
+.resume-source {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.82rem;
+  color: var(--color-text-light);
+  text-align: center;
+}
+
 .resume-print {
   flex-shrink: 0;
 }
