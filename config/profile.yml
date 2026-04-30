@@ -99,10 +99,6 @@ projects:
     tech: Elixir
     url: https://github.com/henriquecf/redis-pub-sub
     description: Bridge between Redis PubSub and Phoenix PubSub for real-time broadcasting. Born from production needs at BSPK.
-  - name: i18n_parser
-    tech: Elixir
-    url: https://github.com/henriquecf/i18n_parser
-    description: Parser and replacer that prepares Rails projects for i18n — scans templates, extracts strings into locale files.
 
 community:
   - name: Euruko 2025
