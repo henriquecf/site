@@ -7,6 +7,7 @@
       <span></span>
     </button>
     <div class="nav-links" data-navigation-target="menu">
+      <a href="/"<%= ' class="active"'.html_safe if active == :home %>>Home</a>
       <a href="/blog"<%= ' class="active"'.html_safe if active == :blog %>>Blog</a>
       <a href="/chat"<%= ' class="active"'.html_safe if active == :chat %>>Chat</a>
       <a href="/resume"<%= ' class="active"'.html_safe if active == :resume %>>Resume</a>
