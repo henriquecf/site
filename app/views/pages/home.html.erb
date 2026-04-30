@@ -1,5 +1,5 @@
-<% content_for(:title, "Henrique Cardoso de Faria — Senior Software Engineer") %>
-<% content_for(:description, "Senior Software Engineer building AI-powered systems with Ruby on Rails. Euruko 2025 organizer. Based in Viana do Castelo, Portugal.") %>
+<% content_for(:title, "Henrique Cardoso de Faria — Agentic Engineer") %>
+<% content_for(:description, "Agentic engineer orchestrating AI agents to ship production software. Senior Software Engineer at BSPK building AI features for luxury retail. Based in Viana do Castelo, Portugal.") %>
 <% content_for(:og_type, "profile") %>
 
 <% content_for(:head) do %>
@@ -17,7 +17,21 @@
         "@type": "Organization",
         "name": "BSPK"
       },
-      "knowsAbout": ["Ruby on Rails", "Elixir", "Phoenix", "AI Integration", "LLM", "PostgreSQL", "Elasticsearch"],
+      "knowsAbout": [
+        "Agentic Engineering",
+        "AI Orchestration",
+        "Ruby on Rails",
+        "Elixir",
+        "Phoenix",
+        "LLM Integration",
+        "Kamal",
+        "Terraform",
+        "AWS",
+        "PlanetScale",
+        "PostgreSQL",
+        "Elasticsearch",
+        "Zero-downtime Migrations"
+      ],
       "sameAs": [
         "https://github.com/henriquecf",
         "https://www.linkedin.com/in/henriquecardosodefaria"
@@ -38,41 +52,11 @@
       "@type": "ProfessionalService",
       "@id": "https://hencf.org/#services",
       "name": "HC Digital Services LLC",
-      "description": "Rails & AI consulting — helping companies build and improve software, from Rails applications to AI integrations.",
-      "url": "https://hencf.org/#services",
+      "description": "Independent consulting on AI integration, Rails development, and system architecture.",
+      "url": "https://hencf.org/#contact",
       "founder": { "@id": "https://hencf.org/#person" },
-      "knowsAbout": ["AI Integration", "Ruby on Rails", "System Architecture", "LLM", "Elasticsearch"],
-      "areaServed": "Worldwide",
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Consulting Services",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "AI Integration",
-              "description": "Agentic systems, natural language search, structured LLM outputs, and RAG pipelines."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Rails Development",
-              "description": "Full-stack Rails — new features, API design, performance optimization, upgrades, and refactoring."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "System Architecture",
-              "description": "Data pipelines, Elasticsearch, background processing, real-time systems, and third-party API integrations."
-            }
-          }
-        ]
-      }
+      "knowsAbout": ["Agentic Engineering", "AI Integration", "Ruby on Rails", "System Architecture", "LLM"],
+      "areaServed": "Worldwide"
     }
   ]
 }
@@ -89,29 +73,36 @@
         <div class="hero-text">
           <p class="hero-greeting">Hey, I'm</p>
           <h1 class="hero-name">Henrique Cardoso de Faria</h1>
-          <p class="hero-tagline">I build things with Ruby, Elixir, and a healthy obsession with AI.</p>
+          <p class="hero-tagline">I'm an agentic engineer. I orchestrate AI agents to ship production software.</p>
         </div>
         <img src="https://github.com/henriquecf.png" alt="Henrique Cardoso de Faria" class="hero-photo">
       </div>
 
       <div class="hero-intro">
         <p>
-          I've been shipping software since 2011 — mostly for startups, mostly remotely,
-          always with a bias toward making things actually work. Right now I'm building AI-powered
-          features for luxury retail at <strong>BSPK</strong> from Viana do Castelo, Portugal,
-          where I also helped bring <a href="https://2025.euruko.org" target="_blank" rel="noopener">Euruko 2025</a>
-          to my hometown.
+          I've been shipping software since 2011, but the last several months have been a different
+          kind of engineering. I plan, review, course-correct, and ship — agents do the typing.
+          I'm doing this every day at <strong>BSPK</strong>, where I lead the AI work for a
+          unified clienteling platform used by luxury brands like Dior and Cartier.
         </p>
         <p>
-          When I'm not writing code for work, I'm usually writing code for fun — building
+          Most recently I led a zero-downtime migration of our entire stack off Heroku — Postgres
+          to PlanetScale, Redis to Upstash, Elasticsearch to Elastic Cloud, all on AWS via Kamal
+          and Terraform. Mostly solo, ~2.5 months end to end, infrastructure cost down by more
+          than 60%.
+        </p>
+        <p>
+          I work from Viana do Castelo, Portugal, where I helped bring
+          <a href="https://2025.euruko.org" target="_blank" rel="noopener">Euruko 2025</a> to my hometown.
+          When I'm not directing agents for work, I'm directing them on
           <a href="#projects">side projects</a>, contributing to open source, or
-          <a href="/blog">writing about what I learn</a>. Outside of screens, I spend time
-          with my family, travel when we can, and tinker with 3D printing.
+          <a href="/blog">writing about what I learn</a>.
         </p>
       </div>
 
       <div class="hero-links">
         <a href="/chat" class="hero-link">Chat with AI</a>
+        <a href="/resume" class="hero-link">Resume</a>
         <a href="mailto:elo.henrique@gmail.com" class="hero-link">Email</a>
         <a href="https://github.com/henriquecf" class="hero-link" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.linkedin.com/in/henriquecardosodefaria" class="hero-link" target="_blank" rel="noopener">LinkedIn</a>
@@ -126,18 +117,38 @@
 
       <div class="current-work">
         <p>
-          At <strong>BSPK</strong>, I'm the primary backend engineer building the AI layer for
-          a unified commerce platform used by luxury brands like Dior and Cartier. The work
-          I'm most proud of:
+          At <strong>BSPK</strong>, I'm the primary backend engineer behind the AI layer and the
+          recent infrastructure rebuild. The work I'm most proud of right now:
         </p>
 
         <div class="highlights">
           <div class="highlight-card">
+            <h4>Agentic Engineering at Scale</h4>
+            <p>
+              Almost every line of production code I shipped this year was written by an agent
+              under my direction. I plan, review, parallelize features across worktrees, and
+              tighten the feedback loop — faster CI, lighter PR review, agent-friendly
+              architecture docs — so the agents stay productive.
+            </p>
+          </div>
+
+          <div class="highlight-card">
+            <h4>Heroku → AWS, Zero Downtime</h4>
+            <p>
+              Migrated the full stack off Heroku in ~2.5 months, mostly solo. Postgres to
+              PlanetScale, Redis to Upstash, Elasticsearch to Elastic Cloud, plus an Elixir
+              service off Gigalixir. Kamal on EC2, Terraform, Tailscale, Route 53 weighted DNS
+              for cutover. Cost down 60%+.
+            </p>
+          </div>
+
+          <div class="highlight-card">
             <h4>Multi-Agent AI System</h4>
             <p>
-              A swarm architecture where an orchestrator routes to specialist sub-agents —
-              Client Intelligence, Tasks & Calendar — each with tools to query shopper data,
-              purchase history, and schedules. Provider-agnostic across OpenAI, Groq, and local models.
+              Swarm architecture where an orchestrator routes to specialist sub-agents — Client
+              Intelligence, Tasks &amp; Calendar — each with tools to query shopper data,
+              purchase history, and schedules. Provider-agnostic across OpenAI, Groq, and local
+              models.
             </p>
           </div>
 
@@ -149,32 +160,15 @@
               last month and haven't been contacted."
             </p>
           </div>
-
-          <div class="highlight-card">
-            <h4>Behavioral Analytics</h4>
-            <p>
-              An observability pipeline from scratch: event capture across hundreds of endpoints,
-              session materialization, metric rollups, behavioral profiling, and sales outcome
-              correlation.
-            </p>
-          </div>
-
-          <div class="highlight-card">
-            <h4>Shopify & Data Pipelines</h4>
-            <p>
-              Deep ownership of the Shopify webhook pipeline — order syncing, customer
-              assignment via geocoding, staff resolution, and data quality across the full
-              lifecycle.
-            </p>
-          </div>
         </div>
 
         <p class="work-context">
-          Before BSPK, I spent years across startups doing everything from payment systems
-          and IoT data pipelines to political organizing tools and real-time PubSub architectures
-          — mostly in <strong>Ruby on Rails</strong> and <strong>Elixir/Phoenix</strong>.
-          I also run <strong>HC Digital Services</strong>, helping companies integrate AI into
-          their existing applications.
+          Previously at BSPK I built a behavioral analytics pipeline from scratch — event capture
+          across hundreds of endpoints, session materialization, sales-outcome correlation — and
+          owned the Shopify webhook pipeline end-to-end. Before BSPK I spent years across
+          startups doing payment systems, IoT data pipelines, political organizing tools, and
+          real-time PubSub architectures, mostly in <strong>Ruby on Rails</strong> and
+          <strong>Elixir/Phoenix</strong>.
         </p>
       </div>
     </div>
@@ -203,80 +197,28 @@
     <div class="container">
       <h2 class="section-title">Projects</h2>
 
-      <article class="project project-featured">
-        <h3>Euruko 2025</h3>
-        <p class="project-role">Community Organizer · Viana do Castelo, Portugal</p>
-        <p>
-          At Euruko 2024 in Sarajevo, the community chose Viana do Castelo for the next edition.
-          I helped organize Europe's longest-running Ruby conference right in my hometown —
-          bringing together the Ruby community in Portugal for a memorable event.
-          <a href="https://2025.euruko.org" target="_blank" rel="noopener">2025.euruko.org</a>
-        </p>
-      </article>
-
       <div class="projects-grid">
-        <article class="project">
-          <h3>Espirita.club</h3>
-          <p class="project-lang">Ruby on Rails</p>
-          <p>
-            Multi-tenant SaaS for spiritist centers and federations in Brazil. Custom domains
-            with automatic TLS, Stripe payments, a REST API, and an MCP server so AI clients
-            can integrate directly.
-          </p>
-          <a href="https://espirita.club" class="project-link" target="_blank" rel="noopener">espirita.club</a>
-        </article>
+        <% Profile.projects.each do |project| %>
+          <article class="project">
+            <h3><%= project[:name] %></h3>
+            <p class="project-lang"><%= project[:tech] %></p>
+            <p><%= project[:description] %></p>
+            <% if project[:url].to_s.start_with?("http") %>
+              <a href="<%= project[:url] %>" class="project-link" target="_blank" rel="noopener">
+                <%= project[:url].sub(%r{^https?://}, "") %>
+              </a>
+            <% end %>
+          </article>
+        <% end %>
 
         <article class="project">
-          <h3>Guia Espírita</h3>
-          <p class="project-lang">Ruby on Rails · PostgreSQL + pgvector</p>
+          <h3>Euruko 2025</h3>
+          <p class="project-lang">Community Organizer · Viana do Castelo</p>
           <p>
-            AI knowledge base for spiritist literature. A RAG pipeline processes public domain
-            books and video transcripts into embeddings, then a conversational agent answers
-            questions with references to the source material.
+            Helped bring Europe's longest-running Ruby conference to my hometown, after the
+            community vote at Euruko 2024 in Sarajevo.
           </p>
-          <a href="https://guia.espirita.club" class="project-link" target="_blank" rel="noopener">guia.espirita.club</a>
-        </article>
-
-        <article class="project">
-          <h3>Digitalmente</h3>
-          <p class="project-lang">Ruby on Rails</p>
-          <p>
-            Coding education platform for Portuguese schoolchildren. Interactive maze programming,
-            bug hunt games, 3D printer training, and sign-making tools — all session-based
-            so teachers can run activities in the classroom.
-          </p>
-          <a href="https://digitalmente.tech" class="project-link" target="_blank" rel="noopener">digitalmente.tech</a>
-        </article>
-
-        <article class="project">
-          <h3>hencf.org</h3>
-          <p class="project-lang">Ruby on Rails</p>
-          <p>
-            This site! Open source, built with Rails 8.1 and SQLite. Features an
-            <a href="/chat">AI chat agent</a> powered by RubyLLM and Groq, server-side
-            analytics, and Markdown blog rendering.
-          </p>
-          <a href="https://github.com/henriquecf/site" class="project-link" target="_blank" rel="noopener">View on GitHub</a>
-        </article>
-
-        <article class="project">
-          <h3>redis-pub-sub</h3>
-          <p class="project-lang">Elixir</p>
-          <p>
-            Bridge between Redis PubSub and Phoenix PubSub for real-time broadcasting to
-            connected clients. Born from production needs at BSPK.
-          </p>
-          <a href="https://github.com/henriquecf/redis-pub-sub" class="project-link" target="_blank" rel="noopener">View on GitHub</a>
-        </article>
-
-        <article class="project">
-          <h3>i18n_parser</h3>
-          <p class="project-lang">Elixir</p>
-          <p>
-            A parser and replacer to prepare Rails projects for internationalization support.
-            Scans templates and extracts strings into locale files.
-          </p>
-          <a href="https://github.com/henriquecf/i18n_parser" class="project-link" target="_blank" rel="noopener">View on GitHub</a>
+          <a href="https://2025.euruko.org" class="project-link" target="_blank" rel="noopener">2025.euruko.org</a>
         </article>
 
         <article class="project">
@@ -284,7 +226,7 @@
           <p class="project-lang">Ruby · Elixir</p>
           <p>
             Contributor to ja_serializer, ruby-conferences.github.io, euruko.org, and other
-            community projects. All code on GitHub.
+            community projects.
           </p>
           <a href="https://github.com/henriquecf" class="project-link" target="_blank" rel="noopener">View all on GitHub</a>
         </article>
@@ -292,44 +234,17 @@
     </div>
   </section>
 
-  <%# ── Services ── %>
+  <%# ── Consulting ── %>
   <section id="services" class="section section-alt">
     <div class="container">
       <h2 class="section-title">Consulting</h2>
 
       <div class="services-intro">
         <p>
-          Through <strong>HC Digital Services</strong>, I help companies build and improve their
-          software. If you need AI capabilities in an existing product, a new system designed
-          from scratch, or just another experienced Rails hand — let's talk.
+          I'm fully on BSPK right now, but I run <strong>HC Digital Services LLC</strong> on the
+          side and I'm always open to talk about AI integration, agentic engineering, or Rails
+          work. <a href="#contact">Reach out</a>.
         </p>
-      </div>
-
-      <div class="services-grid">
-        <div class="service-card">
-          <h3>AI Integration</h3>
-          <p>
-            Adding real AI capabilities to your product — not just chatbots. Agentic systems,
-            natural language search, structured LLM outputs, and RAG pipelines that actually
-            work with your data.
-          </p>
-        </div>
-
-        <div class="service-card">
-          <h3>Rails Development</h3>
-          <p>
-            Full-stack Rails work: new features, API design, performance optimization, upgrades,
-            and refactoring. Comfortable with large codebases and complex domain logic.
-          </p>
-        </div>
-
-        <div class="service-card">
-          <h3>System Architecture</h3>
-          <p>
-            Data pipelines, Elasticsearch integration, background processing, real-time systems
-            with PubSub, third-party API integrations (Shopify, payment providers, and more).
-          </p>
-        </div>
       </div>
     </div>
   </section>

@@ -1,0 +1,154 @@
+<% identity = @profile.identity %>
+<% content_for(:title, "#{identity.name} — Resume") %>
+<% content_for(:description, "Resume of #{identity.name}, agentic engineer and senior software engineer.") %>
+
+<%= render "shared/nav", active: nil, home: false %>
+
+<main class="resume">
+  <article class="resume-page container">
+    <header class="resume-header">
+      <div class="resume-header-text">
+        <h1 class="resume-name"><%= identity.name %></h1>
+        <p class="resume-title"><%= identity.title %></p>
+        <p class="resume-meta">
+          <%= identity.location %>
+          · <a href="mailto:<%= identity.email %>"><%= identity.email %></a>
+          · <a href="<%= identity.website %>"><%= identity.website.sub(%r{^https?://}, "") %></a>
+          · <a href="<%= identity.github %>">GitHub</a>
+          · <a href="<%= identity.linkedin %>">LinkedIn</a>
+        </p>
+      </div>
+      <div class="resume-print">
+        <button type="button" class="hero-link" onclick="window.print()">Print / Save PDF</button>
+      </div>
+    </header>
+
+    <section class="resume-section">
+      <h2>Summary</h2>
+      <p><%= @profile.summary %></p>
+    </section>
+
+    <section class="resume-section">
+      <h2>Experience</h2>
+      <% @profile.experience.each do |job| %>
+        <div class="resume-entry">
+          <div class="resume-entry-head">
+            <h3><%= job[:role] %> · <%= job[:company] %></h3>
+            <span class="resume-entry-dates">
+              <%= job[:start] %> – <%= job[:end] %>
+              <% if job[:location].present? %>· <%= job[:location] %><% end %>
+            </span>
+          </div>
+          <% if job[:summary].present? %>
+            <p class="resume-entry-summary"><%= job[:summary].strip %></p>
+          <% end %>
+          <% if job[:highlights].present? %>
+            <ul class="resume-bullets">
+              <% job[:highlights].each do |bullet| %>
+                <li><%= bullet %></li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+      <% end %>
+    </section>
+
+    <section class="resume-section">
+      <h2>Selected Projects</h2>
+      <% @profile.projects.each do |project| %>
+        <div class="resume-entry resume-entry-compact">
+          <div class="resume-entry-head">
+            <h3><%= project[:name] %></h3>
+            <span class="resume-entry-dates"><%= project[:tech] %></span>
+          </div>
+          <p>
+            <%= project[:description] %>
+            <% if project[:url].to_s.start_with?("http") %>
+              · <a href="<%= project[:url] %>"><%= project[:url].sub(%r{^https?://}, "") %></a>
+            <% end %>
+          </p>
+        </div>
+      <% end %>
+    </section>
+
+    <section class="resume-section">
+      <h2>Writing</h2>
+      <p class="resume-entry-summary">
+        <%= @profile.writing.description.to_s.strip %>
+        <strong><%= @profile.writing.cadence %></strong> at
+        <a href="<%= @profile.writing.url %>"><%= @profile.writing.url.sub(%r{^https?://}, "") %></a>.
+      </p>
+      <% if @profile.writing.topics.present? %>
+        <ul class="resume-bullets">
+          <% @profile.writing.topics.each do |topic| %>
+            <li><%= topic %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      <% if @recent_posts.any? %>
+        <p class="resume-writing-recent"><strong>Recent posts:</strong></p>
+        <ul class="resume-writing-list">
+          <% @recent_posts.each do |post| %>
+            <li>
+              <span class="resume-writing-date"><%= post.published_at.strftime("%b %Y") %></span>
+              <a href="https://hencf.org/blog/<%= post.slug %>"><%= post.title %></a>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </section>
+
+    <section class="resume-section">
+      <h2>Skills</h2>
+      <dl class="resume-skills">
+        <% @profile.skills.each do |group, items| %>
+          <div class="resume-skill-row">
+            <dt><%= group.to_s.capitalize %></dt>
+            <dd><%= items.join(" · ") %></dd>
+          </div>
+        <% end %>
+      </dl>
+    </section>
+
+    <section class="resume-section resume-side-by-side">
+      <div>
+        <h2>Community</h2>
+        <% @profile.community.each do |item| %>
+          <div class="resume-entry resume-entry-compact">
+            <div class="resume-entry-head">
+              <h3><%= item[:name] %></h3>
+              <span class="resume-entry-dates"><%= item[:role] %></span>
+            </div>
+            <p><%= item[:summary] %></p>
+          </div>
+        <% end %>
+      </div>
+
+      <div>
+        <h2>Education</h2>
+        <% @profile.education.each do |edu| %>
+          <div class="resume-entry resume-entry-compact">
+            <div class="resume-entry-head">
+              <h3><%= edu[:institution] %></h3>
+              <span class="resume-entry-dates"><%= edu[:location] %></span>
+            </div>
+            <p><%= edu[:degree] %></p>
+          </div>
+        <% end %>
+
+        <h2 class="resume-section-second">Languages</h2>
+        <ul class="resume-languages">
+          <% @profile.languages.each do |lang| %>
+            <li><strong><%= lang[:name] %></strong> — <%= lang[:level] %></li>
+          <% end %>
+        </ul>
+      </div>
+    </section>
+  </article>
+</main>
+
+<footer class="footer no-print">
+  <div class="container">
+    <p>Henrique Cardoso de Faria · <%= Date.current.year %></p>
+  </div>
+</footer>

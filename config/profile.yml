@@ -1,0 +1,142 @@
+# Single source of truth for resume + homepage facts.
+# Edit this file when something changes — homepage data sections and /resume both read from it.
+
+identity:
+  name: Henrique Cardoso de Faria
+  short_name: Henrique
+  title: Agentic Engineer · Senior Software Engineer
+  tagline: I orchestrate AI agents to ship production software.
+  location: Viana do Castelo, Portugal
+  email: elo.henrique@gmail.com
+  website: https://hencf.org
+  github: https://github.com/henriquecf
+  linkedin: https://www.linkedin.com/in/henriquecardosodefaria
+  photo: https://github.com/henriquecf.png
+
+summary: >
+  Senior software engineer with 14+ years shipping production systems, mostly for startups,
+  mostly remotely. Now operating as an agentic engineer: I direct AI agents to plan, write,
+  review, and ship code rather than typing it myself. At BSPK I lead AI feature work for a
+  luxury retail platform used by Dior and Cartier, and recently led a zero-downtime migration
+  of the entire stack off Heroku to AWS — Kamal, Terraform, PlanetScale, Upstash, Elastic Cloud
+  — cutting infrastructure cost by 60%+. I write publicly about the work at hencf.org/blog
+  and help organize the Ruby community in Portugal.
+
+experience:
+  - company: BSPK
+    role: Senior Software Engineer
+    location: Remote · Viana do Castelo, PT
+    start: "2020-08"
+    end: present
+    summary: >
+      Primary backend engineer for a unified clienteling and commerce platform used by luxury
+      brands including Dior and Cartier. Owned the AI layer end-to-end and led the recent
+      infrastructure migration off Heroku.
+    highlights:
+      - Directed AI agents to deliver almost all production code shipped in 2026 — planning, reviewing, parallelizing features across worktrees, and tightening the feedback loop (faster CI, lighter PR review, agent-friendly architecture docs).
+      - Led zero-downtime migration off Heroku to AWS in ~2.5 months, mostly solo. Postgres→PlanetScale, Redis→Upstash, Elasticsearch→Elastic Cloud, plus an Elixir Phoenix service off Gigalixir. Cost down 60%+.
+      - Designed Kamal + Terraform deploy on EC2 with Caddy/kamal-proxy TLS, Tailscale private networking, Route 53 weighted DNS for cutover, CloudFront for assets, 1Password-backed secrets, CloudWatch monitoring, and a documented two-step cutover playbook.
+      - Built a multi-agent AI assistant (orchestrator routing to specialist sub-agents — Client Intelligence, Tasks & Calendar) with provider-agnostic LLM access across OpenAI, Groq, and local models.
+      - Shipped natural language search over Elasticsearch — sales associates query their client book in plain English ("clients who bought handbags last month and haven't been contacted").
+      - Built a behavioral analytics pipeline from scratch — event capture across hundreds of endpoints, session materialization, metric rollups, sales-outcome correlation.
+      - Owned the Shopify webhook pipeline end-to-end (order sync, geocoding-based customer assignment, staff resolution, data-quality enforcement).
+      - Migrated the test suite from RSpec to Minitest; introduced pg_squeeze + pghero for Postgres maintenance and visibility.
+
+  - company: HC Digital Services LLC
+    role: Founder · Consultant
+    location: Remote
+    start: "2024-01"
+    end: present
+    summary: >
+      Independent consulting on AI integration, Rails development, and system architecture.
+      Currently fully on BSPK, but open to new conversations.
+    highlights:
+      - AI integration: agentic systems, natural language search, structured LLM outputs, RAG pipelines.
+      - Rails work: new features, API design, performance and upgrade work on large codebases.
+      - Architecture: data pipelines, Elasticsearch, real-time PubSub, third-party integrations (Shopify, payments).
+
+  # Prior to BSPK (2011-2020): companies referenced on /uses include Vic.ai, Neru, IndustryCare.
+  # Add entries here with start/end dates and bullets when ready — they'll flow into /resume automatically.
+
+skills:
+  primary:
+    - Ruby on Rails
+    - Elixir / Phoenix
+    - Agentic engineering (Claude Code, multi-agent orchestration)
+    - LLM integration (RubyLLM, OpenAI, Groq, local models)
+    - System architecture & data pipelines
+  infrastructure:
+    - AWS (EC2, CloudFront, Route 53, CloudWatch)
+    - Kamal · Docker · Terraform
+    - PlanetScale · PostgreSQL · SQLite
+    - Elasticsearch (Elastic Cloud)
+    - Redis (Upstash) · Sidekiq · Solid Queue
+    - Tailscale · 1Password secrets
+  practices:
+    - Zero-downtime migrations
+    - Hotwire (Turbo + Stimulus)
+    - Test-driven development (Minitest, RSpec, Capybara)
+    - CI/CD (CircleCI, GitHub Actions)
+
+projects:
+  - name: Espirita.club
+    tech: Ruby on Rails
+    url: https://espirita.club
+    description: Multi-tenant SaaS for spiritist centers and federations in Brazil. Custom domains with automatic TLS, Stripe payments, REST API, and an MCP server so AI clients can integrate directly.
+  - name: Guia Espírita
+    tech: Ruby on Rails · PostgreSQL + pgvector
+    url: https://guia.espirita.club
+    description: AI knowledge base for spiritist literature. RAG pipeline over public-domain books and video transcripts, with a conversational agent that answers with source references.
+  - name: Digitalmente
+    tech: Ruby on Rails
+    url: https://digitalmente.tech
+    description: Coding education platform for Portuguese schoolchildren. Maze programming, bug-hunt games, 3D-printer training, sign-making — all session-based for classroom use.
+  - name: hencf.org
+    tech: Ruby on Rails 8.1 · SQLite
+    url: https://github.com/henriquecf/site
+    description: Open source personal site and writing platform. Importmap-only Rails (no Node), AI chat agent powered by RubyLLM and Groq, server-side analytics, Markdown blog rendering with custom OG image generation.
+  - name: redis-pub-sub
+    tech: Elixir
+    url: https://github.com/henriquecf/redis-pub-sub
+    description: Bridge between Redis PubSub and Phoenix PubSub for real-time broadcasting. Born from production needs at BSPK.
+  - name: i18n_parser
+    tech: Elixir
+    url: https://github.com/henriquecf/i18n_parser
+    description: Parser and replacer that prepares Rails projects for i18n — scans templates, extracts strings into locale files.
+
+community:
+  - name: Euruko 2025
+    role: Local Organizer
+    url: https://2025.euruko.org
+    summary: Helped bring Europe's longest-running Ruby conference to Viana do Castelo after the community vote at Euruko 2024 in Sarajevo.
+  - name: Open source
+    role: Contributor
+    url: https://github.com/henriquecf
+    summary: ja_serializer, ruby-conferences.github.io, euruko.org, and other community projects.
+
+education:
+  - institution: Universidade Federal de Goiás
+    degree: Computer Science
+    location: Goiás, Brazil
+
+languages:
+  - name: Portuguese
+    level: Native
+  - name: English
+    level: Fluent
+  - name: Spanish
+    level: Conversational
+
+writing:
+  url: https://hencf.org/blog
+  feed: https://hencf.org/blog/feed
+  cadence: Weekly, since early 2026
+  description: >
+    Long-form essays on agentic engineering, Ruby/Rails, and the AI work I'm doing day to day.
+    Honest about what worked and what didn't — written for engineers who want concrete detail,
+    not the vibes-only version of the AI conversation.
+  topics:
+    - Agentic engineering — directing Claude Code, hooks, custom commands, parallel worktrees
+    - Ruby/Rails patterns — fixtures, testing, RSpec→Minitest, Hotwire
+    - AI feature engineering — RAG, multi-agent systems, structured LLM outputs, local models
+    - Infrastructure — Kamal deploys, multi-tenant SSL, SQLite at scale, Litestream backups

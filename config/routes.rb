@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get "llms-full.txt", to: "llms#full", defaults: { format: :text }
 
   get "uses", to: "pages#uses"
+  get "resume", to: "pages#resume"
   get "blog", to: "posts#index", as: :blog
   get "blog/feed", to: "posts#feed", as: :blog_feed
   get "blog/:slug", to: "posts#show", as: :post
