@@ -38,17 +38,17 @@ Before any non-trivial change, I had Claude produce a plan. Not a vague plan. A 
 
 That sounds slow. It isn't. The agent reads the codebase faster than I do, drafts the plan in less time than it takes me to make coffee, and executes it while I'm doing something else. The bottleneck shifts from typing speed to decision quality.
 
-I ran agents in parallel a lot. Two or three worktrees, each with its own Claude session, each working on a different feature or part of the migration. I'm not sure I could have moved this fast on the migration without parallel worktrees. Heroku to AWS isn't one project. It's a few dozen small projects, most of them blocking on something else, some of them parallelizable.
+I ran agents in parallel a lot. Two or three [worktrees](/blog/parallel-claude-code-git-worktrees), each with its own Claude session, each working on a different feature or part of the migration. I'm not sure I could have moved this fast on the migration without parallel worktrees. Heroku to AWS isn't one project. It's a few dozen small projects, most of them blocking on something else, some of them parallelizable.
 
-Documentation stopped being optional. The `CLAUDE.md` files in our repos got opinionated. I wrote down our Solid Queue conventions, our test fixture approach, the boring shape of our controllers, the gotchas you'd otherwise have to know to avoid stepping on. The agents read those docs every session. Keeping them current was now load-bearing work, which it always was — we just used to pretend the tribal knowledge in our heads was good enough.
+Documentation stopped being optional. The `CLAUDE.md` files in our repos got opinionated. I wrote down our Solid Queue conventions, our test fixture approach, the boring shape of our controllers, the gotchas you'd otherwise have to know to avoid stepping on. The agents read those docs every session, alongside the [hooks and slash commands](/blog/claude-code-hooks-commands-skills) I'd set up to keep that context fresh. Keeping it all current was now load-bearing work, which it always was — we just used to pretend the tribal knowledge in our heads was good enough.
 
-The test suite is the contract now. When the agent ships more code than I can read line-by-line, I have to trust the tests to catch what I miss. We migrated from RSpec to Minitest during this stretch, partly because Minitest is faster and partly because I wanted a less mocking-friendly culture. Mocked tests pass while production breaks. I want tests that fail when the thing fails.
+The test suite is the contract now. When the agent ships more code than I can read line-by-line, I have to trust the tests to catch what I miss. We [migrated from RSpec to Minitest](/blog/rspec-to-minitest-migration) during this stretch, partly because Minitest is faster and partly because I wanted a less mocking-friendly culture. Mocked tests pass while production breaks. I want tests that fail when the thing fails.
 
 Reading PRs is a different skill now. I review fewer lines, but I read them differently. I'm looking at the shape of the change, the intent, the failure modes, not the syntax. The syntax is fine. The agent passes RuboCop. The question is whether the agent understood what we wanted, and that's not a question RuboCop can answer.
 
 ## A small moment that made it click
 
-The clearest moment for me was a Caddy boot loop on the new EC2 host one evening during a dry-run cutover. The proxy was crashing on startup, restarting, crashing again. I had nothing useful to go on except a nondescript error in the logs.
+The clearest moment for me was a [Caddy](/blog/multi-tenant-ssl-caddy-kamal) boot loop on the new EC2 host one evening during a dry-run cutover. The proxy was crashing on startup, restarting, crashing again. I had nothing useful to go on except a nondescript error in the logs.
 
 I described what was happening to Claude and pasted the logs. It read them, asked me one question about how the TLS was configured, then proposed hardcoding `tls_enabled true` instead of letting it derive from the environment. I read the diff, agreed, applied it. Boot loop gone.
 
@@ -78,4 +78,4 @@ The label might not last. *Agentic engineer* is a useful phrase right now becaus
 
 I want to write a separate post that's just the migration: the Kamal configs, the Terraform modules, the gotchas, the cutover playbook in detail. That post is for ops people sitting on a Heroku bill they're tired of paying. This one wasn't really for them.
 
-This one was for the people watching the agentic engineering conversation and wondering if anyone is actually shipping production work with it. I am. I've also got plenty I haven't figured out yet — the team angle, the trust calibration, the question of what happens to this label in a year. I'll keep writing as I figure those out.
+This one was for the people watching the agentic engineering conversation and wondering if anyone is actually shipping production work with it. I am. If you want the longer story of how I got here, [From Autocomplete to Autonomy](/blog/from-autocomplete-to-autonomy) is where I first wrote about the shift. I've also got plenty I haven't figured out yet — the team angle, the trust calibration, the question of what happens to this label in a year. I'll keep writing as I figure those out.

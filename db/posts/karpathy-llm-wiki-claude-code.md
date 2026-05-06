@@ -99,7 +99,7 @@ Paying down the concept debt from those first 34 books required parallel Claude 
 
 ## Scaling with Parallel Agents
 
-After proving the pipeline worked with the first 34 books, I scaled it. I downloaded over 500 additional PDFs from multiple sources. The approach shifted from sequential processing to parallel agent batches: up to 13 Claude Code agents running simultaneously in isolated git worktrees, each deep-reading and ingesting its assigned book.
+After proving the pipeline worked with the first 34 books, I scaled it. I downloaded over 500 additional PDFs from multiple sources. The approach shifted from sequential processing to parallel agent batches: up to 13 Claude Code agents running simultaneously in [isolated git worktrees](/blog/parallel-claude-code-git-worktrees), each deep-reading and ingesting its assigned book.
 
 This wasn't without friction. Agents hit rate limits and died mid-read. Some merged conflicting changes to the same concept page. I throttled to 2-3 agents at a time and the throughput stabilized.
 
@@ -131,7 +131,7 @@ The first version loaded all Markdown files into memory at boot. That caused a s
 
 ## RAG vs. Wiki
 
-I'm still building the RAG system. It has its uses for answering specific factual questions, finding relevant passages, powering conversational interfaces. But after building the wiki, I see it differently.
+I'm [still building the RAG system](/blog/rag-without-leaving-rails). It has its uses for answering specific factual questions, finding relevant passages, powering conversational interfaces. But after building the wiki, I see it differently.
 
 RAG retrieves. It finds chunks semantically similar to your question and pastes them into a prompt. The LLM synthesizes an answer on the fly, every time. Ask the same question tomorrow, it does the same work again. Nothing accumulates.
 

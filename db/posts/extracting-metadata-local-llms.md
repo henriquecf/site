@@ -6,7 +6,7 @@ This is an LLM job. Read the title and description, extract speaker names and ro
 
 ## Starting with Groq's free tier
 
-My first approach was Groq's free API with `gpt-oss-20b`. The free tier gives you 30 requests per minute, 1,000 per day, 8K tokens per minute, and 200K tokens per day.
+My first approach was Groq's free API with `gpt-oss-20b`, the same setup I [originally used to extract metadata](/blog/llm-extraction-at-scale) for the smaller catalog. The free tier gives you 30 requests per minute, 1,000 per day, 8K tokens per minute, and 200K tokens per day.
 
 For the initial batch of 8,000 videos, this worked fine. Each extraction takes a few hundred input tokens (title + description) and returns a small JSON response with speaker names, roles (speaker, interviewer, moderator, medium), and confidence levels. The prompt also handles Portuguese role conventions, where "Palestrante" and "Expositor" both mean speaker, and "Médium" means someone channeling a spiritual entity rather than presenting their own material.
 
@@ -20,7 +20,7 @@ I did the math on Groq's paid tier: about $4.83 total for the entire backlog (54
 
 ## YouTube blocks your server
 
-Before the local model story, there's an architectural constraint that shaped everything.
+Before the local model story, there's an architectural constraint that shaped everything. I covered this in detail in [YouTube Blocked My Server in 15 Seconds](/blog/youtube-blocks-your-server) — the short version is below.
 
 The app also needs video transcripts for topic classification, which requires understanding what the video is actually about, not just the title. YouTube's transcript endpoint returns CAPTCHA pages or `FAILED_PRECONDITION` errors from cloud IPs. I tried watch page scraping and the protobuf `get_transcript` endpoint. Same result from any VPS IP.
 
@@ -81,7 +81,7 @@ The fix was ordering the rescue clauses correctly and adding `on_conflict: :disc
 
 The tipping point came when Groq's free tier was so throttled that zero extractions completed in a day. The daily cap hit early, every subsequent request got a 20-minute `retry-after`, and I was maintaining a pipeline that processed nothing.
 
-I already had Ollama on the production server for embeddings, but the server only has 4GB of VRAM. The embedding model (bge-m3) takes 1.2GB and stays resident, leaving about 2.8GB for a chat model. Most 4B parameter models hover around 2.5-3.5GB, so it's tight.
+I already had Ollama on the production server for embeddings (the same setup that powers the [RAG pipeline](/blog/rag-without-leaving-rails)), but the server only has 4GB of VRAM. The embedding model (bge-m3) takes 1.2GB and stays resident, leaving about 2.8GB for a chat model. Most 4B parameter models hover around 2.5-3.5GB, so it's tight.
 
 I set up a benchmark: 25 test scenarios covering the hardest edge cases. The trickiest one was the spirit author problem. In spiritist content, "Emmanuel através de Chico Xavier" means Emmanuel is a spirit entity communicating through the medium Chico Xavier. Emmanuel should be tagged as the author, not the speaker. Chico Xavier is the medium, not the presenter either. The actual speaker might be someone else entirely, reading the dictated text aloud. Early prompts got this wrong constantly. The LLM saw the names in the description and listed them all as speakers.
 

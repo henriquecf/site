@@ -1,6 +1,6 @@
 I was putting together an Hour of Code session for a local school. Kids ages 6 to 10, years 1 through 4, and I wanted something better than a generic tutorial on a third-party platform. I wanted them to actually make something. The plan: an app where they design name tags that get 3D-printed on my Bambu Lab P2S, play a block-based coding game, and debug pre-written programs. Three activities, all in Portuguese, deployed and ready for a classroom.
 
-I had a weekend. Every commit was co-authored with Claude Code.
+I had a weekend. Every commit was [co-authored with Claude Code](/blog/from-autocomplete-to-autonomy).
 
 ## What I needed
 

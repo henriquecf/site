@@ -223,7 +223,7 @@ end
 
 I considered this but went with the helper approach instead. Preprocessing runs as a background job when the file is uploaded. If you have several variant sizes per image (card, detail, admin preview, OG meta), that's multiple background jobs per upload. With the helper, variants are generated lazily on first request and then cached. For a site that doesn't have thousands of concurrent users hitting a new image simultaneously, lazy generation is simpler and works fine.
 
-The tradeoff is that the very first visitor to see a new image pays the cost of variant generation. In practice, that's barely noticeable: vips processes a typical photo variant in under 100ms. And once generated, the variant is stored alongside the original blob, so it's never generated again.
+The tradeoff is that the very first visitor to see a new image pays the cost of variant generation. In practice, that's barely noticeable: vips processes a typical photo variant in under 100ms. And once generated, the variant is stored alongside the original blob, so it's never generated again. (If you've never used vips for anything beyond Active Storage variants, it can do [a lot more than resize JPEGs](/blog/dynamic-og-images-ruby-vips) — gradients, Pango text, compositing.)
 
 If you do have high-traffic pages where a new image gets hit by many users simultaneously, preprocessing makes more sense. For admin-uploaded content on a community platform, lazy generation was the simpler choice.
 

@@ -30,7 +30,7 @@ Not because Elixir is bad. Not because Phoenix is lacking.
 
 The reason is more specific: writing code with AI was a noticeably worse experience in Elixir than in Ruby.
 
-I use Claude Code for almost everything. Over 90% of my commits at work are co-authored with Claude. My setup is tuned for it: architecture docs that get loaded as context, custom hooks, plan mode for complex features, worktrees for parallel work. When I sit down to build something in Ruby, the workflow is dialed in. I describe what I want, Claude produces working code, and we iterate from there.
+I use Claude Code for [almost everything](/blog/from-autocomplete-to-autonomy). Over 90% of my commits at work are co-authored with Claude. My setup is tuned for it: architecture docs that get loaded as context, [custom hooks](/blog/claude-code-hooks-commands-skills), plan mode for complex features, [worktrees for parallel work](/blog/parallel-claude-code-git-worktrees). When I sit down to build something in Ruby, the workflow is dialed in. I describe what I want, Claude produces working code, and we iterate from there.
 
 In Elixir, that flow broke down. The generated code had more errors. It took more rounds of back-and-forth to reach something that actually worked. Tasks that would be one-shot in Ruby required multiple iterations in Elixir, each one fixing something the previous attempt got wrong. The model knows Elixir, but there's a reliability gap compared to Ruby. That gap compounds fast when AI is writing the majority of your code.
 

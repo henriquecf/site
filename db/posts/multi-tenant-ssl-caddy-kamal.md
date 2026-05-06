@@ -173,3 +173,5 @@ Without named Docker volumes for Caddy's data directory, every container restart
 No Cloudflare dependency. No wildcard certificate management. No manual certificate provisioning. When a new customer org is created and given a subdomain, the next request to that subdomain triggers automatic certificate issuance. When a company is deactivated, the `Company.active` scope excludes them from validation, and their cert simply won't renew when it expires.
 
 The validation logic lives in the same database that manages tenants. That's the part I like most about this setup. There's no separate certificate management system to keep in sync. The source of truth for "which domains are valid" is the same `Company` table that the rest of the application uses. One place to look, one place to change.
+
+*This Caddy + kamal-proxy setup was the first piece of [a larger Heroku-to-AWS migration](/blog/i-migrated-bspk-off-heroku) I drove over the next two and a half months.*

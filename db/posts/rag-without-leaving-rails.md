@@ -228,7 +228,7 @@ end
 
 The `add_message` call for history replay is important. An earlier version used `chat.ask()` for each historical message, which made actual API calls for every turn. `add_message` just populates the conversation context without hitting the API.
 
-The LLM is Groq running `gpt-oss-120b`, accessed through RubyLLM's OpenAI-compatible provider. `assume_model_exists = true` skips model validation, since Groq models aren't in RubyLLM's model registry.
+The LLM is Groq running `gpt-oss-120b`, accessed through RubyLLM's OpenAI-compatible provider. `assume_model_exists = true` skips model validation, since Groq models aren't in RubyLLM's model registry — same gotcha I covered when [building the chat agent for this site](/blog/building-ai-agent-ruby-llm-groq).
 
 The `references` field stores structured JSON: book ID, chapter, page range, or video slug and timestamp. The frontend renders these as clickable links that jump to the exact page or moment in the video.
 

@@ -6,7 +6,7 @@ Here's how it works and why I didn't need anything fancier.
 
 espirita.club is a multi-tenant platform for spiritist organizations. Each center has its own subdomain with activities, events, posts, pages, documents, and more. Users needed to search across all of it.
 
-The content volume per organization is small. A busy center might have a few hundred records total across all models. The entire platform has maybe tens of thousands of searchable records. This is not a scale problem. There's no need for inverted indexes, tokenizers, or a separate search service.
+The content volume per organization is small. A busy center might have a few hundred records total across all models. The entire platform has maybe tens of thousands of searchable records. This is not a scale problem. There's no need for inverted indexes, tokenizers, or a separate search service. (At my day job I work with the [opposite end of that spectrum](/blog/parallel-testing-elasticsearch-rails) — Elasticsearch, parallel test isolation, the works. Not every app needs that.)
 
 LIKE queries on a regular table are fast enough when your dataset fits comfortably in memory. SQLite doesn't even break a sweat. So instead of configuring FTS5 with custom tokenizers for Portuguese, I went with the simplest thing: a single denormalized table that every searchable model syncs into.
 

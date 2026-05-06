@@ -14,7 +14,7 @@ The real questions people ask aren't vague. They're specific: "How does multi-te
 
 ## Why Claude Code CLI
 
-I didn't want to build a RAG pipeline. I've built those before, and the tuning is endless: chunk size, overlap, embedding models, retrieval scoring, re-ranking. Every parameter is a knob you have to get right, and when the codebase changes, your embeddings go stale unless you re-index.
+I didn't want to build a RAG pipeline. I've [built those before](/blog/rag-without-leaving-rails), and the tuning is endless: chunk size, overlap, embedding models, retrieval scoring, re-ranking. Every parameter is a knob you have to get right, and when the codebase changes, your embeddings go stale unless you re-index.
 
 Claude Code already knows how to explore codebases. It has built-in tools for reading files, globbing for patterns, grepping for content. When you ask it a question about code, it decides which files to look at, reads them, and synthesizes an answer. That's exactly what I was doing manually when someone asked me a question on Slack.
 
@@ -77,7 +77,7 @@ This channel focuses on Shopify-related questions. When answering:
 - "What triggers a re-sync?" → Check the ScheduledSyncJob
 ```
 
-Teams curate these files themselves. The Shopify channel's `CLAUDE.md` points Claude toward webhook handlers and sync services. The QA channel's file lists the most common areas people ask about. The bot gets better at answering the kinds of questions that come up in each channel because the context is tailored.
+Teams curate these files themselves. The Shopify channel's `CLAUDE.md` points Claude toward webhook handlers and sync services. The QA channel's file lists the most common areas people ask about. The bot gets better at answering the kinds of questions that come up in each channel because the context is tailored. It's the same idea as [the hooks, commands, and skills](/blog/claude-code-hooks-commands-skills) I use locally — give Claude the right context at the right moment, and it stops needing the same hand-holding twice.
 
 Thread history adds another layer. When someone asks a follow-up in the same thread, the bot includes the last 20 messages as context. So you can have a multi-turn conversation: "How does proxy phone SMS work?" followed by "What happens when the proxy number expires?" and Claude has the prior answer to build on.
 

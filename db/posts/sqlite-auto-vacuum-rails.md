@@ -183,3 +183,7 @@ Most people running SQLite in production with Rails are early adopters. The Soli
 On top of that, disk space is cheap and the growth is gradual. You don't get an error. Your app doesn't slow down (SQLite reuses free pages efficiently). You just quietly accumulate a database file that's ten or fifty times larger than your actual data. It's the kind of thing you only notice when you're checking disk usage for an unrelated reason, or when your 20 GB VPS runs out of space.
 
 The fix is straightforward once you know about it. Set `auto_vacuum: incremental` in `database.yml`, run `VACUUM` once on existing databases, and schedule `PRAGMA incremental_vacuum` to run periodically. That's it. Your database files will reflect your actual data size instead of your historical peak.
+
+---
+
+*This is the first post in an informal series about SQLite in production with Rails. The second covered [Litestream and Backblaze B2's free tier](/blog/litestream-backblaze-b2-free-tier), and the third covered [why I eventually replaced Litestream with a cron job](/blog/sqlite-backups-the-boring-way) and the Rails PR that came out of this post.*
