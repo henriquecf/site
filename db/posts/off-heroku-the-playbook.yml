@@ -1,0 +1,18 @@
+title: "Off Heroku: The Playbook"
+published_at: 2026-05-12 14:12:31
+description: "The technical companion to the agentic-engineering story. Kamal, Terraform, 1Password for secrets, Caddy in front of kamal-proxy, the cutover playbook, and the bugs I spent the most time on."
+content_modified_at: null
+linkedin_body: |
+  Couple weeks ago I wrote about migrating BSPK off Heroku as an agentic-engineering story. This week, the technical companion: the configs, the cutover playbook, and the bugs I spent the most time on.
+
+  The one I keep thinking about is the encrypted attributes migration. Rails encrypted columns derive their key from a digest of the master key plus a salt. Old rows were written with a SHA1-derived digest. The new Rails defaulted to SHA256. If I flipped the setting, every existing encrypted value would have become unreadable.
+
+  The fix is a small dance: read with fallback, write with the new digest, let activity heal the legacy footprint over time. Invisible if you do it right. Catastrophic if you don't.
+
+  Wrote up that one plus the rest of the playbook here: https://hencf.org/blog/off-heroku-the-playbook
+x_body: |
+  Couple weeks ago I wrote about moving BSPK off Heroku as an agentic-engineering story. This week, the technical companion: Kamal, Terraform, 1Password for secrets, Caddy in front of kamal-proxy, the cutover playbook, and the bugs I spent the most time on.
+
+  The one I'm still thinking about is the encrypted-attributes dance. SHA1-derived ciphertexts in the old database, SHA256 in the new Rails defaults. If you flip the setting, every existing row becomes unreadable. The fix is invisible if you do it right.
+
+  https://hencf.org/blog/off-heroku-the-playbook
