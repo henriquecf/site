@@ -1,6 +1,6 @@
-# CLAUDE.md
+# AGENTS.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Codex (Codex.ai/code) when working with code in this repository.
 
 ## Project Overview
 
@@ -72,6 +72,7 @@ Five parallel jobs on PRs and pushes to `main`: `scan_ruby` (brakeman + bundler-
 ## Content rules
 
 - **Never name BSPK customer brands.** Use neutral phrasing like "top-tier luxury retail brands" or "BSPK's customers" instead. This applies to homepage, blog posts, resume, `app/content/llms_base.txt`, social copy, and VCR cassettes in `test/cassettes/agent/` (which record the chat agent's system prompt body — must stay in sync). For example tenant subdomains in posts, use placeholder hostnames like `acme.bspk.com`. Don't invent names either.
+- **Social copy (LinkedIn + X) is personal, not nerdy.** The `linkedin_body` and `x_body` for a post lead with the human feeling or situation (the dread of a near-full server, the embarrassing wrong guess, the irony), not the technical mechanics. Keep jargon out of the social copy; the deep detail is what the linked post is for. Open on the emotion or story, lean into self-deprecation and surprise, then drop the link softly. The blog post itself stays as technical as the topic needs.
 
 ## Code Style
 

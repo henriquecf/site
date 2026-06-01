@@ -1,0 +1,22 @@
+title: "SQLite in Production: The 124 GB WAL File"
+published_at: 2026-06-01 16:32:04
+description: "My server hit 93% disk. The culprit was a 124 GB SQLite write-ahead log next to a 16 GB database, owned by my performance monitoring gem. Every safeguard against unbounded growth was switched on, and that was the problem: if the WAL never checkpoints, retention, row caps, and auto_vacuum all quietly feed it. Here's the WAL checkpoint mechanics, why a long-lived connection pins it forever, and why I removed the monitoring tool instead of fixing it."
+content_modified_at: null
+linkedin_body: |
+  You know the little jolt of dread when a server is almost out of disk and you have no idea why? Had that one a few weeks ago.
+
+  My first guess was wrong. I cleared the usual junk, watched the number barely move, and felt a bit stupid. Then I actually looked, and found a single 124 GB file. It belonged to the tool I'd installed to keep an eye on things.
+
+  That's the part I keep coming back to. I'd turned on every guardrail it offered. It quietly grew anyway, until it nearly took the box down. The thing watching for problems had become the problem.
+
+  So I deleted it. On a small server, a dashboard I check once a month wasn't worth the 3am risk. Wrote up what actually happened, and why I'd make the same call again.
+
+  https://hencf.org/blog/sqlite-124gb-wal-file
+x_body: |
+  Nothing like opening a server, seeing it almost out of disk, and having zero clue why.
+
+  Turned out one file was eating 124 GB. It belonged to the monitoring tool I'd installed to keep things healthy. I'd switched on every safeguard it had. It grew anyway and nearly took the whole server down.
+
+  Deleted it. Wrote up what happened:
+
+  https://hencf.org/blog/sqlite-124gb-wal-file
