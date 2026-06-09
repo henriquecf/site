@@ -1,0 +1,22 @@
+title: "I Blamed the Ruby Upgrade"
+published_at: 2026-06-09 09:05:15
+description: "I bumped a Rails app to Ruby 4.0.1 and CI went red on five tests, intermittently, never on my laptop. The obvious villain was the upgrade sitting at the top of the diff. It was a red herring. The tests had always been wrong: they compared a Ruby timestamp held in memory (nanoseconds) against the same value reloaded from Postgres (microseconds), and the rounding disagreed about 1% of the time. They passed for years because I develop on macOS and CI runs on Linux, which hands out sub-microsecond timestamps far more often. The fix was one word: reload before you capture."
+content_modified_at: null
+linkedin_body: |
+  Nothing makes me trust my own code less than a test that fails one CI run in three and passes on my laptop every time.
+
+  I'd just bumped a Rails app to a new Ruby version, so when CI went red I knew exactly who to blame. Big scary version bump, right at the top of the diff, touching everything. I spent an hour in the release notes looking for the thing that broke my tests.
+
+  The upgrade hadn't broken anything. The tests had been wrong since the day they were written. They were comparing a timestamp Ruby was holding in memory against the same value read back from the database, and the two round to different precision. They passed for years only because I develop on a Mac and CI runs on Linux, which exposes the mismatch far more often.
+
+  The fix was one word. Finding it took the whole afternoon, almost all of it spent suspecting the wrong thing.
+
+  https://hencf.org/blog/i-blamed-the-ruby-upgrade
+x_body: |
+  A test that fails 1 in 3 CI runs and never on your laptop is worse than one that fails every time. You start to doubt your own sanity before you doubt your code.
+
+  I'd just upgraded Ruby, so obviously the upgrade did it. It didn't. The tests had been quietly wrong for years, comparing an in-memory timestamp against the same value reloaded from Postgres. They round to different precision and disagree about 1% of the time.
+
+  They only passed because I develop on macOS and CI runs on Linux, which trips the mismatch far more often. The big scary version bump was a complete red herring.
+
+  https://hencf.org/blog/i-blamed-the-ruby-upgrade
