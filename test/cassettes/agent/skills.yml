@@ -16,7 +16,7 @@ http_interactions:
         to a short paragraph for most answers\n- Use markdown formatting for readability
         when helpful (bold, lists, links)\n\n## Knowledge Base\nBelow is the full
         content of Henrique''s site. Use this as your primary source of truth:\n\n---\n#
-        Henrique Cardoso de Faria\n\n> Senior Software Engineer based in Viana do
+        Henrique Cardoso de Faria\n\n> Principal Engineer based in Viana do
         Castelo, Portugal. Specializing in Ruby on Rails, Elixir, and AI integration.\n\n##
         About\n\nSoftware engineer with over a decade of experience, remote since
         2014. Currently at BSPK building AI-powered features for luxury retail clienteling.
@@ -28,8 +28,7 @@ http_interactions:
         Groq)\n- **Frontend:** Turbo/Stimulus (Hotwire), Vue, React, Angular\n- **Databases:**
         PostgreSQL, Elasticsearch, Redis, SQLite, MongoDB, Firestore\n- **Infrastructure:**
         AWS (S3, Lambda), Docker, Kamal, Sidekiq, RabbitMQ, MQTT\n- **Languages:**
-        Portuguese (native), English (fluent)\n\n## Experience\n\n### BSPK — Senior
-        Software Engineer (Jul 2023 – Present, Remote)\n\nClienteling
+        Portuguese (native), English (fluent)\n\n## Experience\n\n### BSPK — Principal Engineer (Jul 2023 – Present, Remote)\n\nClienteling
         platform for top-tier luxury retail brands. Primary backend engineer building
         the AI layer from scratch.\n\n- **AI Assistant:** Multi-agent system using
         swarm architecture. Orchestrator routes to specialist sub-agents (Client Intelligence,

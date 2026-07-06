@@ -1,6 +1,6 @@
 # Henrique Cardoso de Faria
 
-> Senior Software Engineer based in Viana do Castelo, Portugal. Specializing in Ruby on Rails, Elixir, and AI integration.
+> Principal Engineer based in Viana do Castelo, Portugal. Specializing in Ruby on Rails, Elixir, and AI integration.
 
 ## About
 
@@ -17,7 +17,7 @@ Software engineer with over a decade of experience, remote since 2014. Currently
 
 ## Experience
 
-### BSPK — Senior Software Engineer (Jul 2023 – Present, Remote)
+### BSPK — Principal Engineer (Jul 2023 – Present, Remote)
 
 Clienteling platform for top-tier luxury retail brands. Primary backend engineer building the AI layer from scratch.
 

@@ -4,7 +4,7 @@
 identity:
   name: Henrique Cardoso de Faria
   short_name: Henrique
-  title: Agentic Engineer · Senior Software Engineer
+  title: Agentic Engineer · Principal Engineer
   tagline: I orchestrate AI agents to ship production software.
   location: Viana do Castelo, Portugal
   email: elo.henrique@gmail.com
@@ -14,7 +14,7 @@ identity:
   photo: https://github.com/henriquecf.png
 
 summary: >
-  Senior software engineer with 14+ years shipping production systems, mostly for startups,
+  Principal engineer with 14+ years shipping production systems, mostly for startups,
   mostly remotely. Now operating as an agentic engineer: I direct AI agents to plan, write,
   review, and ship code rather than typing it myself. At BSPK I lead AI feature work for a
   luxury retail platform used by top-tier brands, and recently led a zero-downtime migration
@@ -24,7 +24,7 @@ summary: >
 
 experience:
   - company: BSPK
-    role: Senior Software Engineer
+    role: Principal Engineer
     location: Remote · Viana do Castelo, PT
     start: "2020-08"
     end: present
